@@ -22,7 +22,7 @@ CONFIG = {
     "default_pool_size": 6,
     "tier_costs": {
         "S": 11, "A+": 10, "A": 9, "A-": 8,
-        "B+": 7, "B": 6, "B-": 5, "C": 4, "D": 3, "Unranked": 2,
+        "B+": 7, "B": 6, "B-": 5, "C+": 4, "C": 4, "D": 3, "Unranked": 2,
     },
     "formats": {
         "aaa": "data/aaa_pokemon.json",

@@ -20,7 +20,7 @@ CONFIG = {
     "default_pool_size": 5,  # small for tests
     "tier_costs": {
         "S": 11, "A+": 10, "A": 9, "A-": 8,
-        "B+": 7, "B": 6, "B-": 5, "C": 4, "D": 3, "Unranked": 2,
+        "B+": 7, "B": 6, "B-": 5, "C+": 4, "C": 4, "D": 3, "Unranked": 2,
     },
     "formats": {
         "aaa": "data/aaa_pokemon.json",
@@ -169,6 +169,65 @@ class TestVRWeightedMode:
 
 
 # ---------------------------------------------------------------------------
+# Stratified mode
+# ---------------------------------------------------------------------------
+
+class TestStratifiedMode:
+    def test_counts_per_group_correct(self):
+        pool = make_pool()
+        # fixture: 1 S, 1 A+, 1 A = 2 in group A, 1 B+, 6 Unranked
+        pool.generate_pool(mode="stratified", tier_counts={"S": 1, "A": 2, "Unranked": 3}, seed=0)
+        result = pool.available()
+        s_entries = [e for e in result if e["vr_tier"] == "S"]
+        a_entries = [e for e in result if e["vr_tier"] in {"A+", "A", "A-"}]
+        u_entries = [e for e in result if e["vr_tier"] == "Unranked"]
+        assert len(s_entries) == 1
+        assert len(a_entries) == 2
+        assert len(u_entries) == 3
+        assert len(result) == 6
+
+    def test_zero_count_group_excluded(self):
+        pool = make_pool()
+        pool.generate_pool(mode="stratified", tier_counts={"S": 1, "A": 0, "Unranked": 2}, seed=0)
+        tiers = {e["vr_tier"] for e in pool.available()}
+        assert "A+" not in tiers and "A" not in tiers and "A-" not in tiers
+
+    def test_seeded_reproducible(self):
+        pool1 = make_pool()
+        pool1.generate_pool(mode="stratified", tier_counts={"A": 2, "Unranked": 3}, seed=7)
+        pool2 = make_pool()
+        pool2.generate_pool(mode="stratified", tier_counts={"A": 2, "Unranked": 3}, seed=7)
+        assert [e["name"] for e in pool1.available()] == [e["name"] for e in pool2.available()]
+
+    def test_different_seeds_differ(self):
+        pool1 = make_pool()
+        pool1.generate_pool(mode="stratified", tier_counts={"Unranked": 4}, seed=1)
+        pool2 = make_pool()
+        pool2.generate_pool(mode="stratified", tier_counts={"Unranked": 4}, seed=2)
+        assert [e["name"] for e in pool1.available()] != [e["name"] for e in pool2.available()]
+
+    def test_missing_tier_counts_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="non-empty tier_counts"):
+            pool.generate_pool(mode="stratified", seed=0)
+
+    def test_empty_tier_counts_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="non-empty tier_counts"):
+            pool.generate_pool(mode="stratified", tier_counts={}, seed=0)
+
+    def test_unknown_group_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="Unknown tier group"):
+            pool.generate_pool(mode="stratified", tier_counts={"Z": 1}, seed=0)
+
+    def test_too_many_from_group_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="tier group 'S'"):
+            pool.generate_pool(mode="stratified", tier_counts={"S": 99}, seed=0)
+
+
+# ---------------------------------------------------------------------------
 # Mutation: remove / restore
 # ---------------------------------------------------------------------------
 
@@ -250,7 +309,7 @@ class TestLookups:
 
     def test_tier_cost_all_tiers(self):
         pool = make_pool()
-        expected = {"S": 11, "A+": 10, "A": 9, "A-": 8, "B+": 7, "B": 6, "B-": 5, "C": 4, "D": 3, "Unranked": 2}
+        expected = {"S": 11, "A+": 10, "A": 9, "A-": 8, "B+": 7, "B": 6, "B-": 5, "C+": 4, "C": 4, "D": 3, "Unranked": 2}
         for tier, cost in expected.items():
             assert pool.tier_cost(tier) == cost
 
@@ -258,3 +317,34 @@ class TestLookups:
         pool = make_pool()
         with pytest.raises(KeyError):
             pool.tier_cost("Z")
+
+
+# ---------------------------------------------------------------------------
+# available() sort_by parameter
+# ---------------------------------------------------------------------------
+
+class TestAvailableSortBy:
+    def test_sort_by_none_preserves_insertion_order(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=5, seed=42)
+        a = [e["name"] for e in pool.available()]
+        b = [e["name"] for e in pool.available(sort_by=None)]
+        assert a == b
+
+    def test_sort_by_name_alphabetical(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=5, seed=0)
+        names = [e["name"] for e in pool.available(sort_by="name")]
+        assert names == sorted(names)
+
+    def test_sort_by_tier_cost_descending(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=10, seed=0)
+        costs = [pool.tier_cost(e["vr_tier"]) for e in pool.available(sort_by="tier")]
+        assert costs == sorted(costs, reverse=True)
+
+    def test_sort_by_unknown_raises(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=5, seed=0)
+        with pytest.raises(ValueError, match="Unknown sort_by"):
+            pool.available(sort_by="cost")
