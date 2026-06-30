@@ -78,8 +78,16 @@ class DraftPool:
     # Live-pool mutation (picks / undo)
     # ------------------------------------------------------------------
 
-    def available(self) -> list[dict]:
-        return list(self._available.values())
+    def available(self, sort_by: Optional[str] = None) -> list[dict]:
+        entries = list(self._available.values())
+        if sort_by == "tier":
+            costs = self._config["tier_costs"]
+            entries.sort(key=lambda e: (-costs.get(e["vr_tier"], 0), e["name"]))
+        elif sort_by == "name":
+            entries.sort(key=lambda e: e["name"])
+        elif sort_by is not None:
+            raise ValueError(f"Unknown sort_by {sort_by!r}. Expected 'tier', 'name', or None")
+        return entries
 
     def remove(self, name: str) -> None:
         if name not in self._available:

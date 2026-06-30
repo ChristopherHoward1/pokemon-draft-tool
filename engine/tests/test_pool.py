@@ -258,3 +258,34 @@ class TestLookups:
         pool = make_pool()
         with pytest.raises(KeyError):
             pool.tier_cost("Z")
+
+
+# ---------------------------------------------------------------------------
+# available() sort_by parameter
+# ---------------------------------------------------------------------------
+
+class TestAvailableSortBy:
+    def test_sort_by_none_preserves_insertion_order(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=5, seed=42)
+        a = [e["name"] for e in pool.available()]
+        b = [e["name"] for e in pool.available(sort_by=None)]
+        assert a == b
+
+    def test_sort_by_name_alphabetical(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=5, seed=0)
+        names = [e["name"] for e in pool.available(sort_by="name")]
+        assert names == sorted(names)
+
+    def test_sort_by_tier_cost_descending(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=10, seed=0)
+        costs = [pool.tier_cost(e["vr_tier"]) for e in pool.available(sort_by="tier")]
+        assert costs == sorted(costs, reverse=True)
+
+    def test_sort_by_unknown_raises(self):
+        pool = make_pool()
+        pool.generate_pool(mode="random", size=5, seed=0)
+        with pytest.raises(ValueError, match="Unknown sort_by"):
+            pool.available(sort_by="cost")
