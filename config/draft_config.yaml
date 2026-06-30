@@ -1,0 +1,21 @@
+budget: 60
+roster_size: 10
+min_teams: 2
+max_teams: 8
+default_pool_size: 120
+
+tier_costs:
+  S: 11
+  A+: 10
+  A: 9
+  A-: 8
+  B+: 7
+  B: 6
+  B-: 5
+  C: 4
+  D: 3
+  Unranked: 2
+
+formats:
+  aaa: data/aaa_pokemon.json
+  pokebilities: data/pokebilities_pokemon.json
