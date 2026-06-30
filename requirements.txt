@@ -1,0 +1,8 @@
+requests
+beautifulsoup4
+lxml
+rapidfuzz
+streamlit
+pyyaml
+pillow
+pytest

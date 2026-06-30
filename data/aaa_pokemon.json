@@ -1,0 +1,8494 @@
+[
+  {
+    "dex_id": 10003,
+    "name": "deoxys-speed",
+    "display_name": "Deoxys Speed",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "A",
+    "sprite_path": "sprites/10003.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 490,
+    "name": "manaphy",
+    "display_name": "Manaphy",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "A",
+    "sprite_path": "sprites/490.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1025,
+    "name": "pecharunt",
+    "display_name": "Pecharunt",
+    "types": [
+      "poison",
+      "ghost"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "A",
+    "sprite_path": "sprites/1025.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 730,
+    "name": "primarina",
+    "display_name": "Primarina",
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "A",
+    "sprite_path": "sprites/730.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 823,
+    "name": "corviknight",
+    "display_name": "Corviknight",
+    "types": [
+      "flying",
+      "steel"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/823.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1000,
+    "name": "gholdengo",
+    "display_name": "Gholdengo",
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/1000.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 984,
+    "name": "great-tusk",
+    "display_name": "Great Tusk",
+    "types": [
+      "ground",
+      "fighting"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/984.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1005,
+    "name": "roaring-moon",
+    "display_name": "Roaring Moon",
+    "types": [
+      "dragon",
+      "dark"
+    ],
+    "base_stat_total": 590,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/1005.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 889,
+    "name": "zamazenta",
+    "display_name": "Zamazenta",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 660,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/889.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 994,
+    "name": "iron-moth",
+    "display_name": "Iron Moth",
+    "types": [
+      "fire",
+      "poison"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/994.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 983,
+    "name": "kingambit",
+    "display_name": "Kingambit",
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/983.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10021,
+    "name": "landorus-therian",
+    "display_name": "Landorus Therian",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/10021.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 381,
+    "name": "latios",
+    "display_name": "Latios",
+    "types": [
+      "dragon",
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/381.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 146,
+    "name": "moltres",
+    "display_name": "Moltres",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/146.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 985,
+    "name": "scream-tail",
+    "display_name": "Scream Tail",
+    "types": [
+      "fairy",
+      "psychic"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/985.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 260,
+    "name": "swampert",
+    "display_name": "Swampert",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 535,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/260.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1003,
+    "name": "ting-lu",
+    "display_name": "Ting Lu",
+    "types": [
+      "dark",
+      "ground"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/1003.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 145,
+    "name": "zapdos",
+    "display_name": "Zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/145.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 947,
+    "name": "brambleghast",
+    "display_name": "Brambleghast",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "B",
+    "sprite_path": "sprites/947.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 815,
+    "name": "cinderace",
+    "display_name": "Cinderace",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B",
+    "sprite_path": "sprites/815.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 485,
+    "name": "heatran",
+    "display_name": "Heatran",
+    "types": [
+      "fire",
+      "steel"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "B",
+    "sprite_path": "sprites/485.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 630,
+    "name": "mandibuzz",
+    "display_name": "Mandibuzz",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "B",
+    "sprite_path": "sprites/630.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10275,
+    "name": "ogerpon-cornerstone-mask",
+    "display_name": "Ogerpon Cornerstone Mask",
+    "types": [
+      "grass",
+      "rock"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "B",
+    "sprite_path": "sprites/10275.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10274,
+    "name": "ogerpon-hearthflame-mask",
+    "display_name": "Ogerpon Hearthflame Mask",
+    "types": [
+      "grass",
+      "fire"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "B",
+    "sprite_path": "sprites/10274.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1013,
+    "name": "sinistcha",
+    "display_name": "Sinistcha",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "base_stat_total": 508,
+    "vr_tier": "B",
+    "sprite_path": "sprites/1013.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10272,
+    "name": "ursaluna-bloodmoon",
+    "display_name": "Ursaluna Bloodmoon",
+    "types": [
+      "ground",
+      "normal"
+    ],
+    "base_stat_total": 555,
+    "vr_tier": "B",
+    "sprite_path": "sprites/10272.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1002,
+    "name": "chien-pao",
+    "display_name": "Chien Pao",
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/1002.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 638,
+    "name": "cobalion",
+    "display_name": "Cobalion",
+    "types": [
+      "steel",
+      "fighting"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/638.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 445,
+    "name": "garchomp",
+    "display_name": "Garchomp",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/445.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 472,
+    "name": "gliscor",
+    "display_name": "Gliscor",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/472.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1023,
+    "name": "iron-crown",
+    "display_name": "Iron Crown",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "base_stat_total": 590,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/1023.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 992,
+    "name": "iron-hands",
+    "display_name": "Iron Hands",
+    "types": [
+      "fighting",
+      "electric"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/992.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 990,
+    "name": "iron-treads",
+    "display_name": "Iron Treads",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/990.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 645,
+    "name": "landorus-incarnate",
+    "display_name": "Landorus Incarnate",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/645.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 908,
+    "name": "meowscarada",
+    "display_name": "Meowscarada",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/908.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10273,
+    "name": "ogerpon-wellspring-mask",
+    "display_name": "Ogerpon Wellspring Mask",
+    "types": [
+      "grass",
+      "water"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/10273.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 227,
+    "name": "skarmory",
+    "display_name": "Skarmory",
+    "types": [
+      "steel",
+      "flying"
+    ],
+    "base_stat_total": 465,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/227.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 959,
+    "name": "tinkaton",
+    "display_name": "Tinkaton",
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "base_stat_total": 506,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/959.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 893,
+    "name": "zarude",
+    "display_name": "Zarude",
+    "types": [
+      "dark",
+      "grass"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/893.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 242,
+    "name": "blissey",
+    "display_name": "Blissey",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/242.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10232,
+    "name": "electrode-hisui",
+    "display_name": "Electrode Hisui",
+    "types": [
+      "electric",
+      "grass"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/10232.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 395,
+    "name": "empoleon",
+    "display_name": "Empoleon",
+    "types": [
+      "water",
+      "steel"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/395.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10242,
+    "name": "goodra-hisui",
+    "display_name": "Goodra Hisui",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/10242.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1022,
+    "name": "iron-boulder",
+    "display_name": "Iron Boulder",
+    "types": [
+      "rock",
+      "psychic"
+    ],
+    "base_stat_total": 590,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/1022.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 473,
+    "name": "mamoswine",
+    "display_name": "Mamoswine",
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/473.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 855,
+    "name": "polteageist",
+    "display_name": "Polteageist",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 508,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/855.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10236,
+    "name": "samurott-hisui",
+    "display_name": "Samurott Hisui",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "base_stat_total": 528,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/10236.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 989,
+    "name": "sandy-shocks",
+    "display_name": "Sandy Shocks",
+    "types": [
+      "electric",
+      "ground"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/989.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 988,
+    "name": "slither-wing",
+    "display_name": "Slither Wing",
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/988.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 235,
+    "name": "smeargle",
+    "display_name": "Smeargle",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 250,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/235.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 642,
+    "name": "thundurus-incarnate",
+    "display_name": "Thundurus Incarnate",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/642.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10020,
+    "name": "thundurus-therian",
+    "display_name": "Thundurus Therian",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/10020.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10019,
+    "name": "tornadus-therian",
+    "display_name": "Tornadus Therian",
+    "types": [
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/10019.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10167,
+    "name": "weezing-galar",
+    "display_name": "Weezing Galar",
+    "types": [
+      "poison",
+      "fairy"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/10167.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1018,
+    "name": "archaludon",
+    "display_name": "Archaludon",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/1018.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 482,
+    "name": "azelf",
+    "display_name": "Azelf",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "C",
+    "sprite_path": "sprites/482.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 847,
+    "name": "barraskewda",
+    "display_name": "Barraskewda",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "C",
+    "sprite_path": "sprites/847.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 113,
+    "name": "chansey",
+    "display_name": "Chansey",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "C",
+    "sprite_path": "sprites/113.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 652,
+    "name": "chesnaught",
+    "display_name": "Chesnaught",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "C",
+    "sprite_path": "sprites/652.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 91,
+    "name": "cloyster",
+    "display_name": "Cloyster",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "C",
+    "sprite_path": "sprites/91.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 488,
+    "name": "cresselia",
+    "display_name": "Cresselia",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "C",
+    "sprite_path": "sprites/488.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10002,
+    "name": "deoxys-defense",
+    "display_name": "Deoxys Defense",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/10002.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 244,
+    "name": "entei",
+    "display_name": "Entei",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "C",
+    "sprite_path": "sprites/244.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 530,
+    "name": "excadrill",
+    "display_name": "Excadrill",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "base_stat_total": 508,
+    "vr_tier": "C",
+    "sprite_path": "sprites/530.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1016,
+    "name": "fezandipiti",
+    "display_name": "Fezandipiti",
+    "types": [
+      "poison",
+      "fairy"
+    ],
+    "base_stat_total": 555,
+    "vr_tier": "C",
+    "sprite_path": "sprites/1016.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 934,
+    "name": "garganacl",
+    "display_name": "Garganacl",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "C",
+    "sprite_path": "sprites/934.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 94,
+    "name": "gengar",
+    "display_name": "Gengar",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "C",
+    "sprite_path": "sprites/94.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 635,
+    "name": "hydreigon",
+    "display_name": "Hydreigon",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/635.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 818,
+    "name": "inteleon",
+    "display_name": "Inteleon",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "C",
+    "sprite_path": "sprites/818.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 784,
+    "name": "kommo-o",
+    "display_name": "Kommo O",
+    "types": [
+      "dragon",
+      "fighting"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/784.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 648,
+    "name": "meloetta-aria",
+    "display_name": "Meloetta Aria",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/648.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 376,
+    "name": "metagross",
+    "display_name": "Metagross",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/376.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10171,
+    "name": "moltres-galar",
+    "display_name": "Moltres Galar",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "C",
+    "sprite_path": "sprites/10171.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 914,
+    "name": "quaquaval",
+    "display_name": "Quaquaval",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "C",
+    "sprite_path": "sprites/914.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 894,
+    "name": "regieleki",
+    "display_name": "Regieleki",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "C",
+    "sprite_path": "sprites/894.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 743,
+    "name": "ribombee",
+    "display_name": "Ribombee",
+    "types": [
+      "bug",
+      "fairy"
+    ],
+    "base_stat_total": 464,
+    "vr_tier": "C",
+    "sprite_path": "sprites/743.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 199,
+    "name": "slowking",
+    "display_name": "Slowking",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "C",
+    "sprite_path": "sprites/199.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 663,
+    "name": "talonflame",
+    "display_name": "Talonflame",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "base_stat_total": 499,
+    "vr_tier": "C",
+    "sprite_path": "sprites/663.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 721,
+    "name": "volcanion",
+    "display_name": "Volcanion",
+    "types": [
+      "fire",
+      "water"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/721.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10170,
+    "name": "zapdos-galar",
+    "display_name": "Zapdos Galar",
+    "types": [
+      "fighting",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "C",
+    "sprite_path": "sprites/10170.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 10239,
+    "name": "zoroark-hisui",
+    "display_name": "Zoroark Hisui",
+    "types": [
+      "normal",
+      "ghost"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "C",
+    "sprite_path": "sprites/10239.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 460,
+    "name": "abomasnow",
+    "display_name": "Abomasnow",
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "base_stat_total": 494,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/460.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 190,
+    "name": "aipom",
+    "display_name": "Aipom",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 360,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/190.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 869,
+    "name": "alcremie",
+    "display_name": "Alcremie",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/869.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 594,
+    "name": "alomomola",
+    "display_name": "Alomomola",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/594.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 334,
+    "name": "altaria",
+    "display_name": "Altaria",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/334.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 424,
+    "name": "ambipom",
+    "display_name": "Ambipom",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 482,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/424.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 591,
+    "name": "amoonguss",
+    "display_name": "Amoonguss",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 464,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/591.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 181,
+    "name": "ampharos",
+    "display_name": "Ampharos",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/181.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 842,
+    "name": "appletun",
+    "display_name": "Appletun",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/842.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 840,
+    "name": "applin",
+    "display_name": "Applin",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "base_stat_total": 260,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/840.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 752,
+    "name": "araquanid",
+    "display_name": "Araquanid",
+    "types": [
+      "water",
+      "bug"
+    ],
+    "base_stat_total": 454,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/752.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 24,
+    "name": "arbok",
+    "display_name": "Arbok",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 448,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/24.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 930,
+    "name": "arboliva",
+    "display_name": "Arboliva",
+    "types": [
+      "grass",
+      "normal"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/930.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 59,
+    "name": "arcanine",
+    "display_name": "Arcanine",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 555,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/59.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 997,
+    "name": "arctibax",
+    "display_name": "Arctibax",
+    "types": [
+      "dragon",
+      "ice"
+    ],
+    "base_stat_total": 423,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/997.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 168,
+    "name": "ariados",
+    "display_name": "Ariados",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_stat_total": 400,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/168.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 936,
+    "name": "armarouge",
+    "display_name": "Armarouge",
+    "types": [
+      "fire",
+      "psychic"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/936.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 846,
+    "name": "arrokuda",
+    "display_name": "Arrokuda",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/846.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 713,
+    "name": "avalugg",
+    "display_name": "Avalugg",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 514,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/713.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 610,
+    "name": "axew",
+    "display_name": "Axew",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/610.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 184,
+    "name": "azumarill",
+    "display_name": "Azumarill",
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/184.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 298,
+    "name": "azurill",
+    "display_name": "Azurill",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "base_stat_total": 190,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/298.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 371,
+    "name": "bagon",
+    "display_name": "Bagon",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/371.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 354,
+    "name": "banette",
+    "display_name": "Banette",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/354.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 339,
+    "name": "barboach",
+    "display_name": "Barboach",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 288,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/339.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 902,
+    "name": "basculegion-male",
+    "display_name": "Basculegion Male",
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/902.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 550,
+    "name": "basculin-red-striped",
+    "display_name": "Basculin Red Striped",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/550.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 411,
+    "name": "bastiodon",
+    "display_name": "Bastiodon",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/411.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 153,
+    "name": "bayleef",
+    "display_name": "Bayleef",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/153.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 614,
+    "name": "beartic",
+    "display_name": "Beartic",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 505,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/614.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 374,
+    "name": "beldum",
+    "display_name": "Beldum",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/374.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 939,
+    "name": "bellibolt",
+    "display_name": "Bellibolt",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/939.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 182,
+    "name": "bellossom",
+    "display_name": "Bellossom",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/182.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 69,
+    "name": "bellsprout",
+    "display_name": "Bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/69.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 712,
+    "name": "bergmite",
+    "display_name": "Bergmite",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 304,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/712.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 625,
+    "name": "bisharp",
+    "display_name": "Bisharp",
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/625.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 9,
+    "name": "blastoise",
+    "display_name": "Blastoise",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/9.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 257,
+    "name": "blaziken",
+    "display_name": "Blaziken",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/257.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 522,
+    "name": "blitzle",
+    "display_name": "Blitzle",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 295,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/522.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 962,
+    "name": "bombirdier",
+    "display_name": "Bombirdier",
+    "types": [
+      "flying",
+      "dark"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/962.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 438,
+    "name": "bonsly",
+    "display_name": "Bonsly",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/438.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 761,
+    "name": "bounsweet",
+    "display_name": "Bounsweet",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 210,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/761.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 654,
+    "name": "braixen",
+    "display_name": "Braixen",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 409,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/654.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 946,
+    "name": "bramblin",
+    "display_name": "Bramblin",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "base_stat_total": 275,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/946.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 628,
+    "name": "braviary",
+    "display_name": "Braviary",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/628.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 286,
+    "name": "breloom",
+    "display_name": "Breloom",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/286.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 729,
+    "name": "brionne",
+    "display_name": "Brionne",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/729.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 437,
+    "name": "bronzong",
+    "display_name": "Bronzong",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/437.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 436,
+    "name": "bronzor",
+    "display_name": "Bronzor",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/436.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 986,
+    "name": "brute-bonnet",
+    "display_name": "Brute Bonnet",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/986.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 779,
+    "name": "bruxish",
+    "display_name": "Bruxish",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/779.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 418,
+    "name": "buizel",
+    "display_name": "Buizel",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/418.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1,
+    "name": "bulbasaur",
+    "display_name": "Bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 318,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 331,
+    "name": "cacnea",
+    "display_name": "Cacnea",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 335,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/331.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 332,
+    "name": "cacturne",
+    "display_name": "Cacturne",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/332.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 323,
+    "name": "camerupt",
+    "display_name": "Camerupt",
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/323.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 951,
+    "name": "capsakid",
+    "display_name": "Capsakid",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 304,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/951.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 703,
+    "name": "carbink",
+    "display_name": "Carbink",
+    "types": [
+      "rock",
+      "fairy"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/703.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 838,
+    "name": "carkol",
+    "display_name": "Carkol",
+    "types": [
+      "rock",
+      "fire"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/838.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 975,
+    "name": "cetitan",
+    "display_name": "Cetitan",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 521,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/975.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 974,
+    "name": "cetoddle",
+    "display_name": "Cetoddle",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 334,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/974.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 609,
+    "name": "chandelure",
+    "display_name": "Chandelure",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "base_stat_total": 520,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/609.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 935,
+    "name": "charcadet",
+    "display_name": "Charcadet",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 255,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/935.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 6,
+    "name": "charizard",
+    "display_name": "Charizard",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "base_stat_total": 534,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/6.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 737,
+    "name": "charjabug",
+    "display_name": "Charjabug",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "base_stat_total": 400,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/737.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 4,
+    "name": "charmander",
+    "display_name": "Charmander",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 309,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/4.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 5,
+    "name": "charmeleon",
+    "display_name": "Charmeleon",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/5.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 650,
+    "name": "chespin",
+    "display_name": "Chespin",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 313,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/650.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 833,
+    "name": "chewtle",
+    "display_name": "Chewtle",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 284,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/833.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1004,
+    "name": "chi-yu",
+    "display_name": "Chi Yu",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1004.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 152,
+    "name": "chikorita",
+    "display_name": "Chikorita",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 318,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/152.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 390,
+    "name": "chimchar",
+    "display_name": "Chimchar",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 309,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/390.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 358,
+    "name": "chimecho",
+    "display_name": "Chimecho",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/358.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 170,
+    "name": "chinchou",
+    "display_name": "Chinchou",
+    "types": [
+      "water",
+      "electric"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/170.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 433,
+    "name": "chingling",
+    "display_name": "Chingling",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 285,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/433.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 573,
+    "name": "cinccino",
+    "display_name": "Cinccino",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/573.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 692,
+    "name": "clauncher",
+    "display_name": "Clauncher",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/692.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 693,
+    "name": "clawitzer",
+    "display_name": "Clawitzer",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/693.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 36,
+    "name": "clefable",
+    "display_name": "Clefable",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 483,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/36.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 35,
+    "name": "clefairy",
+    "display_name": "Clefairy",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 323,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/35.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 173,
+    "name": "cleffa",
+    "display_name": "Cleffa",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 218,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/173.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 980,
+    "name": "clodsire",
+    "display_name": "Clodsire",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "base_stat_total": 430,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/980.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 839,
+    "name": "coalossal",
+    "display_name": "Coalossal",
+    "types": [
+      "rock",
+      "fire"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/839.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 415,
+    "name": "combee",
+    "display_name": "Combee",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "base_stat_total": 244,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/415.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 256,
+    "name": "combusken",
+    "display_name": "Combusken",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/256.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 764,
+    "name": "comfey",
+    "display_name": "Comfey",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/764.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 534,
+    "name": "conkeldurr",
+    "display_name": "Conkeldurr",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 505,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/534.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 879,
+    "name": "copperajah",
+    "display_name": "Copperajah",
+    "types": [
+      "steel"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/879.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 341,
+    "name": "corphish",
+    "display_name": "Corphish",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 308,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/341.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 822,
+    "name": "corvisquire",
+    "display_name": "Corvisquire",
+    "types": [
+      "flying"
+    ],
+    "base_stat_total": 365,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/822.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 546,
+    "name": "cottonee",
+    "display_name": "Cottonee",
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/546.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 740,
+    "name": "crabominable",
+    "display_name": "Crabominable",
+    "types": [
+      "fighting",
+      "ice"
+    ],
+    "base_stat_total": 478,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/740.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 739,
+    "name": "crabrawler",
+    "display_name": "Crabrawler",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 338,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/739.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 845,
+    "name": "cramorant",
+    "display_name": "Cramorant",
+    "types": [
+      "flying",
+      "water"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/845.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 408,
+    "name": "cranidos",
+    "display_name": "Cranidos",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/408.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 342,
+    "name": "crawdaunt",
+    "display_name": "Crawdaunt",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "base_stat_total": 468,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/342.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 453,
+    "name": "croagunk",
+    "display_name": "Croagunk",
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/453.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 910,
+    "name": "crocalor",
+    "display_name": "Crocalor",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 411,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/910.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 159,
+    "name": "croconaw",
+    "display_name": "Croconaw",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/159.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 615,
+    "name": "cryogonal",
+    "display_name": "Cryogonal",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 515,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/615.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 613,
+    "name": "cubchoo",
+    "display_name": "Cubchoo",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/613.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 878,
+    "name": "cufant",
+    "display_name": "Cufant",
+    "types": [
+      "steel"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/878.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 742,
+    "name": "cutiefly",
+    "display_name": "Cutiefly",
+    "types": [
+      "bug",
+      "fairy"
+    ],
+    "base_stat_total": 304,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/742.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 967,
+    "name": "cyclizar",
+    "display_name": "Cyclizar",
+    "types": [
+      "dragon",
+      "normal"
+    ],
+    "base_stat_total": 501,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/967.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 155,
+    "name": "cyndaquil",
+    "display_name": "Cyndaquil",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 309,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/155.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 927,
+    "name": "dachsbun",
+    "display_name": "Dachsbun",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 477,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/927.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 723,
+    "name": "dartrix",
+    "display_name": "Dartrix",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/723.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 724,
+    "name": "decidueye",
+    "display_name": "Decidueye",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/724.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 702,
+    "name": "dedenne",
+    "display_name": "Dedenne",
+    "types": [
+      "electric",
+      "fairy"
+    ],
+    "base_stat_total": 431,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/702.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 585,
+    "name": "deerling",
+    "display_name": "Deerling",
+    "types": [
+      "normal",
+      "grass"
+    ],
+    "base_stat_total": 335,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/585.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 633,
+    "name": "deino",
+    "display_name": "Deino",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/633.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 225,
+    "name": "delibird",
+    "display_name": "Delibird",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/225.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 655,
+    "name": "delphox",
+    "display_name": "Delphox",
+    "types": [
+      "fire",
+      "psychic"
+    ],
+    "base_stat_total": 534,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/655.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 87,
+    "name": "dewgong",
+    "display_name": "Dewgong",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/87.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 502,
+    "name": "dewott",
+    "display_name": "Dewott",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 413,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/502.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 751,
+    "name": "dewpider",
+    "display_name": "Dewpider",
+    "types": [
+      "water",
+      "bug"
+    ],
+    "base_stat_total": 269,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/751.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 50,
+    "name": "diglett",
+    "display_name": "Diglett",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 265,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/50.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1011,
+    "name": "dipplin",
+    "display_name": "Dipplin",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1011.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 132,
+    "name": "ditto",
+    "display_name": "Ditto",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 288,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/132.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 85,
+    "name": "dodrio",
+    "display_name": "Dodrio",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/85.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 84,
+    "name": "doduo",
+    "display_name": "Doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/84.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 929,
+    "name": "dolliv",
+    "display_name": "Dolliv",
+    "types": [
+      "grass",
+      "normal"
+    ],
+    "base_stat_total": 354,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/929.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 977,
+    "name": "dondozo",
+    "display_name": "Dondozo",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/977.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 232,
+    "name": "donphan",
+    "display_name": "Donphan",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/232.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 691,
+    "name": "dragalge",
+    "display_name": "Dragalge",
+    "types": [
+      "poison",
+      "dragon"
+    ],
+    "base_stat_total": 494,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/691.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 148,
+    "name": "dragonair",
+    "display_name": "Dragonair",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/148.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 886,
+    "name": "drakloak",
+    "display_name": "Drakloak",
+    "types": [
+      "dragon",
+      "ghost"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/886.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 147,
+    "name": "dratini",
+    "display_name": "Dratini",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/147.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 834,
+    "name": "drednaw",
+    "display_name": "Drednaw",
+    "types": [
+      "water",
+      "rock"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/834.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 885,
+    "name": "dreepy",
+    "display_name": "Dreepy",
+    "types": [
+      "dragon",
+      "ghost"
+    ],
+    "base_stat_total": 270,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/885.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 426,
+    "name": "drifblim",
+    "display_name": "Drifblim",
+    "types": [
+      "ghost",
+      "flying"
+    ],
+    "base_stat_total": 498,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/426.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 425,
+    "name": "drifloon",
+    "display_name": "Drifloon",
+    "types": [
+      "ghost",
+      "flying"
+    ],
+    "base_stat_total": 348,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/425.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 529,
+    "name": "drilbur",
+    "display_name": "Drilbur",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 328,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/529.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 817,
+    "name": "drizzile",
+    "display_name": "Drizzile",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/817.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 96,
+    "name": "drowzee",
+    "display_name": "Drowzee",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 328,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/96.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 580,
+    "name": "ducklett",
+    "display_name": "Ducklett",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/580.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 982,
+    "name": "dudunsparce-two-segment",
+    "display_name": "Dudunsparce Two Segment",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 520,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/982.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 51,
+    "name": "dugtrio",
+    "display_name": "Dugtrio",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 425,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/51.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 206,
+    "name": "dunsparce",
+    "display_name": "Dunsparce",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 415,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/206.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 578,
+    "name": "duosion",
+    "display_name": "Duosion",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 370,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/578.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 884,
+    "name": "duraludon",
+    "display_name": "Duraludon",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "base_stat_total": 535,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/884.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 356,
+    "name": "dusclops",
+    "display_name": "Dusclops",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/356.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 477,
+    "name": "dusknoir",
+    "display_name": "Dusknoir",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/477.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 355,
+    "name": "duskull",
+    "display_name": "Duskull",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 295,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/355.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 603,
+    "name": "eelektrik",
+    "display_name": "Eelektrik",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/603.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 604,
+    "name": "eelektross",
+    "display_name": "Eelektross",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 515,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/604.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 133,
+    "name": "eevee",
+    "display_name": "Eevee",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 325,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/133.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 875,
+    "name": "eiscue-ice",
+    "display_name": "Eiscue Ice",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/875.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 23,
+    "name": "ekans",
+    "display_name": "Ekans",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 288,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/23.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 125,
+    "name": "electabuzz",
+    "display_name": "Electabuzz",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/125.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 466,
+    "name": "electivire",
+    "display_name": "Electivire",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/466.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 101,
+    "name": "electrode",
+    "display_name": "Electrode",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/101.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 239,
+    "name": "elekid",
+    "display_name": "Elekid",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 360,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/239.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 500,
+    "name": "emboar",
+    "display_name": "Emboar",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 528,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/500.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 956,
+    "name": "espathra",
+    "display_name": "Espathra",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 481,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/956.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 196,
+    "name": "espeon",
+    "display_name": "Espeon",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/196.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 677,
+    "name": "espurr",
+    "display_name": "Espurr",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 355,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/677.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 102,
+    "name": "exeggcute",
+    "display_name": "Exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "base_stat_total": 325,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/102.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 103,
+    "name": "exeggutor",
+    "display_name": "Exeggutor",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/103.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 870,
+    "name": "falinks",
+    "display_name": "Falinks",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/870.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 981,
+    "name": "farigiraf",
+    "display_name": "Farigiraf",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "base_stat_total": 520,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/981.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 349,
+    "name": "feebas",
+    "display_name": "Feebas",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 200,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/349.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 653,
+    "name": "fennekin",
+    "display_name": "Fennekin",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 307,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/653.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 160,
+    "name": "feraligatr",
+    "display_name": "Feraligatr",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/160.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 926,
+    "name": "fidough",
+    "display_name": "Fidough",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 312,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/926.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 963,
+    "name": "finizen",
+    "display_name": "Finizen",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 315,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/963.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 456,
+    "name": "finneon",
+    "display_name": "Finneon",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/456.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 180,
+    "name": "flaaffy",
+    "display_name": "Flaaffy",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 365,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/180.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 669,
+    "name": "flabebe",
+    "display_name": "Flabebe",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 303,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/669.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 973,
+    "name": "flamigo",
+    "display_name": "Flamigo",
+    "types": [
+      "flying",
+      "fighting"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/973.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 841,
+    "name": "flapple",
+    "display_name": "Flapple",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/841.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 136,
+    "name": "flareon",
+    "display_name": "Flareon",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/136.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 662,
+    "name": "fletchinder",
+    "display_name": "Fletchinder",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "base_stat_total": 382,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/662.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 661,
+    "name": "fletchling",
+    "display_name": "Fletchling",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 278,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/661.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 955,
+    "name": "flittle",
+    "display_name": "Flittle",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 255,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/955.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 419,
+    "name": "floatzel",
+    "display_name": "Floatzel",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/419.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 670,
+    "name": "floette",
+    "display_name": "Floette",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 371,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/670.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 907,
+    "name": "floragato",
+    "display_name": "Floragato",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/907.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 671,
+    "name": "florges",
+    "display_name": "Florges",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 552,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/671.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 330,
+    "name": "flygon",
+    "display_name": "Flygon",
+    "types": [
+      "ground",
+      "dragon"
+    ],
+    "base_stat_total": 520,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/330.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 753,
+    "name": "fomantis",
+    "display_name": "Fomantis",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 250,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/753.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 590,
+    "name": "foongus",
+    "display_name": "Foongus",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 294,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/590.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 205,
+    "name": "forretress",
+    "display_name": "Forretress",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "base_stat_total": 465,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/205.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 611,
+    "name": "fraxure",
+    "display_name": "Fraxure",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/611.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 996,
+    "name": "frigibax",
+    "display_name": "Frigibax",
+    "types": [
+      "dragon",
+      "ice"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/996.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 656,
+    "name": "froakie",
+    "display_name": "Froakie",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 314,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/656.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 657,
+    "name": "frogadier",
+    "display_name": "Frogadier",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/657.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 478,
+    "name": "froslass",
+    "display_name": "Froslass",
+    "types": [
+      "ice",
+      "ghost"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/478.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 873,
+    "name": "frosmoth",
+    "display_name": "Frosmoth",
+    "types": [
+      "ice",
+      "bug"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/873.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 909,
+    "name": "fuecoco",
+    "display_name": "Fuecoco",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/909.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 162,
+    "name": "furret",
+    "display_name": "Furret",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 415,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/162.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 444,
+    "name": "gabite",
+    "display_name": "Gabite",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/444.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 475,
+    "name": "gallade",
+    "display_name": "Gallade",
+    "types": [
+      "psychic",
+      "fighting"
+    ],
+    "base_stat_total": 518,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/475.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 596,
+    "name": "galvantula",
+    "display_name": "Galvantula",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "base_stat_total": 472,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/596.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 282,
+    "name": "gardevoir",
+    "display_name": "Gardevoir",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "base_stat_total": 518,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/282.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 92,
+    "name": "gastly",
+    "display_name": "Gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/92.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 423,
+    "name": "gastrodon",
+    "display_name": "Gastrodon",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/423.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 74,
+    "name": "geodude",
+    "display_name": "Geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/74.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 443,
+    "name": "gible",
+    "display_name": "Gible",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/443.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 999,
+    "name": "gimmighoul",
+    "display_name": "Gimmighoul",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/999.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 203,
+    "name": "girafarig",
+    "display_name": "Girafarig",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/203.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 471,
+    "name": "glaceon",
+    "display_name": "Glaceon",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/471.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 362,
+    "name": "glalie",
+    "display_name": "Glalie",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/362.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 207,
+    "name": "gligar",
+    "display_name": "Gligar",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "base_stat_total": 430,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/207.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 969,
+    "name": "glimmet",
+    "display_name": "Glimmet",
+    "types": [
+      "rock",
+      "poison"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/969.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 970,
+    "name": "glimmora",
+    "display_name": "Glimmora",
+    "types": [
+      "rock",
+      "poison"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/970.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 44,
+    "name": "gloom",
+    "display_name": "Gloom",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 395,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/44.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 673,
+    "name": "gogoat",
+    "display_name": "Gogoat",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 531,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/673.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 55,
+    "name": "golduck",
+    "display_name": "Golduck",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/55.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 76,
+    "name": "golem",
+    "display_name": "Golem",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/76.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 622,
+    "name": "golett",
+    "display_name": "Golett",
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "base_stat_total": 303,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/622.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 623,
+    "name": "golurk",
+    "display_name": "Golurk",
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "base_stat_total": 483,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/623.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 706,
+    "name": "goodra",
+    "display_name": "Goodra",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/706.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 704,
+    "name": "goomy",
+    "display_name": "Goomy",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/704.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 574,
+    "name": "gothita",
+    "display_name": "Gothita",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/574.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 576,
+    "name": "gothitelle",
+    "display_name": "Gothitelle",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/576.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 575,
+    "name": "gothorita",
+    "display_name": "Gothorita",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 390,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/575.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 945,
+    "name": "grafaiai",
+    "display_name": "Grafaiai",
+    "types": [
+      "poison",
+      "normal"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/945.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 210,
+    "name": "granbull",
+    "display_name": "Granbull",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/210.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 75,
+    "name": "graveler",
+    "display_name": "Graveler",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_stat_total": 390,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/75.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 971,
+    "name": "greavard",
+    "display_name": "Greavard",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/971.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 820,
+    "name": "greedent",
+    "display_name": "Greedent",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/820.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 658,
+    "name": "greninja",
+    "display_name": "Greninja",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/658.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 88,
+    "name": "grimer",
+    "display_name": "Grimer",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 325,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/88.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 861,
+    "name": "grimmsnarl",
+    "display_name": "Grimmsnarl",
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/861.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 810,
+    "name": "grookey",
+    "display_name": "Grookey",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/810.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 388,
+    "name": "grotle",
+    "display_name": "Grotle",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/388.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 253,
+    "name": "grovyle",
+    "display_name": "Grovyle",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/253.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 58,
+    "name": "growlithe",
+    "display_name": "Growlithe",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/58.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 736,
+    "name": "grubbin",
+    "display_name": "Grubbin",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/736.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 326,
+    "name": "grumpig",
+    "display_name": "Grumpig",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/326.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 316,
+    "name": "gulpin",
+    "display_name": "Gulpin",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 302,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/316.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 735,
+    "name": "gumshoos",
+    "display_name": "Gumshoos",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 418,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/735.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 533,
+    "name": "gurdurr",
+    "display_name": "Gurdurr",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/533.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 130,
+    "name": "gyarados",
+    "display_name": "Gyarados",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/130.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 783,
+    "name": "hakamo-o",
+    "display_name": "Hakamo O",
+    "types": [
+      "dragon",
+      "fighting"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/783.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 440,
+    "name": "happiny",
+    "display_name": "Happiny",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 220,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/440.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 297,
+    "name": "hariyama",
+    "display_name": "Hariyama",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 474,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/297.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 856,
+    "name": "hatenna",
+    "display_name": "Hatenna",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 265,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/856.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 858,
+    "name": "hatterene",
+    "display_name": "Hatterene",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/858.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 857,
+    "name": "hattrem",
+    "display_name": "Hattrem",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 370,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/857.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 93,
+    "name": "haunter",
+    "display_name": "Haunter",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/93.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 701,
+    "name": "hawlucha",
+    "display_name": "Hawlucha",
+    "types": [
+      "fighting",
+      "flying"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/701.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 612,
+    "name": "haxorus",
+    "display_name": "Haxorus",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/612.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 214,
+    "name": "heracross",
+    "display_name": "Heracross",
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/214.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 449,
+    "name": "hippopotas",
+    "display_name": "Hippopotas",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/449.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 450,
+    "name": "hippowdon",
+    "display_name": "Hippowdon",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/450.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 107,
+    "name": "hitmonchan",
+    "display_name": "Hitmonchan",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/107.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 106,
+    "name": "hitmonlee",
+    "display_name": "Hitmonlee",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/106.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 237,
+    "name": "hitmontop",
+    "display_name": "Hitmontop",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/237.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 430,
+    "name": "honchkrow",
+    "display_name": "Honchkrow",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 505,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/430.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 163,
+    "name": "hoothoot",
+    "display_name": "Hoothoot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 262,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/163.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 187,
+    "name": "hoppip",
+    "display_name": "Hoppip",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "base_stat_total": 250,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/187.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 116,
+    "name": "horsea",
+    "display_name": "Horsea",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 295,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/116.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 229,
+    "name": "houndoom",
+    "display_name": "Houndoom",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/229.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 228,
+    "name": "houndour",
+    "display_name": "Houndour",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/228.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 972,
+    "name": "houndstone",
+    "display_name": "Houndstone",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 488,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/972.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1019,
+    "name": "hydrapple",
+    "display_name": "Hydrapple",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1019.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 97,
+    "name": "hypno",
+    "display_name": "Hypno",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 483,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/97.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 174,
+    "name": "igglybuff",
+    "display_name": "Igglybuff",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "base_stat_total": 210,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/174.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 314,
+    "name": "illumise",
+    "display_name": "Illumise",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 430,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/314.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 859,
+    "name": "impidimp",
+    "display_name": "Impidimp",
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "base_stat_total": 265,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/859.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 727,
+    "name": "incineroar",
+    "display_name": "Incineroar",
+    "types": [
+      "fire",
+      "dark"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/727.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 876,
+    "name": "indeedee-male",
+    "display_name": "Indeedee Male",
+    "types": [
+      "psychic",
+      "normal"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/876.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 392,
+    "name": "infernape",
+    "display_name": "Infernape",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 534,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/392.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 686,
+    "name": "inkay",
+    "display_name": "Inkay",
+    "types": [
+      "dark",
+      "psychic"
+    ],
+    "base_stat_total": 288,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/686.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 993,
+    "name": "iron-jugulis",
+    "display_name": "Iron Jugulis",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/993.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1010,
+    "name": "iron-leaves",
+    "display_name": "Iron Leaves",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "base_stat_total": 590,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1010.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 995,
+    "name": "iron-thorns",
+    "display_name": "Iron Thorns",
+    "types": [
+      "rock",
+      "electric"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/995.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 2,
+    "name": "ivysaur",
+    "display_name": "Ivysaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/2.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 782,
+    "name": "jangmo-o",
+    "display_name": "Jangmo O",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/782.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 39,
+    "name": "jigglypuff",
+    "display_name": "Jigglypuff",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "base_stat_total": 270,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/39.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 135,
+    "name": "jolteon",
+    "display_name": "Jolteon",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/135.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 595,
+    "name": "joltik",
+    "display_name": "Joltik",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "base_stat_total": 319,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/595.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 189,
+    "name": "jumpluff",
+    "display_name": "Jumpluff",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/189.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 941,
+    "name": "kilowattrel",
+    "display_name": "Kilowattrel",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/941.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 230,
+    "name": "kingdra",
+    "display_name": "Kingdra",
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/230.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 281,
+    "name": "kirlia",
+    "display_name": "Kirlia",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "base_stat_total": 278,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/281.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 950,
+    "name": "klawf",
+    "display_name": "Klawf",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/950.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 900,
+    "name": "kleavor",
+    "display_name": "Kleavor",
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/900.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 707,
+    "name": "klefki",
+    "display_name": "Klefki",
+    "types": [
+      "steel",
+      "fairy"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/707.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 109,
+    "name": "koffing",
+    "display_name": "Koffing",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/109.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 775,
+    "name": "komala",
+    "display_name": "Komala",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/775.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 401,
+    "name": "kricketot",
+    "display_name": "Kricketot",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 194,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/401.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 402,
+    "name": "kricketune",
+    "display_name": "Kricketune",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 384,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/402.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 552,
+    "name": "krokorok",
+    "display_name": "Krokorok",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "base_stat_total": 351,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/552.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 553,
+    "name": "krookodile",
+    "display_name": "Krookodile",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "base_stat_total": 519,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/553.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 608,
+    "name": "lampent",
+    "display_name": "Lampent",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "base_stat_total": 370,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/608.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 171,
+    "name": "lanturn",
+    "display_name": "Lanturn",
+    "types": [
+      "water",
+      "electric"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/171.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 131,
+    "name": "lapras",
+    "display_name": "Lapras",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "base_stat_total": 535,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/131.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 636,
+    "name": "larvesta",
+    "display_name": "Larvesta",
+    "types": [
+      "bug",
+      "fire"
+    ],
+    "base_stat_total": 360,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/636.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 246,
+    "name": "larvitar",
+    "display_name": "Larvitar",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/246.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 470,
+    "name": "leafeon",
+    "display_name": "Leafeon",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/470.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 542,
+    "name": "leavanny",
+    "display_name": "Leavanny",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/542.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 915,
+    "name": "lechonk",
+    "display_name": "Lechonk",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 254,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/915.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 549,
+    "name": "lilligant",
+    "display_name": "Lilligant",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/549.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 667,
+    "name": "litleo",
+    "display_name": "Litleo",
+    "types": [
+      "fire",
+      "normal"
+    ],
+    "base_stat_total": 369,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/667.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 725,
+    "name": "litten",
+    "display_name": "Litten",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/725.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 607,
+    "name": "litwick",
+    "display_name": "Litwick",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "base_stat_total": 275,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/607.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 920,
+    "name": "lokix",
+    "display_name": "Lokix",
+    "types": [
+      "bug",
+      "dark"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/920.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 271,
+    "name": "lombre",
+    "display_name": "Lombre",
+    "types": [
+      "water",
+      "grass"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/271.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 270,
+    "name": "lotad",
+    "display_name": "Lotad",
+    "types": [
+      "water",
+      "grass"
+    ],
+    "base_stat_total": 220,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/270.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 448,
+    "name": "lucario",
+    "display_name": "Lucario",
+    "types": [
+      "fighting",
+      "steel"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/448.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 272,
+    "name": "ludicolo",
+    "display_name": "Ludicolo",
+    "types": [
+      "water",
+      "grass"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/272.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 457,
+    "name": "lumineon",
+    "display_name": "Lumineon",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/457.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 754,
+    "name": "lurantis",
+    "display_name": "Lurantis",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/754.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 370,
+    "name": "luvdisc",
+    "display_name": "Luvdisc",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/370.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 404,
+    "name": "luxio",
+    "display_name": "Luxio",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 363,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/404.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 405,
+    "name": "luxray",
+    "display_name": "Luxray",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 523,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/405.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 745,
+    "name": "lycanroc-midday",
+    "display_name": "Lycanroc Midday",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 487,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/745.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 943,
+    "name": "mabosstiff",
+    "display_name": "Mabosstiff",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 505,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/943.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 240,
+    "name": "magby",
+    "display_name": "Magby",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 365,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/240.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 219,
+    "name": "magcargo",
+    "display_name": "Magcargo",
+    "types": [
+      "fire",
+      "rock"
+    ],
+    "base_stat_total": 430,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/219.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 129,
+    "name": "magikarp",
+    "display_name": "Magikarp",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 200,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/129.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 126,
+    "name": "magmar",
+    "display_name": "Magmar",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/126.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 467,
+    "name": "magmortar",
+    "display_name": "Magmortar",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/467.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 81,
+    "name": "magnemite",
+    "display_name": "Magnemite",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "base_stat_total": 325,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/81.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 82,
+    "name": "magneton",
+    "display_name": "Magneton",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "base_stat_total": 465,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/82.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 462,
+    "name": "magnezone",
+    "display_name": "Magnezone",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "base_stat_total": 535,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/462.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 296,
+    "name": "makuhita",
+    "display_name": "Makuhita",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 237,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/296.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 687,
+    "name": "malamar",
+    "display_name": "Malamar",
+    "types": [
+      "dark",
+      "psychic"
+    ],
+    "base_stat_total": 482,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/687.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 56,
+    "name": "mankey",
+    "display_name": "Mankey",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/56.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 747,
+    "name": "mareanie",
+    "display_name": "Mareanie",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/747.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 179,
+    "name": "mareep",
+    "display_name": "Mareep",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/179.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 183,
+    "name": "marill",
+    "display_name": "Marill",
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "base_stat_total": 250,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/183.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 259,
+    "name": "marshtomp",
+    "display_name": "Marshtomp",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/259.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 942,
+    "name": "maschiff",
+    "display_name": "Maschiff",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/942.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 284,
+    "name": "masquerain",
+    "display_name": "Masquerain",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "base_stat_total": 454,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/284.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 925,
+    "name": "maushold-family-of-four",
+    "display_name": "Maushold Family Of Four",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/925.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 308,
+    "name": "medicham",
+    "display_name": "Medicham",
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/308.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 307,
+    "name": "meditite",
+    "display_name": "Meditite",
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/307.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 154,
+    "name": "meganium",
+    "display_name": "Meganium",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/154.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 678,
+    "name": "meowstic-male",
+    "display_name": "Meowstic Male",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 466,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/678.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 52,
+    "name": "meowth",
+    "display_name": "Meowth",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/52.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 375,
+    "name": "metang",
+    "display_name": "Metang",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/375.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 619,
+    "name": "mienfoo",
+    "display_name": "Mienfoo",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/619.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 620,
+    "name": "mienshao",
+    "display_name": "Mienshao",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/620.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 262,
+    "name": "mightyena",
+    "display_name": "Mightyena",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/262.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 868,
+    "name": "milcery",
+    "display_name": "Milcery",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 270,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/868.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 350,
+    "name": "milotic",
+    "display_name": "Milotic",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/350.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 778,
+    "name": "mimikyu-disguised",
+    "display_name": "Mimikyu Disguised",
+    "types": [
+      "ghost",
+      "fairy"
+    ],
+    "base_stat_total": 476,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/778.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 572,
+    "name": "minccino",
+    "display_name": "Minccino",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/572.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 774,
+    "name": "minior-red-meteor",
+    "display_name": "Minior Red Meteor",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/774.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 312,
+    "name": "minun",
+    "display_name": "Minun",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/312.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 200,
+    "name": "misdreavus",
+    "display_name": "Misdreavus",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 435,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/200.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 429,
+    "name": "mismagius",
+    "display_name": "Mismagius",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/429.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 391,
+    "name": "monferno",
+    "display_name": "Monferno",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/391.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 860,
+    "name": "morgrem",
+    "display_name": "Morgrem",
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "base_stat_total": 370,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/860.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 877,
+    "name": "morpeko-full-belly",
+    "display_name": "Morpeko Full Belly",
+    "types": [
+      "electric",
+      "dark"
+    ],
+    "base_stat_total": 436,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/877.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 749,
+    "name": "mudbray",
+    "display_name": "Mudbray",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 385,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/749.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 258,
+    "name": "mudkip",
+    "display_name": "Mudkip",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/258.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 750,
+    "name": "mudsdale",
+    "display_name": "Mudsdale",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/750.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 89,
+    "name": "muk",
+    "display_name": "Muk",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/89.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 446,
+    "name": "munchlax",
+    "display_name": "Munchlax",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 390,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/446.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1015,
+    "name": "munkidori",
+    "display_name": "Munkidori",
+    "types": [
+      "poison",
+      "psychic"
+    ],
+    "base_stat_total": 555,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1015.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 198,
+    "name": "murkrow",
+    "display_name": "Murkrow",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/198.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 932,
+    "name": "nacli",
+    "display_name": "Nacli",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/932.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 933,
+    "name": "naclstack",
+    "display_name": "Naclstack",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 355,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/933.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 38,
+    "name": "ninetales",
+    "display_name": "Ninetales",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 505,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/38.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 164,
+    "name": "noctowl",
+    "display_name": "Noctowl",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 452,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/164.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 714,
+    "name": "noibat",
+    "display_name": "Noibat",
+    "types": [
+      "flying",
+      "dragon"
+    ],
+    "base_stat_total": 245,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/714.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 299,
+    "name": "nosepass",
+    "display_name": "Nosepass",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 375,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/299.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 322,
+    "name": "numel",
+    "display_name": "Numel",
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/322.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 274,
+    "name": "nuzleaf",
+    "display_name": "Nuzleaf",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/274.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 919,
+    "name": "nymble",
+    "display_name": "Nymble",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 210,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/919.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 43,
+    "name": "oddish",
+    "display_name": "Oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/43.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1017,
+    "name": "ogerpon",
+    "display_name": "Ogerpon",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1017.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 916,
+    "name": "oinkologne-male",
+    "display_name": "Oinkologne Male",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 489,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/916.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1014,
+    "name": "okidogi",
+    "display_name": "Okidogi",
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "base_stat_total": 555,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1014.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 765,
+    "name": "oranguru",
+    "display_name": "Oranguru",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/765.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 741,
+    "name": "oricorio-baile",
+    "display_name": "Oricorio Baile",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "base_stat_total": 476,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/741.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 968,
+    "name": "orthworm",
+    "display_name": "Orthworm",
+    "types": [
+      "steel"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/968.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 501,
+    "name": "oshawott",
+    "display_name": "Oshawott",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 308,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/501.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 904,
+    "name": "overqwil",
+    "display_name": "Overqwil",
+    "types": [
+      "dark",
+      "poison"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/904.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 417,
+    "name": "pachirisu",
+    "display_name": "Pachirisu",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/417.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 964,
+    "name": "palafin-zero",
+    "display_name": "Palafin Zero",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 457,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/964.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 770,
+    "name": "palossand",
+    "display_name": "Palossand",
+    "types": [
+      "ghost",
+      "ground"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/770.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 766,
+    "name": "passimian",
+    "display_name": "Passimian",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/766.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 921,
+    "name": "pawmi",
+    "display_name": "Pawmi",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 240,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/921.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 922,
+    "name": "pawmo",
+    "display_name": "Pawmo",
+    "types": [
+      "electric",
+      "fighting"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/922.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 923,
+    "name": "pawmot",
+    "display_name": "Pawmot",
+    "types": [
+      "electric",
+      "fighting"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/923.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 624,
+    "name": "pawniard",
+    "display_name": "Pawniard",
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/624.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 279,
+    "name": "pelipper",
+    "display_name": "Pelipper",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/279.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 53,
+    "name": "persian",
+    "display_name": "Persian",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/53.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 548,
+    "name": "petilil",
+    "display_name": "Petilil",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/548.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 231,
+    "name": "phanpy",
+    "display_name": "Phanpy",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/231.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 708,
+    "name": "phantump",
+    "display_name": "Phantump",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "base_stat_total": 309,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/708.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 172,
+    "name": "pichu",
+    "display_name": "Pichu",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 205,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/172.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 499,
+    "name": "pignite",
+    "display_name": "Pignite",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 418,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/499.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 25,
+    "name": "pikachu",
+    "display_name": "Pikachu",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/25.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 731,
+    "name": "pikipek",
+    "display_name": "Pikipek",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 265,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/731.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 221,
+    "name": "piloswine",
+    "display_name": "Piloswine",
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/221.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 871,
+    "name": "pincurchin",
+    "display_name": "Pincurchin",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 435,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/871.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 204,
+    "name": "pineco",
+    "display_name": "Pineco",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/204.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 393,
+    "name": "piplup",
+    "display_name": "Piplup",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 314,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/393.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 311,
+    "name": "plusle",
+    "display_name": "Plusle",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/311.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 186,
+    "name": "politoed",
+    "display_name": "Politoed",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/186.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 60,
+    "name": "poliwag",
+    "display_name": "Poliwag",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/60.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 61,
+    "name": "poliwhirl",
+    "display_name": "Poliwhirl",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 385,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/61.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 62,
+    "name": "poliwrath",
+    "display_name": "Poliwrath",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/62.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1012,
+    "name": "poltchageist",
+    "display_name": "Poltchageist",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "base_stat_total": 308,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1012.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 261,
+    "name": "poochyena",
+    "display_name": "Poochyena",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 220,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/261.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 728,
+    "name": "popplio",
+    "display_name": "Popplio",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/728.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 137,
+    "name": "porygon",
+    "display_name": "Porygon",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 395,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/137.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 474,
+    "name": "porygon-z",
+    "display_name": "Porygon Z",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 535,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/474.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 233,
+    "name": "porygon2",
+    "display_name": "Porygon2",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 515,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/233.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 57,
+    "name": "primeape",
+    "display_name": "Primeape",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 455,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/57.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 394,
+    "name": "prinplup",
+    "display_name": "Prinplup",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/394.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 476,
+    "name": "probopass",
+    "display_name": "Probopass",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/476.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 54,
+    "name": "psyduck",
+    "display_name": "Psyduck",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/54.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 247,
+    "name": "pupitar",
+    "display_name": "Pupitar",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/247.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 668,
+    "name": "pyroar-male",
+    "display_name": "Pyroar Male",
+    "types": [
+      "fire",
+      "normal"
+    ],
+    "base_stat_total": 507,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/668.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 195,
+    "name": "quagsire",
+    "display_name": "Quagsire",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 430,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/195.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 912,
+    "name": "quaxly",
+    "display_name": "Quaxly",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/912.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 913,
+    "name": "quaxwell",
+    "display_name": "Quaxwell",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/913.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 156,
+    "name": "quilava",
+    "display_name": "Quilava",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/156.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 651,
+    "name": "quilladin",
+    "display_name": "Quilladin",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/651.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 211,
+    "name": "qwilfish",
+    "display_name": "Qwilfish",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/211.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 814,
+    "name": "raboot",
+    "display_name": "Raboot",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/814.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 954,
+    "name": "rabsca",
+    "display_name": "Rabsca",
+    "types": [
+      "bug",
+      "psychic"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/954.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 26,
+    "name": "raichu",
+    "display_name": "Raichu",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/26.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 280,
+    "name": "ralts",
+    "display_name": "Ralts",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "base_stat_total": 198,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/280.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 409,
+    "name": "rampardos",
+    "display_name": "Rampardos",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/409.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 953,
+    "name": "rellor",
+    "display_name": "Rellor",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 270,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/953.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 579,
+    "name": "reuniclus",
+    "display_name": "Reuniclus",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/579.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 966,
+    "name": "revavroom",
+    "display_name": "Revavroom",
+    "types": [
+      "steel",
+      "poison"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/966.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 112,
+    "name": "rhydon",
+    "display_name": "Rhydon",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/112.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 111,
+    "name": "rhyhorn",
+    "display_name": "Rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "base_stat_total": 345,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/111.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 464,
+    "name": "rhyperior",
+    "display_name": "Rhyperior",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "base_stat_total": 535,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/464.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 812,
+    "name": "rillaboom",
+    "display_name": "Rillaboom",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/812.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 447,
+    "name": "riolu",
+    "display_name": "Riolu",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 285,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/447.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 744,
+    "name": "rockruff",
+    "display_name": "Rockruff",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/744.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 837,
+    "name": "rolycoly",
+    "display_name": "Rolycoly",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 240,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/837.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 821,
+    "name": "rookidee",
+    "display_name": "Rookidee",
+    "types": [
+      "flying"
+    ],
+    "base_stat_total": 245,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/821.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 479,
+    "name": "rotom",
+    "display_name": "Rotom",
+    "types": [
+      "electric",
+      "ghost"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/479.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 722,
+    "name": "rowlet",
+    "display_name": "Rowlet",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/722.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 627,
+    "name": "rufflet",
+    "display_name": "Rufflet",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/627.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 302,
+    "name": "sableye",
+    "display_name": "Sableye",
+    "types": [
+      "dark",
+      "ghost"
+    ],
+    "base_stat_total": 380,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/302.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 373,
+    "name": "salamence",
+    "display_name": "Salamence",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/373.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 757,
+    "name": "salandit",
+    "display_name": "Salandit",
+    "types": [
+      "poison",
+      "fire"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/757.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 758,
+    "name": "salazzle",
+    "display_name": "Salazzle",
+    "types": [
+      "poison",
+      "fire"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/758.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 503,
+    "name": "samurott",
+    "display_name": "Samurott",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 528,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/503.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 844,
+    "name": "sandaconda",
+    "display_name": "Sandaconda",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/844.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 551,
+    "name": "sandile",
+    "display_name": "Sandile",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "base_stat_total": 292,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/551.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 27,
+    "name": "sandshrew",
+    "display_name": "Sandshrew",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/27.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 28,
+    "name": "sandslash",
+    "display_name": "Sandslash",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/28.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 769,
+    "name": "sandygast",
+    "display_name": "Sandygast",
+    "types": [
+      "ghost",
+      "ground"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/769.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 586,
+    "name": "sawsbuck",
+    "display_name": "Sawsbuck",
+    "types": [
+      "normal",
+      "grass"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/586.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 664,
+    "name": "scatterbug",
+    "display_name": "Scatterbug",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 200,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/664.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 254,
+    "name": "sceptile",
+    "display_name": "Sceptile",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/254.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 212,
+    "name": "scizor",
+    "display_name": "Scizor",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/212.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 813,
+    "name": "scorbunny",
+    "display_name": "Scorbunny",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/813.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 952,
+    "name": "scovillain",
+    "display_name": "Scovillain",
+    "types": [
+      "grass",
+      "fire"
+    ],
+    "base_stat_total": 486,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/952.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 560,
+    "name": "scrafty",
+    "display_name": "Scrafty",
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "base_stat_total": 488,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/560.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 559,
+    "name": "scraggy",
+    "display_name": "Scraggy",
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "base_stat_total": 348,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/559.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 123,
+    "name": "scyther",
+    "display_name": "Scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/123.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 117,
+    "name": "seadra",
+    "display_name": "Seadra",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/117.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 273,
+    "name": "seedot",
+    "display_name": "Seedot",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 220,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/273.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 86,
+    "name": "seel",
+    "display_name": "Seel",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 325,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/86.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 161,
+    "name": "sentret",
+    "display_name": "Sentret",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 215,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/161.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 497,
+    "name": "serperior",
+    "display_name": "Serperior",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 528,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/497.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 496,
+    "name": "servine",
+    "display_name": "Servine",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 413,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/496.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 336,
+    "name": "seviper",
+    "display_name": "Seviper",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 458,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/336.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 540,
+    "name": "sewaddle",
+    "display_name": "Sewaddle",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/540.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 372,
+    "name": "shelgon",
+    "display_name": "Shelgon",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/372.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 90,
+    "name": "shellder",
+    "display_name": "Shellder",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/90.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 422,
+    "name": "shellos",
+    "display_name": "Shellos",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 325,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/422.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 410,
+    "name": "shieldon",
+    "display_name": "Shieldon",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/410.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 275,
+    "name": "shiftry",
+    "display_name": "Shiftry",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/275.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 403,
+    "name": "shinx",
+    "display_name": "Shinx",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 263,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/403.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 944,
+    "name": "shroodle",
+    "display_name": "Shroodle",
+    "types": [
+      "poison",
+      "normal"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/944.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 285,
+    "name": "shroomish",
+    "display_name": "Shroomish",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 295,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/285.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 353,
+    "name": "shuppet",
+    "display_name": "Shuppet",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 295,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/353.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 843,
+    "name": "silicobra",
+    "display_name": "Silicobra",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 315,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/843.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 854,
+    "name": "sinistea",
+    "display_name": "Sinistea",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 308,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/854.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 911,
+    "name": "skeledirge",
+    "display_name": "Skeledirge",
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/911.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 672,
+    "name": "skiddo",
+    "display_name": "Skiddo",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 350,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/672.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 188,
+    "name": "skiploom",
+    "display_name": "Skiploom",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/188.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 690,
+    "name": "skrelp",
+    "display_name": "Skrelp",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "base_stat_total": 320,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/690.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 435,
+    "name": "skuntank",
+    "display_name": "Skuntank",
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "base_stat_total": 479,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/435.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 819,
+    "name": "skwovet",
+    "display_name": "Skwovet",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 275,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/819.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 287,
+    "name": "slakoth",
+    "display_name": "Slakoth",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/287.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 705,
+    "name": "sliggoo",
+    "display_name": "Sliggoo",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 452,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/705.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 80,
+    "name": "slowbro",
+    "display_name": "Slowbro",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/80.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 79,
+    "name": "slowpoke",
+    "display_name": "Slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "base_stat_total": 315,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/79.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 218,
+    "name": "slugma",
+    "display_name": "Slugma",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 250,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/218.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 928,
+    "name": "smoliv",
+    "display_name": "Smoliv",
+    "types": [
+      "grass",
+      "normal"
+    ],
+    "base_stat_total": 260,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/928.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 215,
+    "name": "sneasel",
+    "display_name": "Sneasel",
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "base_stat_total": 430,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/215.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 495,
+    "name": "snivy",
+    "display_name": "Snivy",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 308,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/495.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 872,
+    "name": "snom",
+    "display_name": "Snom",
+    "types": [
+      "ice",
+      "bug"
+    ],
+    "base_stat_total": 185,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/872.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 143,
+    "name": "snorlax",
+    "display_name": "Snorlax",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 540,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/143.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 361,
+    "name": "snorunt",
+    "display_name": "Snorunt",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/361.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 459,
+    "name": "snover",
+    "display_name": "Snover",
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "base_stat_total": 334,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/459.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 209,
+    "name": "snubbull",
+    "display_name": "Snubbull",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/209.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 816,
+    "name": "sobble",
+    "display_name": "Sobble",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/816.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 577,
+    "name": "solosis",
+    "display_name": "Solosis",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/577.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 665,
+    "name": "spewpa",
+    "display_name": "Spewpa",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 213,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/665.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 918,
+    "name": "spidops",
+    "display_name": "Spidops",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 404,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/918.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 167,
+    "name": "spinarak",
+    "display_name": "Spinarak",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_stat_total": 250,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/167.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 442,
+    "name": "spiritomb",
+    "display_name": "Spiritomb",
+    "types": [
+      "ghost",
+      "dark"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/442.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 325,
+    "name": "spoink",
+    "display_name": "Spoink",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/325.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 906,
+    "name": "sprigatito",
+    "display_name": "Sprigatito",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/906.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 931,
+    "name": "squawkabilly-green-plumage",
+    "display_name": "Squawkabilly Green Plumage",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 417,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/931.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 7,
+    "name": "squirtle",
+    "display_name": "Squirtle",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 314,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/7.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 234,
+    "name": "stantler",
+    "display_name": "Stantler",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 465,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/234.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 398,
+    "name": "staraptor",
+    "display_name": "Staraptor",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/398.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 397,
+    "name": "staravia",
+    "display_name": "Staravia",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/397.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 396,
+    "name": "starly",
+    "display_name": "Starly",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 245,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/396.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 762,
+    "name": "steenee",
+    "display_name": "Steenee",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/762.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 874,
+    "name": "stonjourner",
+    "display_name": "Stonjourner",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/874.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 434,
+    "name": "stunky",
+    "display_name": "Stunky",
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "base_stat_total": 329,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/434.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 185,
+    "name": "sudowoodo",
+    "display_name": "Sudowoodo",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 410,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/185.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 192,
+    "name": "sunflora",
+    "display_name": "Sunflora",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 425,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/192.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 191,
+    "name": "sunkern",
+    "display_name": "Sunkern",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 180,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/191.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 283,
+    "name": "surskit",
+    "display_name": "Surskit",
+    "types": [
+      "bug",
+      "water"
+    ],
+    "base_stat_total": 269,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/283.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 333,
+    "name": "swablu",
+    "display_name": "Swablu",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/333.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 541,
+    "name": "swadloon",
+    "display_name": "Swadloon",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "base_stat_total": 380,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/541.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 317,
+    "name": "swalot",
+    "display_name": "Swalot",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 467,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/317.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 581,
+    "name": "swanna",
+    "display_name": "Swanna",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 473,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/581.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 220,
+    "name": "swinub",
+    "display_name": "Swinub",
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "base_stat_total": 250,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/220.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 700,
+    "name": "sylveon",
+    "display_name": "Sylveon",
+    "types": [
+      "fairy"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/700.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 938,
+    "name": "tadbulb",
+    "display_name": "Tadbulb",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 272,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/938.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 924,
+    "name": "tandemaus",
+    "display_name": "Tandemaus",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/924.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 917,
+    "name": "tarountula",
+    "display_name": "Tarountula",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 210,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/917.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 978,
+    "name": "tatsugiri-curly",
+    "display_name": "Tatsugiri Curly",
+    "types": [
+      "dragon",
+      "water"
+    ],
+    "base_stat_total": 475,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/978.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 128,
+    "name": "tauros",
+    "display_name": "Tauros",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/128.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 216,
+    "name": "teddiursa",
+    "display_name": "Teddiursa",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/216.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 72,
+    "name": "tentacool",
+    "display_name": "Tentacool",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "base_stat_total": 335,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/72.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 73,
+    "name": "tentacruel",
+    "display_name": "Tentacruel",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "base_stat_total": 515,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/73.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 498,
+    "name": "tepig",
+    "display_name": "Tepig",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 308,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/498.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1024,
+    "name": "terapagos",
+    "display_name": "Terapagos",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1024.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 811,
+    "name": "thwackey",
+    "display_name": "Thwackey",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/811.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 532,
+    "name": "timburr",
+    "display_name": "Timburr",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/532.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 957,
+    "name": "tinkatink",
+    "display_name": "Tinkatink",
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "base_stat_total": 297,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/957.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 958,
+    "name": "tinkatuff",
+    "display_name": "Tinkatuff",
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "base_stat_total": 380,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/958.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 948,
+    "name": "toedscool",
+    "display_name": "Toedscool",
+    "types": [
+      "ground",
+      "grass"
+    ],
+    "base_stat_total": 335,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/948.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 949,
+    "name": "toedscruel",
+    "display_name": "Toedscruel",
+    "types": [
+      "ground",
+      "grass"
+    ],
+    "base_stat_total": 515,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/949.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 255,
+    "name": "torchic",
+    "display_name": "Torchic",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/255.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 324,
+    "name": "torkoal",
+    "display_name": "Torkoal",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/324.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 726,
+    "name": "torracat",
+    "display_name": "Torracat",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/726.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 389,
+    "name": "torterra",
+    "display_name": "Torterra",
+    "types": [
+      "grass",
+      "ground"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/389.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 158,
+    "name": "totodile",
+    "display_name": "Totodile",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 314,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/158.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 733,
+    "name": "toucannon",
+    "display_name": "Toucannon",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 485,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/733.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 748,
+    "name": "toxapex",
+    "display_name": "Toxapex",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "base_stat_total": 495,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/748.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 848,
+    "name": "toxel",
+    "display_name": "Toxel",
+    "types": [
+      "electric",
+      "poison"
+    ],
+    "base_stat_total": 242,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/848.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 454,
+    "name": "toxicroak",
+    "display_name": "Toxicroak",
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/454.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 849,
+    "name": "toxtricity-amped",
+    "display_name": "Toxtricity Amped",
+    "types": [
+      "electric",
+      "poison"
+    ],
+    "base_stat_total": 502,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/849.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 328,
+    "name": "trapinch",
+    "display_name": "Trapinch",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 290,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/328.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 252,
+    "name": "treecko",
+    "display_name": "Treecko",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 310,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/252.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 709,
+    "name": "trevenant",
+    "display_name": "Trevenant",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "base_stat_total": 474,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/709.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 357,
+    "name": "tropius",
+    "display_name": "Tropius",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "base_stat_total": 460,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/357.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 732,
+    "name": "trumbeak",
+    "display_name": "Trumbeak",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 355,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/732.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 763,
+    "name": "tsareena",
+    "display_name": "Tsareena",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/763.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 387,
+    "name": "turtwig",
+    "display_name": "Turtwig",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 318,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/387.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 602,
+    "name": "tynamo",
+    "display_name": "Tynamo",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 275,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/602.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 157,
+    "name": "typhlosion",
+    "display_name": "Typhlosion",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 534,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/157.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 248,
+    "name": "tyranitar",
+    "display_name": "Tyranitar",
+    "types": [
+      "rock",
+      "dark"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/248.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 236,
+    "name": "tyrogue",
+    "display_name": "Tyrogue",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 210,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/236.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 197,
+    "name": "umbreon",
+    "display_name": "Umbreon",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/197.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 901,
+    "name": "ursaluna",
+    "display_name": "Ursaluna",
+    "types": [
+      "ground",
+      "normal"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/901.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 217,
+    "name": "ursaring",
+    "display_name": "Ursaring",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/217.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 134,
+    "name": "vaporeon",
+    "display_name": "Vaporeon",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/134.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 965,
+    "name": "varoom",
+    "display_name": "Varoom",
+    "types": [
+      "steel",
+      "poison"
+    ],
+    "base_stat_total": 300,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/965.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 976,
+    "name": "veluza",
+    "display_name": "Veluza",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "base_stat_total": 478,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/976.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 49,
+    "name": "venomoth",
+    "display_name": "Venomoth",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_stat_total": 450,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/49.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 48,
+    "name": "venonat",
+    "display_name": "Venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_stat_total": 305,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/48.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 3,
+    "name": "venusaur",
+    "display_name": "Venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/3.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 416,
+    "name": "vespiquen",
+    "display_name": "Vespiquen",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "base_stat_total": 474,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/416.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 329,
+    "name": "vibrava",
+    "display_name": "Vibrava",
+    "types": [
+      "ground",
+      "dragon"
+    ],
+    "base_stat_total": 340,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/329.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 71,
+    "name": "victreebel",
+    "display_name": "Victreebel",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/71.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 288,
+    "name": "vigoroth",
+    "display_name": "Vigoroth",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/288.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 738,
+    "name": "vikavolt",
+    "display_name": "Vikavolt",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/738.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 45,
+    "name": "vileplume",
+    "display_name": "Vileplume",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/45.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 666,
+    "name": "vivillon",
+    "display_name": "Vivillon",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "base_stat_total": 411,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/666.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 313,
+    "name": "volbeat",
+    "display_name": "Volbeat",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 430,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/313.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 100,
+    "name": "voltorb",
+    "display_name": "Voltorb",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/100.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 629,
+    "name": "vullaby",
+    "display_name": "Vullaby",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 370,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/629.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 37,
+    "name": "vulpix",
+    "display_name": "Vulpix",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 299,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/37.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 8,
+    "name": "wartortle",
+    "display_name": "Wartortle",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 405,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/8.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 940,
+    "name": "wattrel",
+    "display_name": "Wattrel",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 280,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/940.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 70,
+    "name": "weepinbell",
+    "display_name": "Weepinbell",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 390,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/70.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 110,
+    "name": "weezing",
+    "display_name": "Weezing",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/110.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 547,
+    "name": "whimsicott",
+    "display_name": "Whimsicott",
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/547.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 340,
+    "name": "whiscash",
+    "display_name": "Whiscash",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 468,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/340.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 40,
+    "name": "wigglytuff",
+    "display_name": "Wigglytuff",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "base_stat_total": 435,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/40.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 960,
+    "name": "wiglett",
+    "display_name": "Wiglett",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 245,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/960.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 278,
+    "name": "wingull",
+    "display_name": "Wingull",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 270,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/278.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 1001,
+    "name": "wo-chien",
+    "display_name": "Wo Chien",
+    "types": [
+      "dark",
+      "grass"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/1001.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 194,
+    "name": "wooper",
+    "display_name": "Wooper",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 210,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/194.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 961,
+    "name": "wugtrio",
+    "display_name": "Wugtrio",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 425,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/961.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 193,
+    "name": "yanma",
+    "display_name": "Yanma",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "base_stat_total": 390,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/193.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 469,
+    "name": "yanmega",
+    "display_name": "Yanmega",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "base_stat_total": 515,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/469.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 734,
+    "name": "yungoos",
+    "display_name": "Yungoos",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 253,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/734.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 335,
+    "name": "zangoose",
+    "display_name": "Zangoose",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 458,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/335.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 523,
+    "name": "zebstrika",
+    "display_name": "Zebstrika",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 497,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/523.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 571,
+    "name": "zoroark",
+    "display_name": "Zoroark",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/571.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 570,
+    "name": "zorua",
+    "display_name": "Zorua",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 330,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/570.png",
+    "format": "aaa"
+  },
+  {
+    "dex_id": 634,
+    "name": "zweilous",
+    "display_name": "Zweilous",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "base_stat_total": 420,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/634.png",
+    "format": "aaa"
+  }
+]
