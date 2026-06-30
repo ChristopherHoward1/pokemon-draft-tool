@@ -20,7 +20,7 @@ CONFIG = {
     "default_pool_size": 5,  # small for tests
     "tier_costs": {
         "S": 11, "A+": 10, "A": 9, "A-": 8,
-        "B+": 7, "B": 6, "B-": 5, "C": 4, "D": 3, "Unranked": 2,
+        "B+": 7, "B": 6, "B-": 5, "C+": 4, "C": 4, "D": 3, "Unranked": 2,
     },
     "formats": {
         "aaa": "data/aaa_pokemon.json",
@@ -250,7 +250,7 @@ class TestLookups:
 
     def test_tier_cost_all_tiers(self):
         pool = make_pool()
-        expected = {"S": 11, "A+": 10, "A": 9, "A-": 8, "B+": 7, "B": 6, "B-": 5, "C": 4, "D": 3, "Unranked": 2}
+        expected = {"S": 11, "A+": 10, "A": 9, "A-": 8, "B+": 7, "B": 6, "B-": 5, "C+": 4, "C": 4, "D": 3, "Unranked": 2}
         for tier, cost in expected.items():
             assert pool.tier_cost(tier) == cost
 
