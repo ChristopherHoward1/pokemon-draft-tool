@@ -169,6 +169,65 @@ class TestVRWeightedMode:
 
 
 # ---------------------------------------------------------------------------
+# Stratified mode
+# ---------------------------------------------------------------------------
+
+class TestStratifiedMode:
+    def test_counts_per_group_correct(self):
+        pool = make_pool()
+        # fixture: 1 S, 1 A+, 1 A = 2 in group A, 1 B+, 6 Unranked
+        pool.generate_pool(mode="stratified", tier_counts={"S": 1, "A": 2, "Unranked": 3}, seed=0)
+        result = pool.available()
+        s_entries = [e for e in result if e["vr_tier"] == "S"]
+        a_entries = [e for e in result if e["vr_tier"] in {"A+", "A", "A-"}]
+        u_entries = [e for e in result if e["vr_tier"] == "Unranked"]
+        assert len(s_entries) == 1
+        assert len(a_entries) == 2
+        assert len(u_entries) == 3
+        assert len(result) == 6
+
+    def test_zero_count_group_excluded(self):
+        pool = make_pool()
+        pool.generate_pool(mode="stratified", tier_counts={"S": 1, "A": 0, "Unranked": 2}, seed=0)
+        tiers = {e["vr_tier"] for e in pool.available()}
+        assert "A+" not in tiers and "A" not in tiers and "A-" not in tiers
+
+    def test_seeded_reproducible(self):
+        pool1 = make_pool()
+        pool1.generate_pool(mode="stratified", tier_counts={"A": 2, "Unranked": 3}, seed=7)
+        pool2 = make_pool()
+        pool2.generate_pool(mode="stratified", tier_counts={"A": 2, "Unranked": 3}, seed=7)
+        assert [e["name"] for e in pool1.available()] == [e["name"] for e in pool2.available()]
+
+    def test_different_seeds_differ(self):
+        pool1 = make_pool()
+        pool1.generate_pool(mode="stratified", tier_counts={"Unranked": 4}, seed=1)
+        pool2 = make_pool()
+        pool2.generate_pool(mode="stratified", tier_counts={"Unranked": 4}, seed=2)
+        assert [e["name"] for e in pool1.available()] != [e["name"] for e in pool2.available()]
+
+    def test_missing_tier_counts_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="non-empty tier_counts"):
+            pool.generate_pool(mode="stratified", seed=0)
+
+    def test_empty_tier_counts_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="non-empty tier_counts"):
+            pool.generate_pool(mode="stratified", tier_counts={}, seed=0)
+
+    def test_unknown_group_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="Unknown tier group"):
+            pool.generate_pool(mode="stratified", tier_counts={"Z": 1}, seed=0)
+
+    def test_too_many_from_group_raises(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="tier group 'S'"):
+            pool.generate_pool(mode="stratified", tier_counts={"S": 99}, seed=0)
+
+
+# ---------------------------------------------------------------------------
 # Mutation: remove / restore
 # ---------------------------------------------------------------------------
 

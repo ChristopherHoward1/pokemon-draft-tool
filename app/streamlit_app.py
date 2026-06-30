@@ -10,7 +10,7 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from engine.draft_state import DraftState
-from engine.pool import DraftPool
+from engine.pool import DraftPool, TIER_GROUPS
 
 _REPO_ROOT = Path(__file__).parent.parent
 
@@ -49,6 +49,16 @@ def _roster_stats(format_key: str) -> dict:
     ranked = [e for e in entries if e["vr_tier"] != "Unranked"]
     unranked = [e for e in entries if e["vr_tier"] == "Unranked"]
     return {"total": len(entries), "ranked": len(ranked), "unranked": len(unranked)}
+
+
+@st.cache_data
+def _group_counts(format_key: str) -> dict[str, int]:
+    """Number of Pokemon in each TIER_GROUPS group for the given format."""
+    pool = DraftPool(format_key)
+    return {
+        group: sum(1 for e in pool._all.values() if e["vr_tier"] in tiers)
+        for group, tiers in TIER_GROUPS.items()
+    }
 
 
 def _type_badge(t: str) -> str:
@@ -117,7 +127,7 @@ def _setup_screen() -> None:
         st.subheader("Pool")
         pool_mode_label = st.radio(
             "Generation mode",
-            ["Full Random", "VR-Weighted"],
+            ["Full Random", "VR-Weighted", "Stratified"],
             index=None,
         )
 
@@ -133,7 +143,8 @@ def _setup_screen() -> None:
                     step=1,
                 )
                 pool_params = {"mode": "random", "size": int(size)}
-            else:
+
+            elif pool_mode_label == "VR-Weighted":
                 vr_count = st.number_input(
                     "VR-ranked Pokemon",
                     min_value=1,
@@ -153,6 +164,30 @@ def _setup_screen() -> None:
                     "vr_count": int(vr_count),
                     "unranked_count": int(unranked_count),
                 }
+
+            else:  # Stratified
+                gcounts = _group_counts(format_key)
+                # Sensible per-group defaults that sum to roughly 80-120
+                _defaults = {"S": 5, "A": 15, "B": 25, "C": 15, "D": 5, "Unranked": 20}
+                tier_counts: dict[str, int] = {}
+                for group, available in gcounts.items():
+                    if available == 0:
+                        continue  # hide groups absent from this format
+                    default = min(_defaults.get(group, 10), available)
+                    count = st.number_input(
+                        f"{group} tier  ({available} available)",
+                        min_value=0,
+                        max_value=available,
+                        value=default,
+                        step=1,
+                        key=f"strat_{group}",
+                    )
+                    tier_counts[group] = int(count)
+                active = {g: c for g, c in tier_counts.items() if c > 0}
+                total = sum(active.values())
+                st.caption(f"Total pool size: {total} Pokemon")
+                pool_params = {"mode": "stratified", "tier_counts": active}
+
         elif pool_mode_label and not format_key:
             st.caption("Select a format above to configure pool size.")
 
@@ -163,6 +198,8 @@ def _setup_screen() -> None:
             issues.append("choose a format")
         if not pool_mode_label:
             issues.append("choose a generation mode")
+        if pool_mode_label == "Stratified" and format_key and not pool_params.get("tier_counts"):
+            issues.append("select at least one Pokemon from a tier group")
         blank = [i + 1 for i, n in enumerate(team_names) if not n]
         if blank:
             lbl = "name" if len(blank) == 1 else "names"

@@ -10,6 +10,16 @@ import yaml
 
 _CONFIG_PATH = Path(__file__).parent.parent / "config" / "draft_config.yaml"
 
+# Tier groups for stratified sampling: each key maps to the concrete VR tiers it covers.
+TIER_GROUPS: dict[str, list[str]] = {
+    "S":        ["S"],
+    "A":        ["A+", "A", "A-"],
+    "B":        ["B+", "B", "B-"],
+    "C":        ["C+", "C"],
+    "D":        ["D"],
+    "Unranked": ["Unranked"],
+}
+
 
 class DraftPool:
     def __init__(self, format_name: str, config_path: Path = _CONFIG_PATH) -> None:
@@ -43,6 +53,7 @@ class DraftPool:
         size: Optional[int] = None,
         vr_count: Optional[int] = None,
         unranked_count: Optional[int] = None,
+        tier_counts: Optional[dict[str, int]] = None,
         seed: Optional[int] = None,
     ) -> None:
         rng = random.Random(seed)
@@ -68,8 +79,28 @@ class DraftPool:
                 )
             chosen = rng.sample(ranked, vr_count) + rng.sample(unranked, unranked_count)
 
+        elif mode == "stratified":
+            if not tier_counts:
+                raise ValueError("stratified mode requires a non-empty tier_counts dict")
+            unknown = set(tier_counts) - set(TIER_GROUPS)
+            if unknown:
+                raise ValueError(
+                    f"Unknown tier group(s) {sorted(unknown)}. Expected one of: {list(TIER_GROUPS)}"
+                )
+            chosen = []
+            for group, count in tier_counts.items():
+                tiers = set(TIER_GROUPS[group])
+                members = [e for e in self._all.values() if e["vr_tier"] in tiers]
+                if count > len(members):
+                    raise ValueError(
+                        f"Requested {count} from tier group {group!r} but only {len(members)} available"
+                    )
+                chosen.extend(rng.sample(members, count))
+
         else:
-            raise ValueError(f"Unknown pool mode {mode!r}. Expected 'random' or 'vr_weighted'")
+            raise ValueError(
+                f"Unknown pool mode {mode!r}. Expected 'random', 'vr_weighted', or 'stratified'"
+            )
 
         self._pool = {e["name"]: e for e in chosen}
         self._available = dict(self._pool)
