@@ -263,6 +263,15 @@ def _render_sidebar(state: DraftState, pool: DraftPool, export: dict) -> None:
         c1.metric("Pick", f"{picks_made + 1} / {roster_size}")
         c2.metric("Budget", f"{remaining} pts")
 
+        if remaining <= 10:
+            st.warning(f"{remaining} pts remaining")
+        else:
+            st.markdown(
+                f'<p style="font-size:20px;font-weight:700;margin:2px 0 8px">'
+                f"{remaining} pts remaining</p>",
+                unsafe_allow_html=True,
+            )
+
     st.divider()
 
     can_undo = bool(st.session_state.get("draft_log"))
@@ -413,6 +422,66 @@ def _render_pool_grid(state: DraftState, pool: DraftPool, export: dict) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Draft board — team roster columns
+# ---------------------------------------------------------------------------
+
+def _render_team_columns(pool: DraftPool, export: dict) -> None:
+    st.divider()
+    st.subheader("Team Rosters")
+
+    config = pool._config
+    roster_size = config["roster_size"]
+    team_names = list(export["teams"].keys())
+
+    cols = st.columns(len(team_names))
+    for col, team_name in zip(cols, team_names):
+        team_data = export["teams"][team_name]
+        roster: list[dict] = team_data["roster"]
+        remaining = team_data["remaining_budget"]
+        picks_made = team_data["picks_made"]
+
+        with col:
+            st.subheader(team_name)
+            st.caption(f"{remaining} pts remaining")
+
+            for entry in roster:
+                tier = entry["vr_tier"]
+                cost = pool.tier_cost(tier)
+                sprite = _REPO_ROOT / entry.get("sprite_path", f"sprites/{entry['dex_id']}.png")
+                ic1, ic2 = st.columns([1, 2])
+                with ic1:
+                    if sprite.exists():
+                        st.image(str(sprite), width=48)
+                    else:
+                        st.markdown(
+                            '<div style="width:48px;height:48px;background:#ccc;'
+                            'border-radius:4px"></div>',
+                            unsafe_allow_html=True,
+                        )
+                with ic2:
+                    st.markdown(f"**{entry['display_name']}**")
+                    st.markdown(
+                        _inline_tier(tier)
+                        + f'&nbsp;<span style="font-size:11px;color:#888">{cost}&nbsp;pts</span>',
+                        unsafe_allow_html=True,
+                    )
+
+            for _ in range(roster_size - picks_made):
+                ic1, ic2 = st.columns([1, 2])
+                with ic1:
+                    st.markdown(
+                        '<div style="width:48px;height:48px;background:#f0f0f0;'
+                        'border-radius:4px;opacity:0.5"></div>',
+                        unsafe_allow_html=True,
+                    )
+                with ic2:
+                    st.markdown(
+                        '<span style="color:#ccc;font-size:12px">— open —</span>',
+                        unsafe_allow_html=True,
+                    )
+
+
+# ---------------------------------------------------------------------------
 # Draft board — team roster tabs
 # ---------------------------------------------------------------------------
 
@@ -474,7 +543,7 @@ def _draft_board() -> None:
 
     st.header("Available Pool")
     _render_pool_grid(state, pool, export)
-    _render_team_rosters(pool, export)
+    _render_team_columns(pool, export)
 
 
 # ---------------------------------------------------------------------------
