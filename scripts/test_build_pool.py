@@ -31,10 +31,10 @@ def _poke_data(name: str, dex_id: int = 1, types: list[str] | None = None, bst: 
     }
 
 
-SAMPLE_SV_SPECIES = {"corviknight", "great-tusk", "gholdengo", "talonflame", "blissey", "smeargle"}
+SAMPLE_SV_SPECIES = {"corviknight", "great-tusk", "gholdengo", "talonflame", "blissey", "smeargle", "rufflet"}
 SAMPLE_ALL_SLUGS = list(SAMPLE_SV_SPECIES) + [
     "ogerpon-wellspring-mask", "landorus-incarnate", "landorus-therian",
-    "flutter-mane",
+    "flutter-mane", "braviary",
 ]
 
 SAMPLE_VR_ENTRIES = [
@@ -46,6 +46,10 @@ SAMPLE_VR_ENTRIES = [
 
 SAMPLE_BANNED = {"Flutter Mane", "Smeargle"}
 
+# rufflet evolves into braviary; braviary is in SV dex but not SAMPLE_SV_SPECIES
+# so rufflet should be treated as a pre-evolution and excluded.
+SAMPLE_PREVO_SET = {"rufflet"}
+
 SAMPLE_POKE_DATA = {
     "corviknight":  _poke_data("corviknight", 879, ["steel", "flying"], 600),
     "great-tusk":   _poke_data("great-tusk", 997, ["ground", "fighting"], 570),
@@ -54,6 +58,7 @@ SAMPLE_POKE_DATA = {
     "blissey":      _poke_data("blissey", 242, ["normal"], 540),
     "smeargle":     _poke_data("smeargle", 235, ["normal"], 250),
     "flutter-mane": _poke_data("flutter-mane", 987, ["ghost", "fairy"], 570),
+    "rufflet":      _poke_data("rufflet", 627, ["normal", "flying"], 350),
 }
 
 
@@ -115,24 +120,27 @@ def test_resolve_names_unresolved_logged(caplog):
 # build_pool (fully mocked)
 # ---------------------------------------------------------------------------
 
-def _patch_scraping(vr_entries, banned):
+def _patch_scraping(vr_entries, banned, prevo_set=None):
     """Context manager patches for scrape_* and API calls."""
+    if prevo_set is None:
+        prevo_set = SAMPLE_PREVO_SET
     return [
         patch("build_pool.scrape_vr_thread", return_value=vr_entries),
         patch("build_pool.scrape_ban_dex", return_value=banned),
         patch("build_pool.scrape_ban_spoiler", return_value=banned),
         patch("build_pool.get_sv_species", return_value=SAMPLE_SV_SPECIES),
+        patch("build_pool.build_prevo_set", return_value=prevo_set),
         patch("build_pool.get_all_pokemon_slugs", return_value=SAMPLE_ALL_SLUGS),
         patch("build_pool.fetch_pokemon", side_effect=_make_fetch_pokemon(SAMPLE_POKE_DATA)),
     ]
 
 
-def _run_build_pool(fmt: str, vr_entries=None, banned=None):
+def _run_build_pool(fmt: str, vr_entries=None, banned=None, prevo_set=None):
     if vr_entries is None:
         vr_entries = SAMPLE_VR_ENTRIES
     if banned is None:
         banned = SAMPLE_BANNED
-    patches = _patch_scraping(vr_entries, banned)
+    patches = _patch_scraping(vr_entries, banned, prevo_set=prevo_set)
     ctx = [p.__enter__() for p in patches]
     try:
         return m.build_pool(fmt)
@@ -186,6 +194,21 @@ def test_build_pool_types_are_list():
     for entry in pool:
         assert isinstance(entry["types"], list)
         assert all(isinstance(t, str) for t in entry["types"])
+
+
+def test_build_pool_prevo_excluded_from_unranked():
+    # rufflet is in SAMPLE_SV_SPECIES and SAMPLE_PREVO_SET; it should be excluded
+    pool = _run_build_pool("aaa")
+    names = {e["name"] for e in pool}
+    assert "rufflet" not in names
+
+
+def test_build_pool_prevo_excluded_from_ranked():
+    # If a VR-ranked pokemon is also in the pre-evo set, it should be excluded
+    vr_with_prevo = SAMPLE_VR_ENTRIES + [VREntry("Rufflet", "C")]
+    pool = _run_build_pool("aaa", vr_entries=vr_with_prevo, prevo_set={"rufflet"})
+    names = {e["name"] for e in pool}
+    assert "rufflet" not in names
 
 
 def test_build_pool_empty_vr_returns_empty(caplog):
