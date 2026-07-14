@@ -211,6 +211,29 @@ def test_build_pool_prevo_excluded_from_ranked():
     assert "rufflet" not in names
 
 
+def test_build_prevo_set_respects_allowlist():
+    # build_prevo_set should not include PREVO_ALLOWLIST members even if they
+    # would otherwise be detected as pre-evolutions.
+    sv = {"chansey", "blissey", "dusclops", "dusknoir", "porygon2", "porygon-z"}
+
+    def _fake_fetch(slug):
+        parents = {
+            "blissey": "chansey",
+            "dusknoir": "dusclops",
+            "porygon-z": "porygon2",
+        }
+        parent = parents.get(slug)
+        return {"evolves_from_species": {"name": parent}} if parent else {"evolves_from_species": None}
+
+    with patch("build_pool.fetch_species", side_effect=_fake_fetch):
+        result = m.build_prevo_set(sv)
+
+    # chansey, dusclops, porygon2 are in the allowlist — must not be filtered
+    assert "chansey" not in result
+    assert "dusclops" not in result
+    assert "porygon2" not in result
+
+
 def test_build_pool_empty_vr_returns_empty(caplog):
     with caplog.at_level(logging.ERROR, logger="build_pool"):
         pool = _run_build_pool("aaa", vr_entries=[])

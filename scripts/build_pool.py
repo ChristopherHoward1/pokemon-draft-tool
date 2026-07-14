@@ -113,9 +113,18 @@ def fetch_species(slug: str) -> dict | None:
     return _api_get(f"https://pokeapi.co/api/v2/pokemon-species/{slug}", cache)
 
 
+# Pre-evolutions explicitly allowed in the draft pool (Eviolite users that are
+# competitively stronger than their final forms).
+PREVO_ALLOWLIST: frozenset[str] = frozenset({
+    "chansey",
+    "dusclops",
+    "porygon2",
+})
+
+
 def build_prevo_set(sv_species: set[str]) -> set[str]:
     """
-    Return the subset of sv_species that are pre-evolutions.
+    Return the subset of sv_species that are pre-evolutions, minus PREVO_ALLOWLIST.
 
     A species is a pre-evolution if any other SV species lists it as its
     evolves_from_species.  We fetch/cache species data for any slug that
@@ -132,9 +141,9 @@ def build_prevo_set(sv_species: set[str]) -> set[str]:
             evolves_from[slug] = parent["name"]
 
     # Pre-evolutions are species that appear as the 'evolves_from' value of
-    # another SV species.
-    pre_evos = set(evolves_from.values()) & sv_species
-    log.info("Pre-evolutions in SV dex: %d", len(pre_evos))
+    # another SV species, excluding explicitly allowed exceptions.
+    pre_evos = (set(evolves_from.values()) & sv_species) - PREVO_ALLOWLIST
+    log.info("Pre-evolutions in SV dex: %d (%d allowlisted)", len(pre_evos), len(PREVO_ALLOWLIST & sv_species))
     return pre_evos
 
 
