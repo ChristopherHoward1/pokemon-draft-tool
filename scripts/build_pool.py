@@ -22,6 +22,7 @@ from pathlib import Path
 import requests
 
 # Scripts directory is on sys.path when run as:  python scripts/build_pool.py
+from fetch_ps_nfe import fetch_ps_nfe_set, is_fully_evolved_ps, EVIOLITE_EXCEPTIONS
 from normalize_names import resolve, normalize
 from scrape_smogon import (
     scrape_vr_thread,
@@ -105,46 +106,6 @@ def get_sv_species() -> set[str]:
             species.add(entry["pokemon_species"]["name"])
     log.info("SV obtainable species: %d", len(species))
     return species
-
-
-def fetch_species(slug: str) -> dict | None:
-    """Fetch /pokemon-species/{slug} with file cache."""
-    cache = CACHE_DIR / f"species_{slug}.json"
-    return _api_get(f"https://pokeapi.co/api/v2/pokemon-species/{slug}", cache)
-
-
-# Pre-evolutions explicitly allowed in the draft pool (Eviolite users that are
-# competitively stronger than their final forms).
-PREVO_ALLOWLIST: frozenset[str] = frozenset({
-    "chansey",
-    "dusclops",
-    "porygon2",
-})
-
-
-def build_prevo_set(sv_species: set[str]) -> set[str]:
-    """
-    Return the subset of sv_species that are pre-evolutions, minus PREVO_ALLOWLIST.
-
-    A species is a pre-evolution if any other SV species lists it as its
-    evolves_from_species.  We fetch/cache species data for any slug that
-    doesn't already have a cache file.
-    """
-    evolves_from: dict[str, str] = {}  # species_name -> what it evolves from
-    for slug in sv_species:
-        data = fetch_species(slug)
-        if data is None:
-            log.warning("Could not fetch species data for %r — assuming fully evolved", slug)
-            continue
-        parent = data.get("evolves_from_species")
-        if parent:
-            evolves_from[slug] = parent["name"]
-
-    # Pre-evolutions are species that appear as the 'evolves_from' value of
-    # another SV species, excluding explicitly allowed exceptions.
-    pre_evos = (set(evolves_from.values()) & sv_species) - PREVO_ALLOWLIST
-    log.info("Pre-evolutions in SV dex: %d (%d allowlisted)", len(pre_evos), len(PREVO_ALLOWLIST & sv_species))
-    return pre_evos
 
 
 def get_all_pokemon_slugs() -> list[str]:
@@ -262,11 +223,11 @@ def build_pool(fmt: str) -> list[dict]:
     else:
         raw_banned = scrape_ban_spoiler(cfg["ban_url"], fmt, **cfg["ban_kwargs"])
 
-    # --- 3. Fetch SV species + full PokéAPI name list ---
+    # --- 3. Fetch SV species + PS NFE data + full PokéAPI name list ---
     log.info("[%s] Fetching SV species list...", fmt)
     sv_species = get_sv_species()
-    log.info("[%s] Building pre-evolution set...", fmt)
-    pre_evos = build_prevo_set(sv_species)
+    log.info("[%s] Loading PS NFE data...", fmt)
+    nfe_set = fetch_ps_nfe_set()
     log.info("[%s] Fetching full PokéAPI pokemon name list...", fmt)
     all_slugs = get_all_pokemon_slugs()
     corpus = set(all_slugs)
@@ -302,22 +263,34 @@ def build_pool(fmt: str) -> list[dict]:
             log.warning("[%s] Unresolved ban name: %r — not excluded", fmt, name)
 
     # --- 6. Determine the full legal pool ---
-    # Ranked Pokémon that aren't banned and are fully evolved.
-    legal_ranked = {
-        slug: tier for slug, tier in ranked.items()
-        if slug not in banned_slugs and slug not in pre_evos
-    }
+    def _passes_evo_filter(slug: str) -> bool:
+        return slug in EVIOLITE_EXCEPTIONS or is_fully_evolved_ps(slug, nfe_set)
 
-    # SV species that are unranked, not banned, and fully evolved.
-    legal_unranked_species = [
-        sp for sp in sv_species
-        if sp not in banned_slugs and sp not in ranked and sp not in pre_evos
-    ]
+    # Ranked Pokémon that aren't banned and pass the evolution filter.
+    ranked_unbanned = {s: t for s, t in ranked.items() if s not in banned_slugs}
+    legal_ranked = {s: t for s, t in ranked_unbanned.items() if _passes_evo_filter(s)}
+
+    # SV species that are unranked, not banned, and pass the evolution filter.
+    unranked_candidates = [sp for sp in sv_species if sp not in banned_slugs and sp not in ranked]
+    legal_unranked_species = [sp for sp in unranked_candidates if _passes_evo_filter(sp)]
+
+    n_passed = len(legal_ranked) + len(legal_unranked_species)
+    n_removed = (len(ranked_unbanned) + len(unranked_candidates)) - n_passed
+    eviolite_applied = sorted(
+        s for s in EVIOLITE_EXCEPTIONS
+        if s in legal_ranked or s in set(legal_unranked_species)
+    )
 
     log.info(
         "[%s] Legal pool: %d ranked + %d unranked species",
         fmt, len(legal_ranked), len(legal_unranked_species),
     )
+    log.info(
+        "[%s] Evolution filter (PS NFE lookup): %d passed, %d removed",
+        fmt, n_passed, n_removed,
+    )
+    if eviolite_applied:
+        log.info("[%s] Eviolite exceptions applied: %s", fmt, ", ".join(eviolite_applied))
 
     # --- 7. Fetch PokéAPI data for each entry ---
     pool: list[dict] = []
