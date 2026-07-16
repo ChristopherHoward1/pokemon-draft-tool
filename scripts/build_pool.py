@@ -107,6 +107,46 @@ def get_sv_species() -> set[str]:
     return species
 
 
+def fetch_species(slug: str) -> dict | None:
+    """Fetch /pokemon-species/{slug} with file cache."""
+    cache = CACHE_DIR / f"species_{slug}.json"
+    return _api_get(f"https://pokeapi.co/api/v2/pokemon-species/{slug}", cache)
+
+
+# Pre-evolutions explicitly allowed in the draft pool (Eviolite users that are
+# competitively stronger than their final forms).
+PREVO_ALLOWLIST: frozenset[str] = frozenset({
+    "chansey",
+    "dusclops",
+    "porygon2",
+})
+
+
+def build_prevo_set(sv_species: set[str]) -> set[str]:
+    """
+    Return the subset of sv_species that are pre-evolutions, minus PREVO_ALLOWLIST.
+
+    A species is a pre-evolution if any other SV species lists it as its
+    evolves_from_species.  We fetch/cache species data for any slug that
+    doesn't already have a cache file.
+    """
+    evolves_from: dict[str, str] = {}  # species_name -> what it evolves from
+    for slug in sv_species:
+        data = fetch_species(slug)
+        if data is None:
+            log.warning("Could not fetch species data for %r — assuming fully evolved", slug)
+            continue
+        parent = data.get("evolves_from_species")
+        if parent:
+            evolves_from[slug] = parent["name"]
+
+    # Pre-evolutions are species that appear as the 'evolves_from' value of
+    # another SV species, excluding explicitly allowed exceptions.
+    pre_evos = (set(evolves_from.values()) & sv_species) - PREVO_ALLOWLIST
+    log.info("Pre-evolutions in SV dex: %d (%d allowlisted)", len(pre_evos), len(PREVO_ALLOWLIST & sv_species))
+    return pre_evos
+
+
 def get_all_pokemon_slugs() -> list[str]:
     """Return every PokéAPI pokemon slug (all forms) for use as a fuzzy-match corpus."""
     cache = CACHE_DIR / "all_pokemon.json"
@@ -225,6 +265,8 @@ def build_pool(fmt: str) -> list[dict]:
     # --- 3. Fetch SV species + full PokéAPI name list ---
     log.info("[%s] Fetching SV species list...", fmt)
     sv_species = get_sv_species()
+    log.info("[%s] Building pre-evolution set...", fmt)
+    pre_evos = build_prevo_set(sv_species)
     log.info("[%s] Fetching full PokéAPI pokemon name list...", fmt)
     all_slugs = get_all_pokemon_slugs()
     corpus = set(all_slugs)
@@ -260,14 +302,16 @@ def build_pool(fmt: str) -> list[dict]:
             log.warning("[%s] Unresolved ban name: %r — not excluded", fmt, name)
 
     # --- 6. Determine the full legal pool ---
-    # Ranked Pokémon that aren't banned.
-    legal_ranked = {slug: tier for slug, tier in ranked.items() if slug not in banned_slugs}
+    # Ranked Pokémon that aren't banned and are fully evolved.
+    legal_ranked = {
+        slug: tier for slug, tier in ranked.items()
+        if slug not in banned_slugs and slug not in pre_evos
+    }
 
-    # SV species that are unranked and not banned.
-    # Exclude species whose slug matches a banned slug (exact) or a ranked slug.
+    # SV species that are unranked, not banned, and fully evolved.
     legal_unranked_species = [
         sp for sp in sv_species
-        if sp not in banned_slugs and sp not in ranked
+        if sp not in banned_slugs and sp not in ranked and sp not in pre_evos
     ]
 
     log.info(
