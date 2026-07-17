@@ -1,16 +1,22 @@
 """
 Pokémon Showdown NFE (not-fully-evolved) lookup.
 
-Fetches BattlePokedex from Pokémon Showdown's static JS file and extracts the
-set of slugs where nfe=True. One fetch, one parse, one dict lookup per Pokémon —
-no per-species API calls, no evolution chain walking.
+Fetches Pokémon Showdown's static pokedex and extracts the set of slugs that
+can still evolve — one fetch, one parse, one dict lookup per Pokémon; no
+per-species API calls, no evolution chain walking.
+
+Note on the data signal: Pokémon Showdown's client data files do NOT carry an
+explicit ``nfe`` flag (PS computes that at runtime in the battle simulator).
+The reliable static signal is the ``evos`` field: a species is not fully
+evolved iff it has a non-empty ``evos`` list. We fetch pokedex.json (valid
+JSON) rather than pokedex.js (a JS object literal with unquoted keys that the
+stdlib json parser cannot read).
 """
 
 from __future__ import annotations
 
 import json
 import logging
-import re
 import time
 from pathlib import Path
 
@@ -18,7 +24,7 @@ import requests
 
 log = logging.getLogger(__name__)
 
-_PS_POKEDEX_URL = "https://play.pokemonshowdown.com/data/pokedex.js"
+_PS_POKEDEX_URL = "https://play.pokemonshowdown.com/data/pokedex.json"
 _CACHE_FILE = Path(__file__).parent.parent / "data" / "pokemon_cache" / "ps_pokedex.json"
 _CACHE_MAX_AGE_DAYS = 7
 
@@ -42,13 +48,18 @@ def _api_slug_to_ps_slug(api_slug: str) -> str:
     return api_slug.replace("-", "").lower()
 
 
+def _nfe_slugs(data: dict) -> set[str]:
+    """Return the set of slugs that are not fully evolved (have a non-empty ``evos``)."""
+    return {slug for slug, entry in data.items() if entry.get("evos")}
+
+
 def fetch_ps_nfe_set() -> set[str]:
     """
-    Return the set of PS slugs where nfe=True.
+    Return the set of PS slugs that are not fully evolved.
 
-    Fetches Pokémon Showdown's pokedex.js, strips the JS assignment wrapper,
-    parses as JSON, and caches the result to data/pokemon_cache/ps_pokedex.json
-    for up to 7 days.
+    Fetches Pokémon Showdown's pokedex.json, parses it, derives the NFE set from
+    the ``evos`` field, and caches the parsed dex to
+    data/pokemon_cache/ps_pokedex.json for up to 7 days.
     """
     global _PS_ALL_SLUGS
 
@@ -58,7 +69,7 @@ def fetch_ps_nfe_set() -> set[str]:
             try:
                 data: dict = json.loads(_CACHE_FILE.read_text(encoding="utf-8"))
                 _PS_ALL_SLUGS = set(data.keys())
-                nfe_set = {slug for slug, entry in data.items() if entry.get("nfe")}
+                nfe_set = _nfe_slugs(data)
                 log.info("PS pokedex loaded from cache (%d NFE entries)", len(nfe_set))
                 return nfe_set
             except (json.JSONDecodeError, OSError):
@@ -72,27 +83,21 @@ def fetch_ps_nfe_set() -> set[str]:
         log.error("Failed to fetch PS pokedex: %s — NFE filter disabled", e)
         return set()
 
-    text = r.text.strip()
-    match = re.search(
-        r'(?:exports\.BattlePokedex|var BattlePokedex)\s*=\s*(\{.*\});?\s*$',
-        text,
-        re.DOTALL,
-    )
-    if not match:
-        log.error("Could not parse PS pokedex JS — unexpected format; NFE filter disabled")
-        return set()
-
     try:
-        data = json.loads(match.group(1))
+        data = json.loads(r.text)
     except json.JSONDecodeError as e:
         log.error("PS pokedex JSON parse failed: %s — NFE filter disabled", e)
+        return set()
+
+    if not isinstance(data, dict) or not data:
+        log.error("PS pokedex has unexpected shape — NFE filter disabled")
         return set()
 
     _CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
     _CACHE_FILE.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
 
     _PS_ALL_SLUGS = set(data.keys())
-    nfe_set = {slug for slug, entry in data.items() if entry.get("nfe")}
+    nfe_set = _nfe_slugs(data)
     log.info("PS pokedex fetched and cached: %d entries, %d NFE", len(data), len(nfe_set))
     return nfe_set
 

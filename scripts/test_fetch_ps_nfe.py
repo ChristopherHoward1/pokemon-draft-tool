@@ -24,19 +24,21 @@ import fetch_ps_nfe as m
 # Helpers
 # ---------------------------------------------------------------------------
 
+# A species is not fully evolved iff it has a non-empty ``evos`` list. PS's
+# static data carries no ``nfe`` flag, so we derive NFE from ``evos``.
 _SAMPLE_POKEDEX = {
-    "haunter":    {"num": 93,  "name": "Haunter",   "nfe": True},
-    "gengar":     {"num": 94,  "name": "Gengar"},
-    "chansey":    {"num": 113, "name": "Chansey",   "nfe": True},
-    "blissey":    {"num": 242, "name": "Blissey"},
-    "eevee":      {"num": 133, "name": "Eevee",     "nfe": True},
-    "espeon":     {"num": 196, "name": "Espeon"},
+    "haunter":    {"num": 93,  "name": "Haunter",   "prevo": "Gastly",  "evos": ["Gengar"]},
+    "gengar":     {"num": 94,  "name": "Gengar",    "prevo": "Haunter"},
+    "chansey":    {"num": 113, "name": "Chansey",   "evos": ["Blissey"]},
+    "blissey":    {"num": 242, "name": "Blissey",   "prevo": "Chansey"},
+    "eevee":      {"num": 133, "name": "Eevee",     "evos": ["Vaporeon", "Jolteon"]},
+    "espeon":     {"num": 196, "name": "Espeon",    "prevo": "Eevee"},
     "greattusk":  {"num": 997, "name": "Great Tusk"},
 }
 
 _SAMPLE_NFE = {"haunter", "chansey", "eevee"}
 
-_PS_JS = f"exports.BattlePokedex = {json.dumps(_SAMPLE_POKEDEX)};"
+_PS_JSON = json.dumps(_SAMPLE_POKEDEX)
 
 
 def _make_response(text: str) -> MagicMock:
@@ -50,24 +52,16 @@ def _make_response(text: str) -> MagicMock:
 # fetch_ps_nfe_set — parsing
 # ---------------------------------------------------------------------------
 
-def test_fetch_ps_nfe_set_parses_exports_form(tmp_path):
+def test_fetch_ps_nfe_set_parses_json(tmp_path):
     with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", return_value=_make_response(_PS_JS)):
-            result = m.fetch_ps_nfe_set()
-    assert result == _SAMPLE_NFE
-
-
-def test_fetch_ps_nfe_set_parses_var_form(tmp_path):
-    js = f"var BattlePokedex = {json.dumps(_SAMPLE_POKEDEX)};"
-    with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", return_value=_make_response(js)):
+        with patch("requests.get", return_value=_make_response(_PS_JSON)):
             result = m.fetch_ps_nfe_set()
     assert result == _SAMPLE_NFE
 
 
 def test_fetch_ps_nfe_set_populates_all_slugs(tmp_path):
     with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", return_value=_make_response(_PS_JS)):
+        with patch("requests.get", return_value=_make_response(_PS_JSON)):
             m.fetch_ps_nfe_set()
     assert m._PS_ALL_SLUGS == set(_SAMPLE_POKEDEX.keys())
 
@@ -75,7 +69,7 @@ def test_fetch_ps_nfe_set_populates_all_slugs(tmp_path):
 def test_fetch_ps_nfe_set_writes_cache(tmp_path):
     cache = tmp_path / "ps_pokedex.json"
     with patch.object(m, "_CACHE_FILE", cache):
-        with patch("requests.get", return_value=_make_response(_PS_JS)):
+        with patch("requests.get", return_value=_make_response(_PS_JSON)):
             m.fetch_ps_nfe_set()
     assert cache.exists()
     stored = json.loads(cache.read_text())
@@ -103,7 +97,7 @@ def test_fetch_ps_nfe_set_refetches_stale_cache(tmp_path):
     old = time.time() - 8 * 86400
     os.utime(cache, (old, old))
     with patch.object(m, "_CACHE_FILE", cache):
-        with patch("requests.get", return_value=_make_response(_PS_JS)) as mock_get:
+        with patch("requests.get", return_value=_make_response(_PS_JSON)) as mock_get:
             result = m.fetch_ps_nfe_set()
             mock_get.assert_called_once()
     assert result == _SAMPLE_NFE
@@ -113,7 +107,7 @@ def test_fetch_ps_nfe_set_refetches_corrupt_cache(tmp_path):
     cache = tmp_path / "ps_pokedex.json"
     cache.write_text("not json", encoding="utf-8")
     with patch.object(m, "_CACHE_FILE", cache):
-        with patch("requests.get", return_value=_make_response(_PS_JS)) as mock_get:
+        with patch("requests.get", return_value=_make_response(_PS_JSON)) as mock_get:
             result = m.fetch_ps_nfe_set()
             mock_get.assert_called_once()
     assert result == _SAMPLE_NFE
@@ -131,9 +125,10 @@ def test_fetch_ps_nfe_set_returns_empty_on_http_error(tmp_path):
     assert result == set()
 
 
-def test_fetch_ps_nfe_set_returns_empty_on_bad_js_format(tmp_path):
+def test_fetch_ps_nfe_set_returns_empty_on_unparseable_response(tmp_path):
+    # PS serves valid JSON; a JS-wrapped or otherwise non-JSON body is a failure.
     with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", return_value=_make_response("window.foo = {};")):
+        with patch("requests.get", return_value=_make_response("var BattlePokedex = {};")):
             result = m.fetch_ps_nfe_set()
     assert result == set()
 
