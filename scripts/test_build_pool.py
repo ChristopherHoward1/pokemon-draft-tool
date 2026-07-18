@@ -46,9 +46,8 @@ SAMPLE_VR_ENTRIES = [
 
 SAMPLE_BANNED = {"Flutter Mane", "Smeargle"}
 
-# rufflet evolves into braviary; braviary is in SV dex but not SAMPLE_SV_SPECIES
-# so rufflet should be treated as a pre-evolution and excluded.
-SAMPLE_PREVO_SET = {"rufflet"}
+# rufflet → braviary; "rufflet" is in the PS NFE set so it is excluded.
+SAMPLE_NFE_SET = {"rufflet"}
 
 SAMPLE_POKE_DATA = {
     "corviknight":  _poke_data("corviknight", 879, ["steel", "flying"], 600),
@@ -120,27 +119,27 @@ def test_resolve_names_unresolved_logged(caplog):
 # build_pool (fully mocked)
 # ---------------------------------------------------------------------------
 
-def _patch_scraping(vr_entries, banned, prevo_set=None):
+def _patch_scraping(vr_entries, banned, nfe_set=None):
     """Context manager patches for scrape_* and API calls."""
-    if prevo_set is None:
-        prevo_set = SAMPLE_PREVO_SET
+    if nfe_set is None:
+        nfe_set = SAMPLE_NFE_SET
     return [
         patch("build_pool.scrape_vr_thread", return_value=vr_entries),
         patch("build_pool.scrape_ban_dex", return_value=banned),
         patch("build_pool.scrape_ban_spoiler", return_value=banned),
         patch("build_pool.get_sv_species", return_value=SAMPLE_SV_SPECIES),
-        patch("build_pool.build_prevo_set", return_value=prevo_set),
+        patch("build_pool.fetch_ps_nfe_set", return_value=nfe_set),
         patch("build_pool.get_all_pokemon_slugs", return_value=SAMPLE_ALL_SLUGS),
         patch("build_pool.fetch_pokemon", side_effect=_make_fetch_pokemon(SAMPLE_POKE_DATA)),
     ]
 
 
-def _run_build_pool(fmt: str, vr_entries=None, banned=None, prevo_set=None):
+def _run_build_pool(fmt: str, vr_entries=None, banned=None, nfe_set=None):
     if vr_entries is None:
         vr_entries = SAMPLE_VR_ENTRIES
     if banned is None:
         banned = SAMPLE_BANNED
-    patches = _patch_scraping(vr_entries, banned, prevo_set=prevo_set)
+    patches = _patch_scraping(vr_entries, banned, nfe_set=nfe_set)
     ctx = [p.__enter__() for p in patches]
     try:
         return m.build_pool(fmt)
@@ -196,42 +195,45 @@ def test_build_pool_types_are_list():
         assert all(isinstance(t, str) for t in entry["types"])
 
 
-def test_build_pool_prevo_excluded_from_unranked():
-    # rufflet is in SAMPLE_SV_SPECIES and SAMPLE_PREVO_SET; it should be excluded
+def test_build_pool_nfe_excluded_from_unranked():
+    # rufflet is in SAMPLE_SV_SPECIES and SAMPLE_NFE_SET; it should be excluded
     pool = _run_build_pool("aaa")
     names = {e["name"] for e in pool}
     assert "rufflet" not in names
 
 
-def test_build_pool_prevo_excluded_from_ranked():
-    # If a VR-ranked pokemon is also in the pre-evo set, it should be excluded
-    vr_with_prevo = SAMPLE_VR_ENTRIES + [VREntry("Rufflet", "C")]
-    pool = _run_build_pool("aaa", vr_entries=vr_with_prevo, prevo_set={"rufflet"})
+def test_build_pool_nfe_excluded_from_ranked():
+    # A VR-ranked Pokémon in the NFE set is also excluded
+    vr_with_nfe = SAMPLE_VR_ENTRIES + [VREntry("Rufflet", "C")]
+    pool = _run_build_pool("aaa", vr_entries=vr_with_nfe, nfe_set={"rufflet"})
     names = {e["name"] for e in pool}
     assert "rufflet" not in names
 
 
-def test_build_prevo_set_respects_allowlist():
-    # build_prevo_set should not include PREVO_ALLOWLIST members even if they
-    # would otherwise be detected as pre-evolutions.
-    sv = {"chansey", "blissey", "dusclops", "dusknoir", "porygon2", "porygon-z"}
+def test_eviolite_exceptions_bypass_nfe_filter():
+    # chansey is in the NFE set but also in EVIOLITE_EXCEPTIONS — it must be included.
+    sv_with_chansey = SAMPLE_SV_SPECIES | {"chansey"}
+    nfe_with_chansey = SAMPLE_NFE_SET | {"chansey"}
+    poke_data_ext = {**SAMPLE_POKE_DATA, "chansey": _poke_data("chansey", 113, ["normal"], 450)}
 
-    def _fake_fetch(slug):
-        parents = {
-            "blissey": "chansey",
-            "dusknoir": "dusclops",
-            "porygon-z": "porygon2",
-        }
-        parent = parents.get(slug)
-        return {"evolves_from_species": {"name": parent}} if parent else {"evolves_from_species": None}
+    patches = [
+        patch("build_pool.scrape_vr_thread", return_value=SAMPLE_VR_ENTRIES),
+        patch("build_pool.scrape_ban_dex", return_value=SAMPLE_BANNED),
+        patch("build_pool.scrape_ban_spoiler", return_value=SAMPLE_BANNED),
+        patch("build_pool.get_sv_species", return_value=sv_with_chansey),
+        patch("build_pool.fetch_ps_nfe_set", return_value=nfe_with_chansey),
+        patch("build_pool.get_all_pokemon_slugs", return_value=SAMPLE_ALL_SLUGS + ["chansey"]),
+        patch("build_pool.fetch_pokemon", side_effect=_make_fetch_pokemon(poke_data_ext)),
+    ]
+    ctx = [p.__enter__() for p in patches]
+    try:
+        pool = m.build_pool("aaa")
+    finally:
+        for p, c in zip(patches, ctx):
+            p.__exit__(None, None, None)
 
-    with patch("build_pool.fetch_species", side_effect=_fake_fetch):
-        result = m.build_prevo_set(sv)
-
-    # chansey, dusclops, porygon2 are in the allowlist — must not be filtered
-    assert "chansey" not in result
-    assert "dusclops" not in result
-    assert "porygon2" not in result
+    names = {e["name"] for e in pool}
+    assert "chansey" in names
 
 
 def test_build_pool_empty_vr_returns_empty(caplog):
