@@ -159,6 +159,35 @@ class TestSnakeOrder:
             state.current_team()
 
 
+class TestLinearOrder:
+    def _record_order(self, state: DraftState, picks: list[str]) -> list[str]:
+        order = []
+        for name in picks:
+            order.append(state.current_team())
+            state.pick(name)
+        return order
+
+    def test_two_teams_linear(self):
+        # 2 teams, 2 picks each, linear → A B A B (no snake reversal)
+        pool = make_pool()
+        state = DraftState(pool, ["A", "B"], draft_order="linear")
+        all_names = [e["name"] for e in pool.available()]
+        order = self._record_order(state, all_names[:4])
+        assert order == ["A", "B", "A", "B"]
+
+    def test_three_teams_linear(self):
+        pool = make_pool()
+        state = DraftState(pool, ["A", "B", "C"], draft_order="linear")
+        all_names = [e["name"] for e in pool.available()]
+        order = self._record_order(state, all_names[:6])
+        assert order == ["A", "B", "C", "A", "B", "C"]
+
+    def test_invalid_draft_order_rejected(self):
+        pool = make_pool()
+        with pytest.raises(ValueError, match="draft_order"):
+            DraftState(pool, ["A", "B"], draft_order="zigzag")
+
+
 # ---------------------------------------------------------------------------
 # pick()
 # ---------------------------------------------------------------------------

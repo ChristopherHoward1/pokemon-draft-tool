@@ -32,6 +32,35 @@ streamlit run app/streamlit_app.py
 
 Then open `http://localhost:8501` in a browser. All participants share the same browser window during a live draft.
 
+## Multiplayer mode (Phase 3)
+
+A real-time, one-browser-per-player draft: a FastAPI + WebSocket backend (`server/`)
+wrapping the same engine, and a React/Vite client (`client/`). Each player joins a
+room code from their own device and names their own team; the first to join picks
+first. Supports snake **and** linear draft order.
+
+Run both locally (two terminals):
+
+```
+# 1) backend  (repo root)
+uvicorn server.main:app --reload --port 8000
+
+# 2) frontend (client/)
+cd client && npm install && npm run dev
+```
+
+Open `http://localhost:5173`, create a room, share the code, and have each player
+open the same URL and join. The Vite dev server reads `VITE_API_URL` from
+`client/.env.development` (defaults to `http://localhost:8000`).
+
+Deployment to Render (two services from this repo) is described in `render.yaml`.
+
+Tests:
+
+```
+pytest engine/tests server/tests   # 91 engine + 12 backend
+```
+
 ## Setup screen
 
 1. Choose a format (AAA or Pokébilities)

@@ -1,0 +1,32 @@
+# Render blueprint — two services from this one repo.
+#
+# After first deploy, wire the two URLs together:
+#   - backend  env FRONTEND_URL   = https://<frontend-service>.onrender.com
+#   - frontend env VITE_API_URL   = https://<backend-service>.onrender.com
+# then trigger a redeploy of each (VITE_API_URL is baked in at build time).
+services:
+  # ---- Backend: FastAPI + WebSockets ----
+  - type: web
+    name: pokemon-draft-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: FRONTEND_URL
+        sync: false # set to the frontend URL in the dashboard
+
+  # ---- Frontend: static Vite/React build ----
+  - type: web
+    name: pokemon-draft-web
+    runtime: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false # set to the backend URL in the dashboard
+    routes:
+      # SPA fallback so /lobby/:code and /draft/:code resolve to index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html

@@ -6,3 +6,8 @@ streamlit
 pyyaml
 pillow
 pytest
+fastapi
+uvicorn[standard]
+websockets
+python-multipart
+httpx
