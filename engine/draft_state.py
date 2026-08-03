@@ -15,7 +15,12 @@ class _Team:
 
 
 class DraftState:
-    def __init__(self, pool: DraftPool, team_names: list[str]) -> None:
+    def __init__(
+        self,
+        pool: DraftPool,
+        team_names: list[str],
+        draft_order: str = "snake",
+    ) -> None:
         min_t = pool._config["min_teams"]
         max_t = pool._config["max_teams"]
         if not (min_t <= len(team_names) <= max_t):
@@ -24,8 +29,13 @@ class DraftState:
             )
         if not pool.available():
             raise ValueError("Pool has no available Pokémon — call generate_pool() first")
+        if draft_order not in ("snake", "linear"):
+            raise ValueError(
+                f"Unknown draft_order {draft_order!r}. Expected 'snake' or 'linear'"
+            )
 
         budget = pool._config["budget"]
+        self._draft_order = draft_order
         self._teams: list[_Team] = [_Team(name=n, remaining_budget=budget) for n in team_names]
         self._team_index: dict[str, int] = {n: i for i, n in enumerate(team_names)}
         self._pool = pool
@@ -43,7 +53,10 @@ class DraftState:
         n = len(self._teams)
         round_num = total // n
         pos = total % n
-        idx = pos if round_num % 2 == 0 else n - 1 - pos
+        if self._draft_order == "linear" or round_num % 2 == 0:
+            idx = pos
+        else:  # snake: even rounds forward, odd rounds reversed
+            idx = n - 1 - pos
         return self._teams[idx]
 
     def current_team(self) -> str:

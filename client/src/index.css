@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* --------------------------------------------------------------------------
+   Design tokens — a Pokémon draft "war room", committed to a dark ground so
+   the 18 canonical type colors pop and the board reads on a Discord stream.
+   -------------------------------------------------------------------------- */
+@theme {
+  --font-display: "Chakra Petch", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-ground: #0e1116;
+  --color-surface: #171b22;
+  --color-raised: #1e242d;
+  --color-border: #2a313c;
+  --color-borderlite: #363f4d;
+
+  --color-ink: #e8ecf2;
+  --color-muted: #8b95a5;
+  --color-faint: #5b6472;
+
+  --color-accent: #f4b740; /* energy / active turn / brand */
+  --color-accent-dim: #7a5f22;
+  --color-good: #3dd68c;
+  --color-warn: #e5484d;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11";
+}
+
+/* Subtle "arena" ambience — a faint radial glow behind everything. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(244, 183, 64, 0.06), transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, rgba(61, 214, 140, 0.04), transparent 55%);
+  pointer-events: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Keyboard focus is always visible. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Thin, on-theme scrollbars for the dense panels. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-borderlite) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-borderlite);
+  border-radius: 8px;
+}
+
+/* Pick-reveal flash on the On-The-Clock bar. */
+@keyframes pickflash {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  12% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-pickflash {
+  animation: pickflash 3.2s ease-out forwards;
+}
+
+@keyframes clockpulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 183, 64, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(244, 183, 64, 0);
+  }
+}
+.animate-clockpulse {
+  animation: clockpulse 1.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pickflash,
+  .animate-clockpulse {
+    animation: none;
+  }
+}
