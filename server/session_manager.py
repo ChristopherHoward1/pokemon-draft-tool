@@ -185,24 +185,30 @@ class SessionManager:
     def _build_pool(self, config: CreateSessionRequest) -> DraftPool:
         pool = DraftPool(config.format)
         mode = config.pool_mode
-        if mode == "random":
-            if config.pool_size is None:
-                raise SessionError("random pool mode requires pool_size")
-            pool.generate_pool(mode="random", size=config.pool_size)
-        elif mode == "vr_weighted":
-            if config.vr_count is None or config.unranked_count is None:
-                raise SessionError(
-                    "vr_weighted pool mode requires vr_count and unranked_count"
+        # generate_pool raises ValueError when a request exceeds what the format
+        # has (e.g. vr_count > ranked available) — surface it as a clean 4xx
+        # instead of letting it escape as an unhandled 500 on Start.
+        try:
+            if mode == "random":
+                if config.pool_size is None:
+                    raise SessionError("random pool mode requires pool_size")
+                pool.generate_pool(mode="random", size=config.pool_size)
+            elif mode == "vr_weighted":
+                if config.vr_count is None or config.unranked_count is None:
+                    raise SessionError(
+                        "vr_weighted pool mode requires vr_count and unranked_count"
+                    )
+                pool.generate_pool(
+                    mode="vr_weighted",
+                    vr_count=config.vr_count,
+                    unranked_count=config.unranked_count,
                 )
-            pool.generate_pool(
-                mode="vr_weighted",
-                vr_count=config.vr_count,
-                unranked_count=config.unranked_count,
-            )
-        else:  # stratified
-            if not config.tier_counts:
-                raise SessionError("stratified pool mode requires tier_counts")
-            pool.generate_pool(mode="stratified", tier_counts=config.tier_counts)
+            else:  # stratified
+                if not config.tier_counts:
+                    raise SessionError("stratified pool mode requires tier_counts")
+                pool.generate_pool(mode="stratified", tier_counts=config.tier_counts)
+        except ValueError as exc:
+            raise SessionError(str(exc)) from exc
 
         # A pool smaller than every team's full roster would deadlock the draft.
         needed = config.num_teams * config.roster_size

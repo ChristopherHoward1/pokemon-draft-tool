@@ -84,6 +84,21 @@ def test_start_rejected_until_full(client):
     assert resp.status_code == 409
 
 
+def test_start_with_oversized_pool_returns_clean_error(client):
+    # vr_count far exceeds any format's ranked pool → generate_pool raises
+    # ValueError, which must surface as a clean 4xx with a reason, not a 500.
+    cfg = _make_config(num_teams=2, roster_size=2)
+    cfg["pool_mode"] = "vr_weighted"
+    cfg["vr_count"] = 1000
+    cfg["unranked_count"] = 5
+    sid = client.post("/session", json=cfg).json()["session_id"]
+    client.post(f"/session/{sid}/join", json={"team_name": "Alpha"})
+    client.post(f"/session/{sid}/join", json={"team_name": "Bravo"})
+    resp = client.post(f"/session/{sid}/start")
+    assert resp.status_code == 400, f"expected clean 4xx, got {resp.status_code}"
+    assert "reason" in resp.json()
+
+
 # ---------------------------------------------------------------------------
 # Lobby WebSocket
 # ---------------------------------------------------------------------------
