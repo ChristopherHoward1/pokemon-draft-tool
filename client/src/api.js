@@ -1,8 +1,13 @@
 // REST helpers + URL derivation for the draft backend.
 
-export const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(/\/$/, "");
+// In dev, VITE_API_URL is unset and requests go same-origin so the Vite dev
+// server can proxy /session, /sprites and /health to the backend (see
+// vite.config.js). In production VITE_API_URL points at the deployed backend.
+export const API_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
-export const WS_URL = API_URL.replace(/^http/, "ws");
+export const WS_URL = API_URL
+  ? API_URL.replace(/^http/, "ws")
+  : `${location.protocol === "https:" ? "wss" : "ws"}://${location.host}`;
 
 export const spriteUrl = (spritePath) => `${API_URL}/${spritePath}`;
 

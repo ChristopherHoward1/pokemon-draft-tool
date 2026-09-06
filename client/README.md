@@ -8,7 +8,11 @@ run a draft.
 ## Prerequisites
 
 - Node.js 18+
-- The backend running (`uvicorn server.main:app --port 8000` from the repo root)
+- The backend running on port 8000
+
+The easiest way to get both is `./dev.sh` from the repo root — it starts the
+backend and this dev server together (and installs deps on first run). The steps
+below are for running the frontend on its own against an already-running backend.
 
 ## Develop
 
@@ -16,6 +20,10 @@ run a draft.
 npm install
 npm run dev        # Vite dev server on http://localhost:5173
 ```
+
+In dev the app runs same-origin: the Vite dev server proxies `/session`
+(WebSockets included), `/sprites`, and `/health` to the backend on port 8000
+(see `vite.config.js`), so no `VITE_API_URL` is needed.
 
 ## Build for production
 
@@ -26,14 +34,13 @@ npm run preview    # serve the production build locally
 
 ## Configuration
 
-The app talks to the backend at `VITE_API_URL` (WebSocket URLs are derived from
-it — `http://` → `ws://`, `https://` → `wss://`). Vite loads it from:
+In **dev**, `VITE_API_URL` is unset and the app runs same-origin, relying on the
+Vite proxy (see above) to reach the backend.
 
-- `.env.development` — used by `npm run dev` (defaults to `http://localhost:8000`)
-- `.env.production` — used by `npm run build` (set this to your deployed backend URL)
-
-`VITE_API_URL` is baked in **at build time**, so change it *before* building for
-deployment.
+In **production**, the app talks to the backend at `VITE_API_URL` (WebSocket URLs
+are derived from it — `http://` → `ws://`, `https://` → `wss://`). Vite loads it
+from `.env.production`, used by `npm run build`. It is baked in **at build time**,
+so set it to your deployed backend URL *before* building for deployment.
 
 ## Structure
 

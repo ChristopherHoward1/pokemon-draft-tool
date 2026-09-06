@@ -98,17 +98,16 @@ over WebSockets; a React frontend (`client/`) is what players actually see.
 
 ### Run it locally
 
-Two terminals:
+One command from the repo root:
 
 ```
-# 1) Backend — from the repo root
-uvicorn server.main:app --reload --port 8000
-
-# 2) Frontend — from client/
-cd client
-npm install
-npm run dev
+./dev.sh
 ```
+
+This installs the client dependencies on first run, then starts the FastAPI
+backend (port 8000) and the Vite dev server (port 5173) together, shutting both
+down on Ctrl-C. The Vite dev server proxies `/session`, `/sprites` and `/health`
+(including WebSockets) to the backend, so no `VITE_API_URL` is needed in dev.
 
 Then open `http://localhost:5173`.
 
@@ -136,9 +135,10 @@ most recent pick.
   That's fine for a scheduled league night; just don't restart mid-draft.
 - **Reconnecting.** If a player's connection drops, the client retries
   automatically and reloads the current board on reconnect.
-- **Config points at the backend.** The frontend reads `VITE_API_URL` — see
-  `client/.env.development` (defaults to `http://localhost:8000`) and
-  `client/.env.production`. More detail in [`client/README.md`](client/README.md).
+- **Config points at the backend.** In dev the client runs same-origin and the
+  Vite proxy forwards to the backend, so no config is needed. In production the
+  frontend reads `VITE_API_URL` from `client/.env.production`. More detail in
+  [`client/README.md`](client/README.md).
 
 ### Deploying (Render)
 
