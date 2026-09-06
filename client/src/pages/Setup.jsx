@@ -86,7 +86,7 @@ export default function Setup() {
           Set up the war room
         </h1>
         <p className="mt-2 text-sm text-muted">
-          Configure the draft, then share the room code in Discord. First player to
+          Configure the draft, then share the invite link in Discord. First player to
           join picks first.
         </p>
       </header>
