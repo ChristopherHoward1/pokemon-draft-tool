@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDraftSocket } from "../hooks/useDraftSocket";
+import { useCopy } from "../hooks/useCopy";
 import { TIER_ORDER, FORMATS } from "../constants";
 import PokeCard from "../components/PokeCard";
 import TeamRoster from "../components/TeamRoster";
@@ -46,6 +47,7 @@ export default function Draft() {
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState([]);
   const [tierFilter, setTierFilter] = useState([]);
+  const { copied, copy } = useCopy();
 
   const allTypes = useMemo(() => {
     if (!state) return [];
@@ -117,6 +119,15 @@ export default function Draft() {
             {status.label}
           </span>
         </div>
+
+        <button
+          type="button"
+          onClick={() => copy(window.location.href)}
+          title="Copy a link to this live draft"
+          className="rounded-md border border-border bg-ground px-3 py-2 text-sm font-semibold text-ink transition hover:border-accent"
+        >
+          {copied ? "Link copied!" : "Copy draft link"}
+        </button>
 
         {/* Your team status */}
         <div className="rounded-lg border border-border bg-raised px-3 py-2.5">

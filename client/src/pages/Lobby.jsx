@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getSession, joinSession, startSession } from "../api";
 import { useLobbySocket } from "../hooks/useLobbySocket";
+import { useCopy } from "../hooks/useCopy";
 import { FORMATS } from "../constants";
 
 const teamKey = (code) => `draft:${code}:team`;
@@ -22,6 +23,9 @@ export default function Lobby() {
   const [joined, setJoined] = useState(false);
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
+  const { copied, copy } = useCopy();
+
+  const inviteUrl = `${window.location.origin}/lobby/${code}`;
 
   useEffect(() => {
     getSession(code).then(setMeta).catch((e) => setError(e.message));
@@ -78,7 +82,7 @@ export default function Lobby() {
       {/* Room code header */}
       <div className="mb-6 flex flex-col items-center gap-2 text-center">
         <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted">
-          Room code — share in Discord
+          Room code
         </span>
         <div className="font-display text-6xl font-bold tracking-[0.2em] text-accent">
           {code}
@@ -89,6 +93,31 @@ export default function Lobby() {
             <span className="capitalize">{meta.draft_order}</span> order
           </div>
         )}
+      </div>
+
+      {/* Shareable invite link */}
+      <div className="mb-6 flex flex-col gap-2 rounded-xl border border-border bg-surface p-4">
+        <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">
+          Invite link — share in Discord
+        </span>
+        <div className="flex gap-2">
+          <input
+            readOnly
+            value={inviteUrl}
+            onFocus={(e) => e.target.select()}
+            className="flex-1 rounded-md border border-border bg-ground px-3 py-2 font-mono text-sm text-ink outline-none focus:border-accent"
+          />
+          <button
+            type="button"
+            onClick={() => copy(inviteUrl)}
+            className="min-w-[5.5rem] rounded-md bg-accent px-4 py-2 font-semibold text-ground transition hover:brightness-110"
+          >
+            {copied ? "Copied!" : "Copy"}
+          </button>
+        </div>
+        <span className="text-xs text-faint">
+          Anyone with this link lands straight in the lobby and can claim a slot.
+        </span>
       </div>
 
       {/* Join form (until this browser has joined) */}
