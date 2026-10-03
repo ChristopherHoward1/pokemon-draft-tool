@@ -11,7 +11,7 @@ export const TYPE_COLORS = {
 
 // Tier badge colors, grouped by cost band (mirrors the Streamlit app).
 export const TIER_COLORS = {
-  S: "#C62828",
+  S: "#C62828", "S-": "#C62828",
   "A+": "#E65100", A: "#E65100", "A-": "#E65100",
   "B+": "#1565C0", B: "#1565C0", "B-": "#1565C0",
   "C+": "#546E7A", C: "#546E7A",
@@ -20,7 +20,7 @@ export const TIER_COLORS = {
 };
 
 export const TIER_ORDER = [
-  "S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "D", "Unranked",
+  "S", "S-", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "D", "Unranked",
 ];
 
 export const FORMATS = [

@@ -17,7 +17,7 @@ _REPO_ROOT = Path(__file__).parent.parent
 _FORMAT_KEYS = {"AAA": "aaa", "Pokébilities": "pokebilities"}
 
 # Canonical tier order (most expensive first)
-_TIER_ORDER = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "D", "Unranked"]
+_TIER_ORDER = ["S", "S-", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "D", "Unranked"]
 
 _TYPE_COLORS: dict[str, str] = {
     "normal": "#A8A878", "fire": "#F08030", "water": "#6890F0",
@@ -29,7 +29,7 @@ _TYPE_COLORS: dict[str, str] = {
 }
 
 _TIER_COLORS: dict[str, str] = {
-    "S":  "#C62828",
+    "S":  "#C62828", "S-": "#C62828",
     "A+": "#E65100", "A": "#E65100", "A-": "#E65100",
     "B+": "#1565C0", "B": "#1565C0", "B-": "#1565C0",
     "C+": "#546E7A", "C": "#546E7A",

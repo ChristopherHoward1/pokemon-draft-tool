@@ -12,7 +12,7 @@ _CONFIG_PATH = Path(__file__).parent.parent / "config" / "draft_config.yaml"
 
 # Tier groups for stratified sampling: each key maps to the concrete VR tiers it covers.
 TIER_GROUPS: dict[str, list[str]] = {
-    "S":        ["S"],
+    "S":        ["S", "S-"],
     "A":        ["A+", "A", "A-"],
     "B":        ["B+", "B", "B-"],
     "C":        ["C+", "C"],
