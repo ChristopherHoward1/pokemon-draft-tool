@@ -6,6 +6,7 @@ default_pool_size: 120
 
 tier_costs:
   S: 11
+  S-: 11
   A+: 10
   A: 9
   A-: 8

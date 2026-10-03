@@ -31,15 +31,15 @@ RAW_DIR = Path(__file__).parent.parent / "data" / "raw"
 
 # Matches tier labels as they appear in table cells, e.g.:
 #   "S"  "S Rank"  "S RANK : Metagame-Defining threats"
-#   "A+"  "A"  "A-"  "B+"  "B"  "B-"  "C+"  "C"  "C-"  "D"  "Unranked"
+#   "S-"  "A+"  "A"  "A-"  "B+"  "B"  "B-"  "C+"  "C"  "C-"  "D"  "Unranked"
 # The leading/trailing text like "Rank" and ": ..." description is stripped.
 _TABLE_TIER_RE = re.compile(
-    r"^\s*(?P<tier>S|A\+|A-|A|B\+|B-|B|C\+|C-|C|D|Unranked)"
+    r"^\s*(?P<tier>S-|S|A\+|A-|A|B\+|B-|B|C\+|C-|C|D|Unranked)"
     r"(?:\s+RANK|\s+Rank)?(?:\s*:.*)?$",
     re.IGNORECASE,
 )
 
-CANONICAL_TIERS = ("S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "Unranked")
+CANONICAL_TIERS = ("S", "S-", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "Unranked")
 
 
 class VREntry(NamedTuple):
@@ -194,6 +194,8 @@ def _add_ban_names(banned: set, raw: str) -> None:
     for part in parts:
         # Strip a leading "and " left over after comma-splitting "X, Y, and Z"
         part = re.sub(r"^\s*and\s+", "", part, flags=re.IGNORECASE).strip()
+        # "Basculin (All formes)" → "Basculin"; resolving to any form bans the base species
+        part = re.sub(r"\s*\(all formes?\)\s*$", "", part, flags=re.IGNORECASE)
         if not part:
             continue
         # Also split "X and Y" within a single fragment (e.g. "Snorunt and Glalie")

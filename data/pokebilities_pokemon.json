@@ -1,15 +1,52 @@
 [
   {
-    "dex_id": 485,
-    "name": "heatran",
-    "display_name": "Heatran",
+    "dex_id": 594,
+    "name": "alomomola",
+    "display_name": "Alomomola",
     "types": [
-      "fire",
-      "steel"
+      "water"
+    ],
+    "base_stat_total": 470,
+    "vr_tier": "A",
+    "sprite_path": "sprites/594.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 10003,
+    "name": "deoxys-speed",
+    "display_name": "Deoxys Speed",
+    "types": [
+      "psychic"
     ],
     "base_stat_total": 600,
     "vr_tier": "A",
-    "sprite_path": "sprites/485.png",
+    "sprite_path": "sprites/10003.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 992,
+    "name": "iron-hands",
+    "display_name": "Iron Hands",
+    "types": [
+      "fighting",
+      "electric"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "A",
+    "sprite_path": "sprites/992.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 647,
+    "name": "keldeo-ordinary",
+    "display_name": "Keldeo Ordinary",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "A",
+    "sprite_path": "sprites/647.png",
     "format": "pokebilities"
   },
   {
@@ -26,55 +63,16 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 1025,
-    "name": "pecharunt",
-    "display_name": "Pecharunt",
+    "dex_id": 663,
+    "name": "talonflame",
+    "display_name": "Talonflame",
     "types": [
-      "poison",
-      "ghost"
+      "fire",
+      "flying"
     ],
-    "base_stat_total": 600,
+    "base_stat_total": 499,
     "vr_tier": "A",
-    "sprite_path": "sprites/1025.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 199,
-    "name": "slowking",
-    "display_name": "Slowking",
-    "types": [
-      "water",
-      "psychic"
-    ],
-    "base_stat_total": 490,
-    "vr_tier": "A",
-    "sprite_path": "sprites/199.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 10172,
-    "name": "slowking-galar",
-    "display_name": "Slowking Galar",
-    "types": [
-      "poison",
-      "psychic"
-    ],
-    "base_stat_total": 490,
-    "vr_tier": "A",
-    "sprite_path": "sprites/10172.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 1003,
-    "name": "ting-lu",
-    "display_name": "Ting Lu",
-    "types": [
-      "dark",
-      "ground"
-    ],
-    "base_stat_total": 570,
-    "vr_tier": "A",
-    "sprite_path": "sprites/1003.png",
+    "sprite_path": "sprites/663.png",
     "format": "pokebilities"
   },
   {
@@ -90,28 +88,29 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 594,
-    "name": "alomomola",
-    "display_name": "Alomomola",
+    "dex_id": 485,
+    "name": "heatran",
+    "display_name": "Heatran",
     "types": [
-      "water"
+      "fire",
+      "steel"
     ],
-    "base_stat_total": 470,
+    "base_stat_total": 600,
     "vr_tier": "A+",
-    "sprite_path": "sprites/594.png",
+    "sprite_path": "sprites/485.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 647,
-    "name": "keldeo-ordinary",
-    "display_name": "Keldeo Ordinary",
+    "dex_id": 1025,
+    "name": "pecharunt",
+    "display_name": "Pecharunt",
     "types": [
-      "water",
-      "fighting"
+      "poison",
+      "ghost"
     ],
-    "base_stat_total": 580,
+    "base_stat_total": 600,
     "vr_tier": "A+",
-    "sprite_path": "sprites/647.png",
+    "sprite_path": "sprites/1025.png",
     "format": "pokebilities"
   },
   {
@@ -125,6 +124,45 @@
     "base_stat_total": 528,
     "vr_tier": "A+",
     "sprite_path": "sprites/10236.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 199,
+    "name": "slowking",
+    "display_name": "Slowking",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/199.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 10172,
+    "name": "slowking-galar",
+    "display_name": "Slowking Galar",
+    "types": [
+      "poison",
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/10172.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 1003,
+    "name": "ting-lu",
+    "display_name": "Ting Lu",
+    "types": [
+      "dark",
+      "ground"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "A+",
+    "sprite_path": "sprites/1003.png",
     "format": "pokebilities"
   },
   {
@@ -153,43 +191,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 10003,
-    "name": "deoxys-speed",
-    "display_name": "Deoxys Speed",
-    "types": [
-      "psychic"
-    ],
-    "base_stat_total": 600,
-    "vr_tier": "A-",
-    "sprite_path": "sprites/10003.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 132,
-    "name": "ditto",
-    "display_name": "Ditto",
-    "types": [
-      "normal"
-    ],
-    "base_stat_total": 288,
-    "vr_tier": "A-",
-    "sprite_path": "sprites/132.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 445,
-    "name": "garchomp",
-    "display_name": "Garchomp",
-    "types": [
-      "dragon",
-      "ground"
-    ],
-    "base_stat_total": 600,
-    "vr_tier": "A-",
-    "sprite_path": "sprites/445.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 10242,
     "name": "goodra-hisui",
     "display_name": "Goodra Hisui",
@@ -203,16 +204,16 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 992,
-    "name": "iron-hands",
-    "display_name": "Iron Hands",
+    "dex_id": 984,
+    "name": "great-tusk",
+    "display_name": "Great Tusk",
     "types": [
-      "fighting",
-      "electric"
+      "ground",
+      "fighting"
     ],
     "base_stat_total": 570,
     "vr_tier": "A-",
-    "sprite_path": "sprites/992.png",
+    "sprite_path": "sprites/984.png",
     "format": "pokebilities"
   },
   {
@@ -229,6 +230,19 @@
     "format": "pokebilities"
   },
   {
+    "dex_id": 10275,
+    "name": "ogerpon-cornerstone-mask",
+    "display_name": "Ogerpon Cornerstone Mask",
+    "types": [
+      "grass",
+      "rock"
+    ],
+    "base_stat_total": 550,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/10275.png",
+    "format": "pokebilities"
+  },
+  {
     "dex_id": 10273,
     "name": "ogerpon-wellspring-mask",
     "display_name": "Ogerpon Wellspring Mask",
@@ -242,16 +256,16 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 663,
-    "name": "talonflame",
-    "display_name": "Talonflame",
+    "dex_id": 904,
+    "name": "overqwil",
+    "display_name": "Overqwil",
     "types": [
-      "fire",
-      "flying"
+      "dark",
+      "poison"
     ],
-    "base_stat_total": 499,
+    "base_stat_total": 510,
     "vr_tier": "A-",
-    "sprite_path": "sprites/663.png",
+    "sprite_path": "sprites/904.png",
     "format": "pokebilities"
   },
   {
@@ -267,6 +281,31 @@
     "format": "pokebilities"
   },
   {
+    "dex_id": 145,
+    "name": "zapdos",
+    "display_name": "Zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "A-",
+    "sprite_path": "sprites/145.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 847,
+    "name": "barraskewda",
+    "display_name": "Barraskewda",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "B",
+    "sprite_path": "sprites/847.png",
+    "format": "pokebilities"
+  },
+  {
     "dex_id": 242,
     "name": "blissey",
     "display_name": "Blissey",
@@ -279,79 +318,183 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 858,
-    "name": "hatterene",
-    "display_name": "Hatterene",
-    "types": [
-      "psychic",
-      "fairy"
-    ],
-    "base_stat_total": 510,
-    "vr_tier": "B",
-    "sprite_path": "sprites/858.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 1019,
-    "name": "hydrapple",
-    "display_name": "Hydrapple",
+    "dex_id": 286,
+    "name": "breloom",
+    "display_name": "Breloom",
     "types": [
       "grass",
-      "dragon"
-    ],
-    "base_stat_total": 540,
-    "vr_tier": "B",
-    "sprite_path": "sprites/1019.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 784,
-    "name": "kommo-o",
-    "display_name": "Kommo O",
-    "types": [
-      "dragon",
       "fighting"
     ],
-    "base_stat_total": 600,
+    "base_stat_total": 460,
     "vr_tier": "B",
-    "sprite_path": "sprites/784.png",
+    "sprite_path": "sprites/286.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 146,
-    "name": "moltres",
-    "display_name": "Moltres",
+    "dex_id": 113,
+    "name": "chansey",
+    "display_name": "Chansey",
     "types": [
-      "fire",
-      "flying"
+      "normal"
     ],
-    "base_stat_total": 580,
+    "base_stat_total": 450,
     "vr_tier": "B",
-    "sprite_path": "sprites/146.png",
+    "sprite_path": "sprites/113.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 894,
-    "name": "regieleki",
-    "display_name": "Regieleki",
+    "dex_id": 652,
+    "name": "chesnaught",
+    "display_name": "Chesnaught",
     "types": [
-      "electric"
-    ],
-    "base_stat_total": 580,
-    "vr_tier": "B",
-    "sprite_path": "sprites/894.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 812,
-    "name": "rillaboom",
-    "display_name": "Rillaboom",
-    "types": [
-      "grass"
+      "grass",
+      "fighting"
     ],
     "base_stat_total": 530,
     "vr_tier": "B",
-    "sprite_path": "sprites/812.png",
+    "sprite_path": "sprites/652.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 638,
+    "name": "cobalion",
+    "display_name": "Cobalion",
+    "types": [
+      "steel",
+      "fighting"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "B",
+    "sprite_path": "sprites/638.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 342,
+    "name": "crawdaunt",
+    "display_name": "Crawdaunt",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "base_stat_total": 468,
+    "vr_tier": "B",
+    "sprite_path": "sprites/342.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 103,
+    "name": "exeggutor",
+    "display_name": "Exeggutor",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B",
+    "sprite_path": "sprites/103.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 970,
+    "name": "glimmora",
+    "display_name": "Glimmora",
+    "types": [
+      "rock",
+      "poison"
+    ],
+    "base_stat_total": 525,
+    "vr_tier": "B",
+    "sprite_path": "sprites/970.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 658,
+    "name": "greninja",
+    "display_name": "Greninja",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B",
+    "sprite_path": "sprites/658.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 635,
+    "name": "hydreigon",
+    "display_name": "Hydreigon",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "B",
+    "sprite_path": "sprites/635.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 272,
+    "name": "ludicolo",
+    "display_name": "Ludicolo",
+    "types": [
+      "water",
+      "grass"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "B",
+    "sprite_path": "sprites/272.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 620,
+    "name": "mienshao",
+    "display_name": "Mienshao",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "B",
+    "sprite_path": "sprites/620.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 279,
+    "name": "pelipper",
+    "display_name": "Pelipper",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 440,
+    "vr_tier": "B",
+    "sprite_path": "sprites/279.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 730,
+    "name": "primarina",
+    "display_name": "Primarina",
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B",
+    "sprite_path": "sprites/730.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 989,
+    "name": "sandy-shocks",
+    "display_name": "Sandy Shocks",
+    "types": [
+      "electric",
+      "ground"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "B",
+    "sprite_path": "sprites/989.png",
     "format": "pokebilities"
   },
   {
@@ -365,6 +508,19 @@
     "base_stat_total": 570,
     "vr_tier": "B",
     "sprite_path": "sprites/985.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 275,
+    "name": "shiftry",
+    "display_name": "Shiftry",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "base_stat_total": 480,
+    "vr_tier": "B",
+    "sprite_path": "sprites/275.png",
     "format": "pokebilities"
   },
   {
@@ -394,55 +550,41 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 286,
-    "name": "breloom",
-    "display_name": "Breloom",
+    "dex_id": 132,
+    "name": "ditto",
+    "display_name": "Ditto",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 288,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/132.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 858,
+    "name": "hatterene",
+    "display_name": "Hatterene",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/858.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 1019,
+    "name": "hydrapple",
+    "display_name": "Hydrapple",
     "types": [
       "grass",
-      "fighting"
+      "dragon"
     ],
-    "base_stat_total": 460,
+    "base_stat_total": 540,
     "vr_tier": "B+",
-    "sprite_path": "sprites/286.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 342,
-    "name": "crawdaunt",
-    "display_name": "Crawdaunt",
-    "types": [
-      "water",
-      "dark"
-    ],
-    "base_stat_total": 468,
-    "vr_tier": "B+",
-    "sprite_path": "sprites/342.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 984,
-    "name": "great-tusk",
-    "display_name": "Great Tusk",
-    "types": [
-      "ground",
-      "fighting"
-    ],
-    "base_stat_total": 570,
-    "vr_tier": "B+",
-    "sprite_path": "sprites/984.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 658,
-    "name": "greninja",
-    "display_name": "Greninja",
-    "types": [
-      "water",
-      "dark"
-    ],
-    "base_stat_total": 530,
-    "vr_tier": "B+",
-    "sprite_path": "sprites/658.png",
+    "sprite_path": "sprites/1019.png",
     "format": "pokebilities"
   },
   {
@@ -485,80 +627,79 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 473,
-    "name": "mamoswine",
-    "display_name": "Mamoswine",
+    "dex_id": 146,
+    "name": "moltres",
+    "display_name": "Moltres",
     "types": [
-      "ice",
-      "ground"
-    ],
-    "base_stat_total": 530,
-    "vr_tier": "B+",
-    "sprite_path": "sprites/473.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 10275,
-    "name": "ogerpon-cornerstone-mask",
-    "display_name": "Ogerpon Cornerstone Mask",
-    "types": [
-      "grass",
-      "rock"
-    ],
-    "base_stat_total": 550,
-    "vr_tier": "B+",
-    "sprite_path": "sprites/10275.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 145,
-    "name": "zapdos",
-    "display_name": "Zapdos",
-    "types": [
-      "electric",
+      "fire",
       "flying"
     ],
     "base_stat_total": 580,
     "vr_tier": "B+",
-    "sprite_path": "sprites/145.png",
+    "sprite_path": "sprites/146.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 609,
-    "name": "chandelure",
-    "display_name": "Chandelure",
+    "dex_id": 211,
+    "name": "qwilfish",
+    "display_name": "Qwilfish",
     "types": [
-      "ghost",
-      "fire"
+      "water",
+      "poison"
     ],
-    "base_stat_total": 520,
-    "vr_tier": "B-",
-    "sprite_path": "sprites/609.png",
+    "base_stat_total": 440,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/211.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 638,
-    "name": "cobalion",
-    "display_name": "Cobalion",
+    "dex_id": 812,
+    "name": "rillaboom",
+    "display_name": "Rillaboom",
     "types": [
-      "steel",
-      "fighting"
-    ],
-    "base_stat_total": 580,
-    "vr_tier": "B-",
-    "sprite_path": "sprites/638.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 977,
-    "name": "dondozo",
-    "display_name": "Dondozo",
-    "types": [
-      "water"
+      "grass"
     ],
     "base_stat_total": 530,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/812.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 45,
+    "name": "vileplume",
+    "display_name": "Vileplume",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 490,
+    "vr_tier": "B+",
+    "sprite_path": "sprites/45.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 947,
+    "name": "brambleghast",
+    "display_name": "Brambleghast",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "base_stat_total": 480,
     "vr_tier": "B-",
-    "sprite_path": "sprites/977.png",
+    "sprite_path": "sprites/947.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 10002,
+    "name": "deoxys-defense",
+    "display_name": "Deoxys Defense",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/10002.png",
     "format": "pokebilities"
   },
   {
@@ -587,28 +728,28 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 970,
-    "name": "glimmora",
-    "display_name": "Glimmora",
+    "dex_id": 612,
+    "name": "haxorus",
+    "display_name": "Haxorus",
     "types": [
-      "rock",
-      "poison"
+      "dragon"
     ],
-    "base_stat_total": 525,
+    "base_stat_total": 540,
     "vr_tier": "B-",
-    "sprite_path": "sprites/970.png",
+    "sprite_path": "sprites/612.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 450,
-    "name": "hippowdon",
-    "display_name": "Hippowdon",
+    "dex_id": 727,
+    "name": "incineroar",
+    "display_name": "Incineroar",
     "types": [
-      "ground"
+      "fire",
+      "dark"
     ],
-    "base_stat_total": 525,
+    "base_stat_total": 530,
     "vr_tier": "B-",
-    "sprite_path": "sprites/450.png",
+    "sprite_path": "sprites/727.png",
     "format": "pokebilities"
   },
   {
@@ -625,19 +766,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 1010,
-    "name": "iron-leaves",
-    "display_name": "Iron Leaves",
-    "types": [
-      "grass",
-      "psychic"
-    ],
-    "base_stat_total": 590,
-    "vr_tier": "B-",
-    "sprite_path": "sprites/1010.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 990,
     "name": "iron-treads",
     "display_name": "Iron Treads",
@@ -651,54 +779,54 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 620,
-    "name": "mienshao",
-    "display_name": "Mienshao",
+    "dex_id": 784,
+    "name": "kommo-o",
+    "display_name": "Kommo O",
     "types": [
+      "dragon",
       "fighting"
     ],
-    "base_stat_total": 510,
+    "base_stat_total": 600,
     "vr_tier": "B-",
-    "sprite_path": "sprites/620.png",
+    "sprite_path": "sprites/784.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 279,
-    "name": "pelipper",
-    "display_name": "Pelipper",
+    "dex_id": 10237,
+    "name": "lilligant-hisui",
+    "display_name": "Lilligant Hisui",
     "types": [
-      "water",
-      "flying"
+      "grass",
+      "fighting"
     ],
-    "base_stat_total": 440,
+    "base_stat_total": 480,
     "vr_tier": "B-",
-    "sprite_path": "sprites/279.png",
+    "sprite_path": "sprites/10237.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 730,
-    "name": "primarina",
-    "display_name": "Primarina",
+    "dex_id": 894,
+    "name": "regieleki",
+    "display_name": "Regieleki",
     "types": [
-      "water",
-      "fairy"
+      "electric"
     ],
-    "base_stat_total": 530,
+    "base_stat_total": 580,
     "vr_tier": "B-",
-    "sprite_path": "sprites/730.png",
+    "sprite_path": "sprites/894.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 989,
-    "name": "sandy-shocks",
-    "display_name": "Sandy Shocks",
+    "dex_id": 10009,
+    "name": "rotom-wash",
+    "display_name": "Rotom Wash",
     "types": [
       "electric",
-      "ground"
+      "water"
     ],
-    "base_stat_total": 570,
+    "base_stat_total": 520,
     "vr_tier": "B-",
-    "sprite_path": "sprites/989.png",
+    "sprite_path": "sprites/10009.png",
     "format": "pokebilities"
   },
   {
@@ -715,6 +843,58 @@
     "format": "pokebilities"
   },
   {
+    "dex_id": 911,
+    "name": "skeledirge",
+    "display_name": "Skeledirge",
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/911.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 988,
+    "name": "slither-wing",
+    "display_name": "Slither Wing",
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "base_stat_total": 570,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/988.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 260,
+    "name": "swampert",
+    "display_name": "Swampert",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 535,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/260.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 959,
+    "name": "tinkaton",
+    "display_name": "Tinkaton",
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "base_stat_total": 506,
+    "vr_tier": "B-",
+    "sprite_path": "sprites/959.png",
+    "format": "pokebilities"
+  },
+  {
     "dex_id": 752,
     "name": "araquanid",
     "display_name": "Araquanid",
@@ -728,15 +908,16 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 975,
-    "name": "cetitan",
-    "display_name": "Cetitan",
+    "dex_id": 609,
+    "name": "chandelure",
+    "display_name": "Chandelure",
     "types": [
-      "ice"
+      "ghost",
+      "fire"
     ],
-    "base_stat_total": 521,
+    "base_stat_total": 520,
     "vr_tier": "C",
-    "sprite_path": "sprites/975.png",
+    "sprite_path": "sprites/609.png",
     "format": "pokebilities"
   },
   {
@@ -791,6 +972,43 @@
     "format": "pokebilities"
   },
   {
+    "dex_id": 385,
+    "name": "jirachi",
+    "display_name": "Jirachi",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "vr_tier": "C",
+    "sprite_path": "sprites/385.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 855,
+    "name": "polteageist",
+    "display_name": "Polteageist",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 508,
+    "vr_tier": "C",
+    "sprite_path": "sprites/855.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 895,
+    "name": "regidrago",
+    "display_name": "Regidrago",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 580,
+    "vr_tier": "C",
+    "sprite_path": "sprites/895.png",
+    "format": "pokebilities"
+  },
+  {
     "dex_id": 743,
     "name": "ribombee",
     "display_name": "Ribombee",
@@ -817,6 +1035,31 @@
     "format": "pokebilities"
   },
   {
+    "dex_id": 212,
+    "name": "scizor",
+    "display_name": "Scizor",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "base_stat_total": 500,
+    "vr_tier": "C",
+    "sprite_path": "sprites/212.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 497,
+    "name": "serperior",
+    "display_name": "Serperior",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 528,
+    "vr_tier": "C",
+    "sprite_path": "sprites/497.png",
+    "format": "pokebilities"
+  },
+  {
     "dex_id": 134,
     "name": "vaporeon",
     "display_name": "Vaporeon",
@@ -826,6 +1069,31 @@
     "base_stat_total": 525,
     "vr_tier": "C",
     "sprite_path": "sprites/134.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 977,
+    "name": "dondozo",
+    "display_name": "Dondozo",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 530,
+    "vr_tier": "C+",
+    "sprite_path": "sprites/977.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 861,
+    "name": "grimmsnarl",
+    "display_name": "Grimmsnarl",
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "C+",
+    "sprite_path": "sprites/861.png",
     "format": "pokebilities"
   },
   {
@@ -841,29 +1109,28 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 385,
-    "name": "jirachi",
-    "display_name": "Jirachi",
+    "dex_id": 450,
+    "name": "hippowdon",
+    "display_name": "Hippowdon",
     "types": [
-      "steel",
-      "psychic"
+      "ground"
     ],
-    "base_stat_total": 600,
+    "base_stat_total": 525,
     "vr_tier": "C+",
-    "sprite_path": "sprites/385.png",
+    "sprite_path": "sprites/450.png",
     "format": "pokebilities"
   },
   {
-    "dex_id": 230,
-    "name": "kingdra",
-    "display_name": "Kingdra",
+    "dex_id": 1010,
+    "name": "iron-leaves",
+    "display_name": "Iron Leaves",
     "types": [
-      "water",
-      "dragon"
+      "grass",
+      "psychic"
     ],
-    "base_stat_total": 540,
+    "base_stat_total": 590,
     "vr_tier": "C+",
-    "sprite_path": "sprites/230.png",
+    "sprite_path": "sprites/1010.png",
     "format": "pokebilities"
   },
   {
@@ -880,19 +1147,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 10237,
-    "name": "lilligant-hisui",
-    "display_name": "Lilligant Hisui",
-    "types": [
-      "grass",
-      "fighting"
-    ],
-    "base_stat_total": 480,
-    "vr_tier": "C+",
-    "sprite_path": "sprites/10237.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 914,
     "name": "quaquaval",
     "display_name": "Quaquaval",
@@ -903,58 +1157,6 @@
     "base_stat_total": 530,
     "vr_tier": "C+",
     "sprite_path": "sprites/914.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 10009,
-    "name": "rotom-wash",
-    "display_name": "Rotom Wash",
-    "types": [
-      "electric",
-      "water"
-    ],
-    "base_stat_total": 520,
-    "vr_tier": "C+",
-    "sprite_path": "sprites/10009.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 212,
-    "name": "scizor",
-    "display_name": "Scizor",
-    "types": [
-      "bug",
-      "steel"
-    ],
-    "base_stat_total": 500,
-    "vr_tier": "C+",
-    "sprite_path": "sprites/212.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 911,
-    "name": "skeledirge",
-    "display_name": "Skeledirge",
-    "types": [
-      "fire",
-      "ghost"
-    ],
-    "base_stat_total": 530,
-    "vr_tier": "C+",
-    "sprite_path": "sprites/911.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 959,
-    "name": "tinkaton",
-    "display_name": "Tinkaton",
-    "types": [
-      "fairy",
-      "steel"
-    ],
-    "base_stat_total": 506,
-    "vr_tier": "C+",
-    "sprite_path": "sprites/959.png",
     "format": "pokebilities"
   },
   {
@@ -1005,7 +1207,7 @@
       "dark"
     ],
     "base_stat_total": 530,
-    "vr_tier": "S",
+    "vr_tier": "S-",
     "sprite_path": "sprites/908.png",
     "format": "pokebilities"
   },
@@ -1173,18 +1375,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 847,
-    "name": "barraskewda",
-    "display_name": "Barraskewda",
-    "types": [
-      "water"
-    ],
-    "base_stat_total": 490,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/847.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 411,
     "name": "bastiodon",
     "display_name": "Bastiodon",
@@ -1195,18 +1385,6 @@
     "base_stat_total": 495,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/411.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 614,
-    "name": "beartic",
-    "display_name": "Beartic",
-    "types": [
-      "ice"
-    ],
-    "base_stat_total": 505,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/614.png",
     "format": "pokebilities"
   },
   {
@@ -1259,19 +1437,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 947,
-    "name": "brambleghast",
-    "display_name": "Brambleghast",
-    "types": [
-      "grass",
-      "ghost"
-    ],
-    "base_stat_total": 480,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/947.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 437,
     "name": "bronzong",
     "display_name": "Bronzong",
@@ -1311,19 +1476,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 332,
-    "name": "cacturne",
-    "display_name": "Cacturne",
-    "types": [
-      "grass",
-      "dark"
-    ],
-    "base_stat_total": 475,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/332.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 323,
     "name": "camerupt",
     "display_name": "Camerupt",
@@ -1350,18 +1502,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 113,
-    "name": "chansey",
-    "display_name": "Chansey",
-    "types": [
-      "normal"
-    ],
-    "base_stat_total": 450,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/113.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 6,
     "name": "charizard",
     "display_name": "Charizard",
@@ -1372,19 +1512,6 @@
     "base_stat_total": 534,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/6.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 652,
-    "name": "chesnaught",
-    "display_name": "Chesnaught",
-    "types": [
-      "grass",
-      "fighting"
-    ],
-    "base_stat_total": 530,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/652.png",
     "format": "pokebilities"
   },
   {
@@ -1590,18 +1717,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 232,
-    "name": "donphan",
-    "display_name": "Donphan",
-    "types": [
-      "ground"
-    ],
-    "base_stat_total": 500,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/232.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 691,
     "name": "dragalge",
     "display_name": "Dragalge",
@@ -1612,19 +1727,6 @@
     "base_stat_total": 494,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/691.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 834,
-    "name": "drednaw",
-    "display_name": "Drednaw",
-    "types": [
-      "water",
-      "rock"
-    ],
-    "base_stat_total": 485,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/834.png",
     "format": "pokebilities"
   },
   {
@@ -1763,19 +1865,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 103,
-    "name": "exeggutor",
-    "display_name": "Exeggutor",
-    "types": [
-      "grass",
-      "psychic"
-    ],
-    "base_stat_total": 530,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/103.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 870,
     "name": "falinks",
     "display_name": "Falinks",
@@ -1851,18 +1940,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 419,
-    "name": "floatzel",
-    "display_name": "Floatzel",
-    "types": [
-      "water"
-    ],
-    "base_stat_total": 495,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/419.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 671,
     "name": "florges",
     "display_name": "Florges",
@@ -1885,19 +1962,6 @@
     "base_stat_total": 520,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/330.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 478,
-    "name": "froslass",
-    "display_name": "Froslass",
-    "types": [
-      "ice",
-      "ghost"
-    ],
-    "base_stat_total": 480,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/478.png",
     "format": "pokebilities"
   },
   {
@@ -1975,18 +2039,6 @@
     "base_stat_total": 500,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/94.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 471,
-    "name": "glaceon",
-    "display_name": "Glaceon",
-    "types": [
-      "ice"
-    ],
-    "base_stat_total": 525,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/471.png",
     "format": "pokebilities"
   },
   {
@@ -2076,19 +2128,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 861,
-    "name": "grimmsnarl",
-    "display_name": "Grimmsnarl",
-    "types": [
-      "dark",
-      "fairy"
-    ],
-    "base_stat_total": 510,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/861.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 326,
     "name": "grumpig",
     "display_name": "Grumpig",
@@ -2123,18 +2162,6 @@
     "base_stat_total": 474,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/297.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 612,
-    "name": "haxorus",
-    "display_name": "Haxorus",
-    "types": [
-      "dragon"
-    ],
-    "base_stat_total": 540,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/612.png",
     "format": "pokebilities"
   },
   {
@@ -2188,31 +2215,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 972,
-    "name": "houndstone",
-    "display_name": "Houndstone",
-    "types": [
-      "ghost"
-    ],
-    "base_stat_total": 488,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/972.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 635,
-    "name": "hydreigon",
-    "display_name": "Hydreigon",
-    "types": [
-      "dark",
-      "dragon"
-    ],
-    "base_stat_total": 600,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/635.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 97,
     "name": "hypno",
     "display_name": "Hypno",
@@ -2234,19 +2236,6 @@
     "base_stat_total": 430,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/314.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 727,
-    "name": "incineroar",
-    "display_name": "Incineroar",
-    "types": [
-      "fire",
-      "dark"
-    ],
-    "base_stat_total": 530,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/727.png",
     "format": "pokebilities"
   },
   {
@@ -2474,19 +2463,6 @@
     "base_stat_total": 525,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/448.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 272,
-    "name": "ludicolo",
-    "display_name": "Ludicolo",
-    "types": [
-      "water",
-      "grass"
-    ],
-    "base_stat_total": 480,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/272.png",
     "format": "pokebilities"
   },
   {
@@ -2876,31 +2852,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 968,
-    "name": "orthworm",
-    "display_name": "Orthworm",
-    "types": [
-      "steel"
-    ],
-    "base_stat_total": 480,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/968.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 904,
-    "name": "overqwil",
-    "display_name": "Overqwil",
-    "types": [
-      "dark",
-      "poison"
-    ],
-    "base_stat_total": 510,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/904.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 417,
     "name": "pachirisu",
     "display_name": "Pachirisu",
@@ -2922,19 +2873,6 @@
     "base_stat_total": 457,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/964.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 770,
-    "name": "palossand",
-    "display_name": "Palossand",
-    "types": [
-      "ghost",
-      "ground"
-    ],
-    "base_stat_total": 480,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/770.png",
     "format": "pokebilities"
   },
   {
@@ -3008,31 +2946,6 @@
     "base_stat_total": 500,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/186.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 62,
-    "name": "poliwrath",
-    "display_name": "Poliwrath",
-    "types": [
-      "water",
-      "fighting"
-    ],
-    "base_stat_total": 510,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/62.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 855,
-    "name": "polteageist",
-    "display_name": "Polteageist",
-    "types": [
-      "ghost"
-    ],
-    "base_stat_total": 508,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/855.png",
     "format": "pokebilities"
   },
   {
@@ -3201,30 +3114,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 844,
-    "name": "sandaconda",
-    "display_name": "Sandaconda",
-    "types": [
-      "ground"
-    ],
-    "base_stat_total": 510,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/844.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 28,
-    "name": "sandslash",
-    "display_name": "Sandslash",
-    "types": [
-      "ground"
-    ],
-    "base_stat_total": 450,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/28.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 586,
     "name": "sawsbuck",
     "display_name": "Sawsbuck",
@@ -3275,19 +3164,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 275,
-    "name": "shiftry",
-    "display_name": "Shiftry",
-    "types": [
-      "grass",
-      "dark"
-    ],
-    "base_stat_total": 480,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/275.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 227,
     "name": "skarmory",
     "display_name": "Skarmory",
@@ -3323,19 +3199,6 @@
     "base_stat_total": 670,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/289.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 988,
-    "name": "slither-wing",
-    "display_name": "Slither Wing",
-    "types": [
-      "bug",
-      "fighting"
-    ],
-    "base_stat_total": 570,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/988.png",
     "format": "pokebilities"
   },
   {
@@ -3402,18 +3265,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 234,
-    "name": "stantler",
-    "display_name": "Stantler",
-    "types": [
-      "normal"
-    ],
-    "base_stat_total": 465,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/234.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 398,
     "name": "staraptor",
     "display_name": "Staraptor",
@@ -3472,19 +3323,6 @@
     "base_stat_total": 467,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/317.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 260,
-    "name": "swampert",
-    "display_name": "Swampert",
-    "types": [
-      "water",
-      "ground"
-    ],
-    "base_stat_total": 535,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/260.png",
     "format": "pokebilities"
   },
   {
@@ -3715,19 +3553,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 3,
-    "name": "venusaur",
-    "display_name": "Venusaur",
-    "types": [
-      "grass",
-      "poison"
-    ],
-    "base_stat_total": 525,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/3.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 416,
     "name": "vespiquen",
     "display_name": "Vespiquen",
@@ -3741,16 +3566,15 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 71,
-    "name": "victreebel",
-    "display_name": "Victreebel",
+    "dex_id": 288,
+    "name": "vigoroth",
+    "display_name": "Vigoroth",
     "types": [
-      "grass",
-      "poison"
+      "normal"
     ],
-    "base_stat_total": 490,
+    "base_stat_total": 440,
     "vr_tier": "Unranked",
-    "sprite_path": "sprites/71.png",
+    "sprite_path": "sprites/288.png",
     "format": "pokebilities"
   },
   {
@@ -3764,19 +3588,6 @@
     "base_stat_total": 500,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/738.png",
-    "format": "pokebilities"
-  },
-  {
-    "dex_id": 45,
-    "name": "vileplume",
-    "display_name": "Vileplume",
-    "types": [
-      "grass",
-      "poison"
-    ],
-    "base_stat_total": 490,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/45.png",
     "format": "pokebilities"
   },
   {
@@ -3857,18 +3668,6 @@
     "format": "pokebilities"
   },
   {
-    "dex_id": 961,
-    "name": "wugtrio",
-    "display_name": "Wugtrio",
-    "types": [
-      "water"
-    ],
-    "base_stat_total": 425,
-    "vr_tier": "Unranked",
-    "sprite_path": "sprites/961.png",
-    "format": "pokebilities"
-  },
-  {
     "dex_id": 335,
     "name": "zangoose",
     "display_name": "Zangoose",
@@ -3890,6 +3689,18 @@
     "base_stat_total": 497,
     "vr_tier": "Unranked",
     "sprite_path": "sprites/523.png",
+    "format": "pokebilities"
+  },
+  {
+    "dex_id": 571,
+    "name": "zoroark",
+    "display_name": "Zoroark",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 510,
+    "vr_tier": "Unranked",
+    "sprite_path": "sprites/571.png",
     "format": "pokebilities"
   }
 ]
