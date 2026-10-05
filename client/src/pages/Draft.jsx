@@ -1,5 +1,7 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { getSession } from "../api";
+import { clearTeam, getTeam, setTeam } from "../identity";
 import { useDraftSocket } from "../hooks/useDraftSocket";
 import { useCopy } from "../hooks/useCopy";
 import { TIER_ORDER, FORMATS } from "../constants";
@@ -7,8 +9,6 @@ import PokeCard from "../components/PokeCard";
 import TeamRoster from "../components/TeamRoster";
 import OnTheClock from "../components/OnTheClock";
 import TierBadge from "../components/TierBadge";
-
-const teamKey = (code) => `draft:${code}:team`;
 
 /** Reconstruct the chronological pick log from per-team rosters + draft order. */
 function buildLog(state) {
@@ -37,7 +37,74 @@ const STATUS_STYLE = {
 export default function Draft() {
   const { code } = useParams();
   const navigate = useNavigate();
-  const teamName = sessionStorage.getItem(teamKey(code)) || "";
+  const [selection, setSelection] = useState(null);
+  const room = selection?.code === code ? selection.room : null;
+  const teamName = selection?.code === code ? selection.teamName : "";
+
+  useEffect(() => {
+    let active = true;
+    getSession(code).then((session) => {
+      if (!active) return;
+      const stored = getTeam(code);
+      if (stored && !session.slots.some((slot) => slot.team_name === stored)) {
+        clearTeam(code);
+      }
+      setSelection({
+        code,
+        room: session,
+        teamName: session.slots.some((slot) => slot.team_name === stored) ? stored : "",
+      });
+    }).catch(() => {
+      if (active) setSelection({ code, room: "missing", teamName: "" });
+    });
+    return () => { active = false; };
+  }, [code]);
+
+  if (room === "missing") {
+    return <Centered><p className="text-muted">Room not found — ask the host for a new link</p></Centered>;
+  }
+
+  if (!room) {
+    return <Centered><p className="text-muted">Loading room…</p></Centered>;
+  }
+
+  if (!room.started) {
+    return (
+      <Centered>
+        <p className="text-muted">The draft has not started.</p>
+        <button onClick={() => navigate(`/lobby/${code}`)} className="mt-3 rounded-md bg-accent px-4 py-2 font-semibold text-ground">
+          Go to lobby
+        </button>
+      </Centered>
+    );
+  }
+
+  if (!teamName) {
+    return (
+      <Centered>
+        <p className="text-muted">Rejoin as…</p>
+        <div className="mt-3 flex flex-wrap justify-center gap-2">
+          {room.slots.map((slot) => (
+            <button
+              key={slot.slot}
+              onClick={() => {
+                setTeam(code, slot.team_name);
+                setSelection({ code, room, teamName: slot.team_name });
+              }}
+              className="rounded-md bg-accent px-4 py-2 font-semibold text-ground"
+            >
+              {slot.team_name}
+            </button>
+          ))}
+        </div>
+      </Centered>
+    );
+  }
+
+  return <DraftBoard code={code} teamName={teamName} />;
+}
+
+function DraftBoard({ code, teamName }) {
 
   const { state, error, lastPick, connectionStatus, sendPick, sendUndo } = useDraftSocket(
     code,
@@ -58,20 +125,6 @@ export default function Draft() {
     if (!state) return [];
     return TIER_ORDER.filter((t) => state.pool.some((e) => e.vr_tier === t));
   }, [state]);
-
-  if (!teamName) {
-    return (
-      <Centered>
-        <p className="text-muted">You haven’t joined this room.</p>
-        <button
-          onClick={() => navigate(`/lobby/${code}`)}
-          className="mt-3 rounded-md bg-accent px-4 py-2 font-semibold text-ground"
-        >
-          Go to lobby
-        </button>
-      </Centered>
-    );
-  }
 
   if (!state) {
     return (
