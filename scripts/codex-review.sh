@@ -32,8 +32,9 @@ fi
 git rev-parse --verify --quiet "$branch" >/dev/null \
   || die2 "missing branch: $branch"
 
-config=$(git show "main:config.yaml") \
-  || die2 "cannot read config.yaml from main"
+config_ref=${REVIEW_BASE:-main}  # never the branch under review
+config=$(git show "$config_ref:config.yaml") \
+  || die2 "cannot read config.yaml from $config_ref"
 
 reviewer_command=$(
   awk '
@@ -60,9 +61,9 @@ reviewer_command=$(
       if (!found) exit 1
     }
   ' <<<"$config"
-) || die2 "reviewer.command missing in main:config.yaml"
+) || die2 "reviewer.command missing in $config_ref:config.yaml"
 
-[[ -n "$reviewer_command" ]] || die2 "reviewer.command empty in main:config.yaml"
+[[ -n "$reviewer_command" ]] || die2 "reviewer.command empty in $config_ref:config.yaml"
 [[ -d "$root/work/$slug" ]] || die2 "missing work directory: $root/work/$slug"
 
 prompt=$(mktemp)
@@ -96,7 +97,9 @@ else
 fi
 
 git fetch origin --quiet 2>/dev/null || true
-if git show-ref --verify --quiet refs/remotes/origin/main; then
+if [[ -n "${REVIEW_BASE:-}" ]]; then
+  base=$REVIEW_BASE  # stacked branches: diff against the parent branch, not main
+elif git show-ref --verify --quiet refs/remotes/origin/main; then
   base=origin/main
 else
   base=main
