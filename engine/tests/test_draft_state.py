@@ -6,9 +6,8 @@ from unittest.mock import patch
 import pytest
 import yaml
 
-from engine.pool import DraftPool
 from engine.draft_state import DraftState
-from engine.validator import PickResult
+from engine.pool import DraftPool
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -145,7 +144,7 @@ class TestSnakeOrder:
     def test_current_team_advances_after_pick(self):
         state = make_state(["A", "B"])
         assert state.current_team() == "A"
-        name = [e["name"] for e in state._pool.available()][0]
+        name = next(e["name"] for e in state._pool.available())
         state.pick(name)
         assert state.current_team() == "B"
 
@@ -304,10 +303,7 @@ class TestUndo:
 
     def test_undo_restores_budget(self):
         state = make_state(["A", "B"])
-        entry = state._pool.available()[0]
-        name = entry["name"]
-        cost = state._pool.tier_cost(entry["vr_tier"])
-        state.pick(name)
+        state.pick(state._pool.available()[0]["name"])
         state.undo()
         exp = state.export()
         assert exp["teams"]["A"]["remaining_budget"] == CONFIG["budget"]

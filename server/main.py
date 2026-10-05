@@ -39,7 +39,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/sprites", StaticFiles(directory=str(_REPO_ROOT / "sprites")), name="sprites")
+# sprites/ is generated (scripts/fetch_sprites.py) and gitignored; serve 404s until it exists.
+app.mount(
+    "/sprites",
+    StaticFiles(directory=str(_REPO_ROOT / "sprites"), check_dir=False),
+    name="sprites",
+)
 
 manager = SessionManager()
 
@@ -64,7 +69,7 @@ class ConnectionManager:
         for ws in sockets:
             try:
                 await ws.send_json(message)
-            except Exception:
+            except Exception:  # noqa: BLE001 — any send failure means the socket is dead; never let one break the broadcast
                 dead.append(ws)
         for ws in dead:
             self._drop(ws)

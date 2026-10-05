@@ -10,10 +10,7 @@ import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-import pytest
-
 import fetch_sprites as m
-
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -111,9 +108,11 @@ def test_download_sprite_skips_existing(tmp_path):
 
 
 def test_download_sprite_success(tmp_path):
-    with patch("fetch_sprites.requests.get", return_value=_ok_response(b"PNG_BYTES")) as mock_get:
-        with patch("fetch_sprites.time.sleep"):
-            result = m.download_sprite(879, tmp_path)
+    with (
+        patch("fetch_sprites.requests.get", return_value=_ok_response(b"PNG_BYTES")) as mock_get,
+        patch("fetch_sprites.time.sleep"),
+    ):
+        result = m.download_sprite(879, tmp_path)
     assert result is True
     assert (tmp_path / "879.png").read_bytes() == b"PNG_BYTES"
     mock_get.assert_called_once()
@@ -123,10 +122,12 @@ def test_download_sprite_success(tmp_path):
 
 
 def test_download_sprite_404_returns_false(tmp_path, caplog):
-    with patch("fetch_sprites.requests.get", return_value=_error_response(404)):
-        with patch("fetch_sprites.time.sleep"):
-            with caplog.at_level(logging.WARNING, logger="fetch_sprites"):
-                result = m.download_sprite(9999, tmp_path)
+    with (
+        patch("fetch_sprites.requests.get", return_value=_error_response(404)),
+        patch("fetch_sprites.time.sleep"),
+        caplog.at_level(logging.WARNING, logger="fetch_sprites"),
+    ):
+        result = m.download_sprite(9999, tmp_path)
     assert result is False
     assert not (tmp_path / "9999.png").exists()
     assert any("9999" in r.message for r in caplog.records)
@@ -134,24 +135,30 @@ def test_download_sprite_404_returns_false(tmp_path, caplog):
 
 def test_download_sprite_network_error_returns_false(tmp_path):
     import requests
-    with patch("fetch_sprites.requests.get", side_effect=requests.ConnectionError("timeout")):
-        with patch("fetch_sprites.time.sleep"):
-            result = m.download_sprite(1, tmp_path)
+    with (
+        patch("fetch_sprites.requests.get", side_effect=requests.ConnectionError("timeout")),
+        patch("fetch_sprites.time.sleep"),
+    ):
+        result = m.download_sprite(1, tmp_path)
     assert result is False
 
 
 def test_download_sprite_url_contains_dex_id(tmp_path):
-    with patch("fetch_sprites.requests.get", return_value=_ok_response()) as mock_get:
-        with patch("fetch_sprites.time.sleep"):
-            m.download_sprite(10272, tmp_path)
+    with (
+        patch("fetch_sprites.requests.get", return_value=_ok_response()) as mock_get,
+        patch("fetch_sprites.time.sleep"),
+    ):
+        m.download_sprite(10272, tmp_path)
     url = mock_get.call_args[0][0]
     assert "10272" in url
 
 
 def test_download_sprite_rate_limited(tmp_path):
-    with patch("fetch_sprites.requests.get", return_value=_ok_response()):
-        with patch("fetch_sprites.time.sleep") as mock_sleep:
-            m.download_sprite(1, tmp_path)
+    with (
+        patch("fetch_sprites.requests.get", return_value=_ok_response()),
+        patch("fetch_sprites.time.sleep") as mock_sleep,
+    ):
+        m.download_sprite(1, tmp_path)
     mock_sleep.assert_called_once()
 
 

@@ -6,7 +6,7 @@ format between the React client and the FastAPI server.
 
 from __future__ import annotations
 
-from typing import Literal, Optional
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -35,10 +35,10 @@ class CreateSessionRequest(BaseModel):
     roster_size: int = Field(default=10, ge=1, le=30)
 
     pool_mode: PoolMode
-    pool_size: Optional[int] = Field(default=None, ge=1)
-    vr_count: Optional[int] = Field(default=None, ge=1)
-    unranked_count: Optional[int] = Field(default=None, ge=1)
-    tier_counts: Optional[dict[str, int]] = None
+    pool_size: int | None = Field(default=None, ge=1)
+    vr_count: int | None = Field(default=None, ge=1)
+    unranked_count: int | None = Field(default=None, ge=1)
+    tier_counts: dict[str, int] | None = None
 
 
 class CreateSessionResponse(BaseModel):

@@ -7,14 +7,12 @@ Run with: python -m pytest scripts/test_build_pool.py -v
 
 import json
 import logging
-from pathlib import Path
-from unittest.mock import patch, MagicMock
 import tempfile
-import pytest
+from pathlib import Path
+from unittest.mock import patch
 
 import build_pool as m
 from scrape_smogon import VREntry
-
 
 # ---------------------------------------------------------------------------
 # Fixtures / helpers

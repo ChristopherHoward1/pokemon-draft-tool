@@ -22,12 +22,12 @@ from pathlib import Path
 import requests
 
 # Scripts directory is on sys.path when run as:  python scripts/build_pool.py
-from fetch_ps_nfe import fetch_ps_nfe_set, is_fully_evolved_ps, EVIOLITE_EXCEPTIONS
-from normalize_names import resolve, normalize
+from fetch_ps_nfe import EVIOLITE_EXCEPTIONS, fetch_ps_nfe_set, is_fully_evolved_ps
+from normalize_names import resolve
 from scrape_smogon import (
-    scrape_vr_thread,
-    scrape_ban_spoiler,
     scrape_ban_dex,
+    scrape_ban_spoiler,
+    scrape_vr_thread,
 )
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")

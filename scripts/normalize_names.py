@@ -20,7 +20,8 @@ import re
 import unicodedata
 from collections.abc import Collection
 
-from rapidfuzz import process as fz_process, fuzz
+from rapidfuzz import fuzz
+from rapidfuzz import process as fz_process
 
 log = logging.getLogger(__name__)
 

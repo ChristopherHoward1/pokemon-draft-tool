@@ -6,6 +6,7 @@ Covers every item in the Phase 3a acceptance criteria.
 from __future__ import annotations
 
 import pytest
+from fastapi import WebSocketDisconnect
 from fastapi.testclient import TestClient
 
 from server.main import app, conns, manager
@@ -231,6 +232,8 @@ def test_draft_ws_rejects_unregistered_team(client):
     client.post(f"/session/{sid}/join", json={"team_name": "Alpha"})
     client.post(f"/session/{sid}/join", json={"team_name": "Bravo"})
     client.post(f"/session/{sid}/start")
-    with pytest.raises(Exception):
-        with client.websocket_connect(f"/session/{sid}/draft?team_name=Ghost") as ws:
-            ws.receive_json()
+    with (
+        pytest.raises(WebSocketDisconnect),
+        client.websocket_connect(f"/session/{sid}/draft?team_name=Ghost") as ws,
+    ):
+        ws.receive_json()

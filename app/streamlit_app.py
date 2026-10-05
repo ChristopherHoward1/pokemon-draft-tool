@@ -10,7 +10,7 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from engine.draft_state import DraftState
-from engine.pool import DraftPool, TIER_GROUPS
+from engine.pool import TIER_GROUPS, DraftPool
 
 _REPO_ROOT = Path(__file__).parent.parent
 
@@ -289,7 +289,7 @@ def _render_sidebar(state: DraftState, pool: DraftPool, export: dict) -> None:
     if st.button("Export draft JSON", use_container_width=True):
         exports_dir = _REPO_ROOT / "exports"
         exports_dir.mkdir(exist_ok=True)
-        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        ts = datetime.now().astimezone().strftime("%Y%m%d_%H%M%S")
         slug = format_label.lower().replace(" ", "_").replace("\xe9", "e")
         path = exports_dir / f"draft_{slug}_{ts}.json"
         data = export.copy()
@@ -385,40 +385,39 @@ def _render_pool_grid(state: DraftState, pool: DraftPool, export: dict) -> None:
             cost = pool.tier_cost(tier)
             sprite = _REPO_ROOT / entry.get("sprite_path", f"sprites/{entry['dex_id']}.png")
 
-            with cols[j]:
-                with st.container(border=True):
-                    if sprite.exists():
-                        st.image(str(sprite), width=80)
+            with cols[j], st.container(border=True):
+                if sprite.exists():
+                    st.image(str(sprite), width=80)
 
-                    st.markdown(f"**{entry['display_name']}**")
+                st.markdown(f"**{entry['display_name']}**")
 
-                    badges = " ".join(_type_badge(t) for t in entry["types"])
-                    st.markdown(
-                        badges + "<br>" + _tier_badge(tier, cost),
-                        unsafe_allow_html=True,
+                badges = " ".join(_type_badge(t) for t in entry["types"])
+                st.markdown(
+                    badges + "<br>" + _tier_badge(tier, cost),
+                    unsafe_allow_html=True,
+                )
+
+                if is_avail and not is_complete:
+                    if st.button("Draft", key=f"pick_{name}", use_container_width=True):
+                        team_before = state.current_team()
+                        result = state.pick(name)
+                        if result.valid:
+                            st.session_state.draft_log.append({
+                                "team": team_before,
+                                "pokemon": entry["display_name"],
+                                "tier": tier,
+                                "cost": cost,
+                            })
+                            st.session_state.pop("pick_error", None)
+                        else:
+                            st.session_state.pick_error = result.reason
+                        st.rerun()
+                else:
+                    btn_label = "TAKEN" if not is_avail else "Draft complete"
+                    st.button(
+                        btn_label, key=f"taken_{name}",
+                        disabled=True, use_container_width=True,
                     )
-
-                    if is_avail and not is_complete:
-                        if st.button("Draft", key=f"pick_{name}", use_container_width=True):
-                            team_before = state.current_team()
-                            result = state.pick(name)
-                            if result.valid:
-                                st.session_state.draft_log.append({
-                                    "team": team_before,
-                                    "pokemon": entry["display_name"],
-                                    "tier": tier,
-                                    "cost": cost,
-                                })
-                                st.session_state.pop("pick_error", None)
-                            else:
-                                st.session_state.pick_error = result.reason
-                            st.rerun()
-                    else:
-                        btn_label = "TAKEN" if not is_avail else "Draft complete"
-                        st.button(
-                            btn_label, key=f"taken_{name}",
-                            disabled=True, use_container_width=True,
-                        )
 
 
 # ---------------------------------------------------------------------------

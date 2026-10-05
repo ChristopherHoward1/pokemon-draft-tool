@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Optional
 
 from engine.pool import DraftPool
 from engine.validator import PickResult, Validator
@@ -40,7 +39,7 @@ class DraftState:
         self._team_index: dict[str, int] = {n: i for i, n in enumerate(team_names)}
         self._pool = pool
         self._validator = Validator(pool)
-        self._undo_record: Optional[tuple[str, str, int]] = None  # (team_name, pokemon_name, cost)
+        self._undo_record: tuple[str, str, int] | None = None  # (team_name, pokemon_name, cost)
 
     # ------------------------------------------------------------------
     # Turn order

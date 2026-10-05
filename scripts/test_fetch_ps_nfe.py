@@ -10,15 +10,10 @@ from __future__ import annotations
 import json
 import logging
 import os
-import tempfile
 import time
-from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-import pytest
-
 import fetch_ps_nfe as m
-
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -53,24 +48,30 @@ def _make_response(text: str) -> MagicMock:
 # ---------------------------------------------------------------------------
 
 def test_fetch_ps_nfe_set_parses_json(tmp_path):
-    with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", return_value=_make_response(_PS_JSON)):
-            result = m.fetch_ps_nfe_set()
+    with (
+        patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"),
+        patch("requests.get", return_value=_make_response(_PS_JSON)),
+    ):
+        result = m.fetch_ps_nfe_set()
     assert result == _SAMPLE_NFE
 
 
 def test_fetch_ps_nfe_set_populates_all_slugs(tmp_path):
-    with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", return_value=_make_response(_PS_JSON)):
-            m.fetch_ps_nfe_set()
+    with (
+        patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"),
+        patch("requests.get", return_value=_make_response(_PS_JSON)),
+    ):
+        m.fetch_ps_nfe_set()
     assert m._PS_ALL_SLUGS == set(_SAMPLE_POKEDEX.keys())
 
 
 def test_fetch_ps_nfe_set_writes_cache(tmp_path):
     cache = tmp_path / "ps_pokedex.json"
-    with patch.object(m, "_CACHE_FILE", cache):
-        with patch("requests.get", return_value=_make_response(_PS_JSON)):
-            m.fetch_ps_nfe_set()
+    with (
+        patch.object(m, "_CACHE_FILE", cache),
+        patch("requests.get", return_value=_make_response(_PS_JSON)),
+    ):
+        m.fetch_ps_nfe_set()
     assert cache.exists()
     stored = json.loads(cache.read_text())
     assert stored == _SAMPLE_POKEDEX
@@ -84,10 +85,9 @@ def test_fetch_ps_nfe_set_uses_fresh_cache(tmp_path):
     cache = tmp_path / "ps_pokedex.json"
     cache.write_text(json.dumps(_SAMPLE_POKEDEX), encoding="utf-8")
     # mtime is now → fresh
-    with patch.object(m, "_CACHE_FILE", cache):
-        with patch("requests.get") as mock_get:
-            result = m.fetch_ps_nfe_set()
-            mock_get.assert_not_called()
+    with patch.object(m, "_CACHE_FILE", cache), patch("requests.get") as mock_get:
+        result = m.fetch_ps_nfe_set()
+        mock_get.assert_not_called()
     assert result == _SAMPLE_NFE
 
 
@@ -96,20 +96,24 @@ def test_fetch_ps_nfe_set_refetches_stale_cache(tmp_path):
     cache.write_text(json.dumps(_SAMPLE_POKEDEX), encoding="utf-8")
     old = time.time() - 8 * 86400
     os.utime(cache, (old, old))
-    with patch.object(m, "_CACHE_FILE", cache):
-        with patch("requests.get", return_value=_make_response(_PS_JSON)) as mock_get:
-            result = m.fetch_ps_nfe_set()
-            mock_get.assert_called_once()
+    with (
+        patch.object(m, "_CACHE_FILE", cache),
+        patch("requests.get", return_value=_make_response(_PS_JSON)) as mock_get,
+    ):
+        result = m.fetch_ps_nfe_set()
+        mock_get.assert_called_once()
     assert result == _SAMPLE_NFE
 
 
 def test_fetch_ps_nfe_set_refetches_corrupt_cache(tmp_path):
     cache = tmp_path / "ps_pokedex.json"
     cache.write_text("not json", encoding="utf-8")
-    with patch.object(m, "_CACHE_FILE", cache):
-        with patch("requests.get", return_value=_make_response(_PS_JSON)) as mock_get:
-            result = m.fetch_ps_nfe_set()
-            mock_get.assert_called_once()
+    with (
+        patch.object(m, "_CACHE_FILE", cache),
+        patch("requests.get", return_value=_make_response(_PS_JSON)) as mock_get,
+    ):
+        result = m.fetch_ps_nfe_set()
+        mock_get.assert_called_once()
     assert result == _SAMPLE_NFE
 
 
@@ -119,17 +123,21 @@ def test_fetch_ps_nfe_set_refetches_corrupt_cache(tmp_path):
 
 def test_fetch_ps_nfe_set_returns_empty_on_http_error(tmp_path):
     import requests as req
-    with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", side_effect=req.RequestException("timeout")):
-            result = m.fetch_ps_nfe_set()
+    with (
+        patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"),
+        patch("requests.get", side_effect=req.RequestException("timeout")),
+    ):
+        result = m.fetch_ps_nfe_set()
     assert result == set()
 
 
 def test_fetch_ps_nfe_set_returns_empty_on_unparseable_response(tmp_path):
     # PS serves valid JSON; a JS-wrapped or otherwise non-JSON body is a failure.
-    with patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"):
-        with patch("requests.get", return_value=_make_response("var BattlePokedex = {};")):
-            result = m.fetch_ps_nfe_set()
+    with (
+        patch.object(m, "_CACHE_FILE", tmp_path / "ps_pokedex.json"),
+        patch("requests.get", return_value=_make_response("var BattlePokedex = {};")),
+    ):
+        result = m.fetch_ps_nfe_set()
     assert result == set()
 
 
