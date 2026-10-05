@@ -10,3 +10,8 @@ Codex-review: REQUEST CHANGES
 
 Code-review: APPROVE — LOW only (sprites/<missing> plain-text 404 when dir exists; picker shows all slots; start-race extra click).
 Codex-review: REQUEST CHANGES (exit 1) — sole finding: re-raise of the /sprites HIGH. Verified false (see deferrals.md); adjacent pre-existing 500 deferred.
+
+# Review round 3
+
+Code-review: APPROVE — MEDIUM port-conflict share link deferred (deferrals.md); LOWs recorded.
+Codex-review: APPROVE (exit 0) — 2 LOW (cloudflared death unnoticed; "Room not found" on network errors), deferred.
