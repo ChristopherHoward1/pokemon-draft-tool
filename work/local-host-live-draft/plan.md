@@ -1,6 +1,6 @@
 # Host a live draft from the Owner's machine
 
-**Slug:** local-host-live-draft · **Date:** 2026-10-05 · **Status:** approved
+**Slug:** local-host-live-draft · **Date:** 2026-10-05 · **Status:** implemented
 
 ## Goal
 
@@ -96,3 +96,11 @@ Reviewer (plan-reviewer, fresh thread): **REVISE**, 8 findings — all applied:
 
 No disagreements.
 Plan verdict: REVISE → all findings applied; awaiting Owner approval
+
+Implementation review (3 rounds; record in review-r1.md, deferrals in deferrals.md):
+- r1: code-review APPROVE; Codex REQUEST CHANGES — lobby rejoin + `kill 0` + api.trycloudflare.com fixed in followup-1; `/sprites` finding disproven.
+- r2: code-review APPROVE; Codex REQUEST CHANGES (re-raised disproven `/sprites`) — Owner chose a third round with the evidence in deferrals.md.
+- r3: both APPROVE; MEDIUM port-conflict + LOWs deferred to Unit 2.
+
+Code-review verdict: APPROVE
+Codex-review verdict: APPROVE
