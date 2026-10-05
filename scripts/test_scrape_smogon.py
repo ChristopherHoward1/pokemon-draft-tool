@@ -7,12 +7,11 @@ Run with: python -m pytest scripts/test_scrape_smogon.py -v
 """
 
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
+
 import pytest
-
 import scrape_smogon as m
-
 
 # ---------------------------------------------------------------------------
 # Helpers

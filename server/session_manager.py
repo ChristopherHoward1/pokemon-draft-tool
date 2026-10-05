@@ -10,11 +10,9 @@ from __future__ import annotations
 import asyncio
 import secrets
 from dataclasses import dataclass, field
-from typing import Optional
 
 from engine.draft_state import DraftState
 from engine.pool import DraftPool
-
 from server.models import CreateSessionRequest
 
 # Room codes: 6 chars from an unambiguous alphabet (no 0/O/1/I).
@@ -54,14 +52,14 @@ class Session:
     config: CreateSessionRequest
     slots: list[str] = field(default_factory=list)  # team names in join order
     started: bool = False
-    pool: Optional[DraftPool] = None
-    state: Optional[DraftState] = None
+    pool: DraftPool | None = None
+    state: DraftState | None = None
     # Serializes pick/undo so two clients can't mutate state concurrently.
     lock: asyncio.Lock = field(default_factory=asyncio.Lock)
 
     # -- lobby -----------------------------------------------------------
 
-    def slot_of(self, team_name: str) -> Optional[int]:
+    def slot_of(self, team_name: str) -> int | None:
         """1-based slot index for a team name, or None if not joined."""
         for i, name in enumerate(self.slots):
             if name == team_name:

@@ -3,10 +3,8 @@ from __future__ import annotations
 import json
 import random
 from pathlib import Path
-from typing import Optional
 
 import yaml
-
 
 _CONFIG_PATH = Path(__file__).parent.parent / "config" / "draft_config.yaml"
 
@@ -50,11 +48,11 @@ class DraftPool:
     def generate_pool(
         self,
         mode: str = "random",
-        size: Optional[int] = None,
-        vr_count: Optional[int] = None,
-        unranked_count: Optional[int] = None,
-        tier_counts: Optional[dict[str, int]] = None,
-        seed: Optional[int] = None,
+        size: int | None = None,
+        vr_count: int | None = None,
+        unranked_count: int | None = None,
+        tier_counts: dict[str, int] | None = None,
+        seed: int | None = None,
     ) -> None:
         rng = random.Random(seed)
 
@@ -109,7 +107,7 @@ class DraftPool:
     # Live-pool mutation (picks / undo)
     # ------------------------------------------------------------------
 
-    def available(self, sort_by: Optional[str] = None) -> list[dict]:
+    def available(self, sort_by: str | None = None) -> list[dict]:
         entries = list(self._available.values())
         if sort_by == "tier":
             costs = self._config["tier_costs"]
@@ -134,7 +132,7 @@ class DraftPool:
     # Lookups
     # ------------------------------------------------------------------
 
-    def get(self, name: str) -> Optional[dict]:
+    def get(self, name: str) -> dict | None:
         return self._pool.get(name)
 
     def tier_cost(self, vr_tier: str) -> int:

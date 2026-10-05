@@ -92,13 +92,13 @@ class TestValidPick:
         assert result.reason == ""
 
     def test_budget_exactly_equal_to_cost_is_valid(self):
-        pool, v = make_validator()
+        _pool, v = make_validator()
         # magikarp costs 2 — pick with exactly 2 remaining
         result = v.check("magikarp", remaining_budget=2, picks_made=0)
         assert result.valid is True
 
     def test_last_roster_slot_is_valid(self):
-        pool, v = make_validator()
+        _pool, v = make_validator()
         # roster_size=3, picks_made=2 → one slot left
         result = v.check("magikarp", remaining_budget=60, picks_made=2)
         assert result.valid is True
@@ -147,7 +147,7 @@ class TestNotInPool:
 
 class TestRosterFull:
     def test_roster_full_fails(self):
-        pool, v = make_validator()
+        _pool, v = make_validator()
         result = v.check("magikarp", remaining_budget=60, picks_made=3)
         assert result.valid is False
         assert "roster is full" in result.reason
@@ -155,7 +155,7 @@ class TestRosterFull:
 
     def test_roster_check_before_budget_check(self):
         # Roster full AND no budget → roster error wins
-        pool, v = make_validator()
+        _pool, v = make_validator()
         result = v.check("magikarp", remaining_budget=0, picks_made=3)
         assert "roster is full" in result.reason
 
@@ -166,13 +166,13 @@ class TestRosterFull:
 
 class TestInsufficientBudget:
     def test_zero_budget_fails(self):
-        pool, v = make_validator()
+        _pool, v = make_validator()
         result = v.check("magikarp", remaining_budget=0, picks_made=0)
         assert result.valid is False
         assert "insufficient budget" in result.reason
 
     def test_one_below_cost_fails(self):
-        pool, v = make_validator()
+        _pool, v = make_validator()
         # garganacl costs 11; 10 is one short
         result = v.check("garganacl", remaining_budget=10, picks_made=0)
         assert result.valid is False
@@ -181,7 +181,7 @@ class TestInsufficientBudget:
         assert "10" in result.reason   # remaining
 
     def test_reason_includes_name_and_cost(self):
-        pool, v = make_validator()
+        _pool, v = make_validator()
         result = v.check("garganacl", remaining_budget=5, picks_made=0)
         assert "garganacl" in result.reason
         assert "11" in result.reason

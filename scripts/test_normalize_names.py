@@ -4,10 +4,9 @@ Run with: python -m pytest scripts/test_normalize_names.py -v
 """
 
 import logging
-import pytest
 
 import normalize_names as m
-
+import pytest
 
 # ---------------------------------------------------------------------------
 # _basic_slug
@@ -199,6 +198,7 @@ REAL_VR_NAMES = [
 ]
 
 import re as _re
+
 
 def test_real_names_produce_valid_slugs():
     bad = []

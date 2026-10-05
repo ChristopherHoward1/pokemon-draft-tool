@@ -64,7 +64,7 @@ class ConnectionManager:
         for ws in sockets:
             try:
                 await ws.send_json(message)
-            except Exception:
+            except Exception:  # noqa: BLE001 — any send failure means the socket is dead; never let one break the broadcast
                 dead.append(ws)
         for ws in dead:
             self._drop(ws)
