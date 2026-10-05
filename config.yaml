@@ -1,0 +1,28 @@
+# The one knob. Everything vendor- or project-specific lives here.
+
+profile: software            # software | machine-learning | database | work
+
+models:
+  orchestrator: inherit      # the main Claude Code session
+  plan_reviewer: opus        # fresh subagent, .claude/agents/plan-reviewer.md
+  code_reviewer: opus        # fresh subagent, .claude/agents/code-reviewer.md
+  fan_selector: opus         # fresh subagent, .claude/agents/fan-selector.md
+
+implementer:
+  runtime: codex             # codex | claude | custom
+  fan: 1                     # N samples; default 1 preserves single-agent behavior
+  # Command receives the handoff on stdin, runs inside the worktree.
+  command: 'codex exec --sandbox workspace-write -'
+  # Claude Code implementer alternative:
+  # command: 'claude -p --dangerously-skip-permissions'
+
+reviewer:
+  command: 'codex exec --sandbox read-only -'
+
+gate:
+  command: scripts/gate.sh
+  required_tools: shellcheck:ruff:python3:npm
+  max_retries: 2             # failed-gate feedback loops before escalating to the Owner
+
+worktrees:
+  dir: ../pokemon-draft-tool-worktrees
