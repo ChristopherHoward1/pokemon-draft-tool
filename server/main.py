@@ -39,7 +39,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/sprites", StaticFiles(directory=str(_REPO_ROOT / "sprites")), name="sprites")
+# sprites/ is generated (scripts/fetch_sprites.py) and gitignored; serve 404s until it exists.
+app.mount(
+    "/sprites",
+    StaticFiles(directory=str(_REPO_ROOT / "sprites"), check_dir=False),
+    name="sprites",
+)
 
 manager = SessionManager()
 
