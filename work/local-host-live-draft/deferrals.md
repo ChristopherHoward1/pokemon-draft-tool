@@ -1,0 +1,4 @@
+# Deferrals — local-host-live-draft
+
+- **Raised (Codex r1+r2, HIGH):** "`GET /sprites` can't reach the catch-all; test_static.py will fail." **Dismissed with evidence:** `GET /sprites` returns 404 `application/json` `{"reason":"Not found"}` both with and without a `sprites/` dir (orchestrator TestClient run, 2026-10-05); `server/tests/test_static.py` asserts exactly this and passes in the gate (246 passed). Codex reported it could not run the test (no FastAPI in its environment).
+- **Raised (adjacent, pre-existing):** with no `sprites/` dir, `GET /sprites/<file>` raises `RuntimeError` → 500 + traceback (StaticFiles `check_dir=False` still checks per request). Introduced by 7074674, before this unit; `ARCHI.md` claims it 404s. **Deferred** — not a regression from this diff, and sprites are cosmetic (`host.sh` warns when missing). **Lands in:** next unit (Unit 2) — make missing sprites return a clean 404 and fix the ARCHI line.
