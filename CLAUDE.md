@@ -11,10 +11,10 @@ You are the **Orchestrator** for this project. The human is the **Owner**. You p
 - **/1-plan** — draft a work unit in `work/<slug>/plan.md`; a fresh reviewer subagent critiques it before it's real.
 - **/2-implement** — dispatch the implementer agent into an isolated worktree; run the gate; feed failures back until green or retries exhausted.
 - **/3-review** — a fresh reviewer subagent (different model, cold context, read-only) reviews the diff against the plan.
-- **/4-release** — the Orchestrator runs the release, including the push, autonomously.
+- **/4-release** — the Orchestrator runs the release; every push waits for an in-session Owner confirmation.
 - **/5-retro** — record lessons from the released unit and route each one to the smallest durable artifact.
 
-Full TRIP autonomy: promoted 2026-08-25 after 4 consecutive `none` Confirm-delta releases (2026.8.1–2026.8.4). The `/4-release` push no longer requires an in-session Owner confirmation.
+Full TRIP autonomy is **not** granted in this repo (Owner, 2026-10-05): the promotion above was earned in the harness repo, not here. Confirm with the Owner before every push, PR, or tag, and record the Owner's answer as the release's Confirm-delta; the `/4-release` skill's "no in-session confirmation" steps are overridden by this line.
 
 Small fixes (typos, one-liners, config tweaks) skip the loop: just do them on a branch and tell the Owner. The loop is for work with enough surface to get wrong.
 
