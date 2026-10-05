@@ -11,7 +11,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from server.models import (
@@ -23,6 +23,7 @@ from server.models import (
 from server.session_manager import SessionError, SessionManager
 
 _REPO_ROOT = Path(__file__).parent.parent
+CLIENT_DIST = _REPO_ROOT / "client" / "dist"
 
 app = FastAPI(title="Pokémon Draft — Multiplayer")
 
@@ -262,3 +263,24 @@ async def _handle_draft_message(
 @app.get("/health")
 async def health() -> dict:
     return {"status": "ok"}
+
+
+@app.get("/{full_path:path}")
+async def client_file(full_path: str):
+    if full_path.split("/", 1)[0] in {"session", "sprites", "health"}:
+        return JSONResponse(status_code=404, content={"reason": "Not found"})
+
+    root = CLIENT_DIST.resolve()
+    requested = (root / full_path).resolve()
+    if not requested.is_relative_to(root):
+        return JSONResponse(status_code=404, content={"reason": "Not found"})
+    if requested.is_file():
+        return FileResponse(requested)
+
+    index = (root / "index.html").resolve()
+    if index.is_relative_to(root) and index.is_file():
+        return FileResponse(index)
+    return JSONResponse(
+        status_code=404,
+        content={"reason": "Client not built — run npm --prefix client run build"},
+    )

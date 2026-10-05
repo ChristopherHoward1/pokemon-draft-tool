@@ -4,8 +4,8 @@ import { getSession, joinSession, startSession } from "../api";
 import { useLobbySocket } from "../hooks/useLobbySocket";
 import { useCopy } from "../hooks/useCopy";
 import { FORMATS } from "../constants";
+import { getTeam, setTeam } from "../identity";
 
-const teamKey = (code) => `draft:${code}:team`;
 const ordinal = (n) => {
   const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
@@ -18,7 +18,7 @@ export default function Lobby() {
   const { slots, numTeams, started } = useLobbySocket(code);
 
   const [meta, setMeta] = useState(null); // {format, draft_order, num_teams, ...}
-  const [myTeam, setMyTeam] = useState(() => sessionStorage.getItem(teamKey(code)) || "");
+  const [myTeam, setMyTeam] = useState(() => getTeam(code));
   const [nameInput, setNameInput] = useState("");
   const [joined, setJoined] = useState(false);
   const [error, setError] = useState(null);
@@ -54,7 +54,7 @@ export default function Lobby() {
     setError(null);
     try {
       await joinSession(code, name);
-      sessionStorage.setItem(teamKey(code), name);
+      setTeam(code, name);
       setMyTeam(name);
       setJoined(true);
     } catch (err) {
