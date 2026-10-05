@@ -121,7 +121,7 @@ export default function Lobby() {
       </div>
 
       {/* Join form (until this browser has joined) */}
-      {!joined && (
+      {!joined && !started && (
         <form
           onSubmit={join}
           className="mb-6 flex flex-col gap-3 rounded-xl border border-border bg-surface p-5"
@@ -150,6 +150,16 @@ export default function Lobby() {
             <span className="text-sm text-warn">This room is full.</span>
           )}
         </form>
+      )}
+
+      {started && !myTeam && (
+        <button
+          type="button"
+          onClick={() => navigate(`/draft/${code}`)}
+          className="mb-6 rounded-lg bg-accent px-5 py-3 font-semibold text-ground transition hover:brightness-110"
+        >
+          Draft in progress — Rejoin your team
+        </button>
       )}
 
       {joined && mySlot && (
@@ -205,7 +215,7 @@ export default function Lobby() {
       )}
 
       {/* Start / waiting footer */}
-      <div className="mt-8 flex flex-col items-center gap-2">
+      {!started && <div className="mt-8 flex flex-col items-center gap-2">
         {isHost ? (
           <button
             onClick={start}
@@ -219,7 +229,7 @@ export default function Lobby() {
             {full ? "Waiting for host to start…" : "Waiting for more players…"}
           </span>
         )}
-      </div>
+      </div>}
     </div>
   );
 }

@@ -18,15 +18,28 @@ esac
 
 cleaned=0
 tunnel_log=""
+server_pid=""
+tunnel_pid=""
+stop_process_tree() {
+  local pid="$1" child
+  while IFS= read -r child; do
+    stop_process_tree "$child"
+  done < <(pgrep -P "$pid" 2>/dev/null || true)
+  kill "$pid" 2>/dev/null || true
+}
 cleanup() {
   if (( cleaned )); then return; fi
   cleaned=1
   trap - EXIT INT TERM
-  trap '' TERM
-  kill 0 2>/dev/null || true
+  if [[ -n "$tunnel_pid" ]]; then stop_process_tree "$tunnel_pid"; fi
+  if [[ -n "$server_pid" ]]; then stop_process_tree "$server_pid"; fi
+  if [[ -n "$tunnel_pid" ]]; then wait "$tunnel_pid" 2>/dev/null || true; fi
+  if [[ -n "$server_pid" ]]; then wait "$server_pid" 2>/dev/null || true; fi
   if [[ -n "$tunnel_log" ]]; then rm -f "$tunnel_log"; fi
 }
-trap cleanup EXIT INT TERM
+trap cleanup EXIT
+trap 'cleanup; exit 130' INT
+trap 'cleanup; exit 143' TERM
 
 if [[ ! -d client/node_modules ]]; then npm --prefix client ci; fi
 # shellcheck disable=SC1007
@@ -68,7 +81,7 @@ if [[ "$TUNNEL" == cloudflared ]]; then
   tunnel_pid=$!
   share_link=""
   for ((i = 0; i < 30; i++)); do
-    share_link=$(grep -Eom1 'https://[a-z0-9-]+\.trycloudflare\.com' "$tunnel_log" || true)
+    share_link=$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' "$tunnel_log" | grep -v '^https://api\.trycloudflare\.com$' | head -n 1 || true)
     if [[ -n "$share_link" ]]; then break; fi
     if ! kill -0 "$tunnel_pid" 2>/dev/null; then break; fi
     sleep 1
