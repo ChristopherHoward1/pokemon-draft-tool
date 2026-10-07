@@ -54,3 +54,40 @@ pgrep: Cannot get process list
 ```
 
 The simulated empty PID let `start_tunnel` fail before the stub link was scraped. `host.sh` had exited before SIGTERM, and the unavailable `pgrep` prevented checking for surviving children. This run does not meet the orphan acceptance criterion.
+
+## Orchestrator live run (2026-10-07, outside the sandbox, at cfcfb5c)
+
+The implementer's orphan attempt above did not exercise the race: emptying `tunnel_pid` at launch made `start_tunnel` fail first. Re-run with a scratch copy of host.sh whose cleanup clears `tunnel_pid` right after `trap - EXIT INT TERM`, so cleanup cannot see the tunnel PID. Against `origin/main`'s host.sh, the same edit leaves the stub cloudflared running after SIGTERM; on this branch nothing is left. Harness: stub cloudflared in a mktemp dir, `set -m` for SIGINT, pgrep on the stub path.
+
+```text
+== PORT validation
+PASS: PORT=abc
+PASS: PORT=70000
+PASS: PORT=0080
+== missing curl
+PASS: no curl
+== busy port
+PASS: busy port
+== tunnel restart regression
+PASS: restart
+PASS: restart no leftovers
+== quiet shutdown
+PASS: quiet none/INT rc=130
+PASS: quiet none/INT no leftovers
+PASS: quiet none/TERM rc=143
+PASS: quiet none/TERM no leftovers
+PASS: quiet up/INT rc=130
+PASS: quiet up/INT no leftovers
+PASS: quiet up/TERM rc=143
+PASS: quiet up/TERM no leftovers
+== server death during failed restart
+PASS: failed-restart exited in 3s
+PASS: failed-restart no leftovers
+== server death during initial tunnel
+PASS: initial-death rc=1 in 1s
+PASS: initial-death no leftovers
+== orphan (tunnel_pid cleared in cleanup, scratch copy)
+before TERM: 43458 /opt/miniconda3/bin/python /opt/miniconda3/bin/uvicorn server.main:app --host 127.0.0.1 --port 8770;43460 caffeinate -i uvicorn server.main:app --host 127.0.0.1 --port 8770;43478 /bin/bash /var/folders/y6/cqq_kqw13z58pgr6c9f3fzdm0000gn/T/tmp.8lUmLtbJqY/cloudflared tunnel --url http://127.0.0.1:8770;
+PASS: orphan no leftovers
+done
+```
