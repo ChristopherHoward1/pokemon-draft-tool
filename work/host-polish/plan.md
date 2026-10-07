@@ -1,6 +1,6 @@
 # Polish draft-night hosting edges
 
-**Slug:** host-polish · **Date:** 2026-10-07 · **Status:** approved
+**Slug:** host-polish · **Date:** 2026-10-07 · **Status:** implemented
 
 ## Goal
 
@@ -124,3 +124,7 @@ Round 1 (fresh plan reviewer, 2026-10-07): REVISE, 10 findings. The `plan-review
 
 No disagreements.
 Plan verdict: REVISE (round 1); all findings applied
+
+Code review: round 1 both APPROVE. Codex: one MEDIUM (`PORT=''` falls back to 8000), accepted as no action. Claude reviewer: three LOW, one deferred. See [deferrals.md](deferrals.md) and [review-r1.md](review-r1.md).
+Code-review verdict: APPROVE
+Codex-review verdict: APPROVE
