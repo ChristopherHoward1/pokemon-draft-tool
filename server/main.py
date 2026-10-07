@@ -40,7 +40,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-manager = SessionManager()
+manager = SessionManager(store_dir=Path(d) if (d := os.environ.get("DRAFT_SESSIONS_DIR")) else None)
 
 
 @app.exception_handler(SessionError)
@@ -224,6 +224,7 @@ async def _handle_draft_message(
             if not result.valid:
                 await websocket.send_json({"type": "error", "reason": result.reason})
                 return
+            manager.save(session)
             payload = session.state_payload()
         await conns.broadcast_draft(
             session.id, {"type": "state_update", "state": payload}
@@ -242,6 +243,7 @@ async def _handle_draft_message(
             except RuntimeError as exc:
                 await websocket.send_json({"type": "error", "reason": str(exc)})
                 return
+            manager.save(session)
             payload = session.state_payload()
         await conns.broadcast_draft(
             session.id, {"type": "state_update", "state": payload}

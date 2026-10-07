@@ -1,4 +1,5 @@
 # Generated large caches — run scripts to rebuild locally
+/sessions/
 sprites/
 data/pokemon_cache/
 

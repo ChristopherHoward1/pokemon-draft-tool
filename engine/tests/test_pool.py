@@ -74,6 +74,13 @@ class TestConstruction:
         pool = make_pool("pokebilities")
         assert len(pool._all) == len(POKEMON)
 
+    def test_load_pool_keeps_order_and_rejects_unknown_slug(self):
+        pool = make_pool()
+        pool.load_pool(["magikarp", "garganacl"])
+        assert [entry["name"] for entry in pool.available()] == ["magikarp", "garganacl"]
+        with pytest.raises(ValueError, match="missing-slug"):
+            pool.load_pool(["missing-slug"])
+
     def test_unknown_format_raises(self):
         with pytest.raises(ValueError, match="Unknown format"):
             make_pool("doubles")

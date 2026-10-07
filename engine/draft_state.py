@@ -94,6 +94,25 @@ class DraftState:
         self._pool.restore(pokemon_name)
         self._undo_record = None
 
+    def restore(self, rosters: dict[str, list[str]], can_undo: bool) -> None:
+        if self._total_picks() or set(rosters) != set(self._team_index):
+            raise ValueError("Roster teams do not match a fresh draft")
+        total = sum(len(roster) for roster in rosters.values())
+        for turn in range(total):
+            team = self._team_at(turn)
+            index = len(team.roster)
+            if index >= len(rosters[team.name]):
+                raise ValueError(f"Roster shape cannot reach turn {turn} for {team.name!r}")
+            name = rosters[team.name][index]
+            result = self.pick(name)
+            if not result.valid:
+                raise ValueError(f"Invalid pick {name!r}: {result.reason}")
+        if not can_undo:
+            self._undo_record = None
+
+    def can_undo(self) -> bool:
+        return self._undo_record is not None
+
     # ------------------------------------------------------------------
     # State queries
     # ------------------------------------------------------------------

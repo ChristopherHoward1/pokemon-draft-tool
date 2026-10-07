@@ -127,8 +127,9 @@ Set `PORT=8001` to use another port, or `TUNNEL=none` to host only on your machi
 at the printed local link. `host.sh` refuses an invalid or busy `PORT`, and Ctrl-C stops the server and tunnel it started.
 A player who closes their tab can reopen the draft
 link to return to their team; if the browser has lost its saved team name, they
-can choose their slot from the **Rejoin as…** list. Rooms are lost when the server
-stops, so a new draft needs a new room and link.
+can choose their slot from the **Rejoin as…** list. Started drafts are saved in
+`sessions/` (or `DRAFT_SESSIONS_DIR`) and survive a `./host.sh` restart. Players
+open the new share link, or reload the same local link, and rejoin their team.
 
 ### The draft flow
 
