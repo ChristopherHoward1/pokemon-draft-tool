@@ -30,3 +30,28 @@ none TERM rc=143 noise=0 left=[]
 cloudflared INT rc=130 noise=0 left=[] link=https://test-1.trycloudflare.com
 cloudflared TERM rc=143 noise=0 left=[] link=https://test-2.trycloudflare.com
 ```
+
+## Orchestrator browser restart check (2026-10-07)
+
+Headless Chrome through playwright-core over CDP. Two separate browser contexts stand in for the two Chrome profiles (each has its own localStorage). `TUNNEL=none`, scratch `DRAFT_SESSIONS_DIR`.
+
+- **Run 1** on `http://localhost:8796`: create the room through the UI, Alpha and Bravo join, start, 3 picks.
+- SIGINT (rc 130), then re-run `./host.sh`.
+- **Run 2** on `http://127.0.0.1:8796`: a different origin, so localStorage starts empty, the same as a new cloudflared link.
+
+The run didn't use a real cloudflared tunnel. The origin swap tests the same client path (no stored identity, then the "Rejoin as…" picker) without opening a public link.
+
+```
+phase1 room MD9MDB
+phase1 Alpha picked Kingambit / Bravo picked Moltres / Bravo picked Zapdos
+phase1 3 picks made; Alpha on the clock
+run1 host.sh rc=130
+INFO:     Restored 1 draft room(s): MD9MDB
+phase2 Alpha: Rejoin picker shown / Bravo: Rejoin picker shown
+phase2 A, B: pick history shows restored picks
+phase2 Alpha picked Cobalion; 4th pick recorded and reached Bravo's board
+run2 host.sh rc=130, leftovers: none
+REJOIN: PASS
+```
+
+Bravo's screenshot after the 4th pick shows 4 taken cards, all 4 picks in the history, Bravo at 44 pts and Alpha at 45 pts, and the correct rosters. Sprites were blank because the worktree has no `sprites/` dir; that's expected and cosmetic.
