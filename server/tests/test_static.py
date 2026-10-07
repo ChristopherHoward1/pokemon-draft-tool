@@ -90,3 +90,23 @@ def test_nul_paths_return_json_404(tmp_path, monkeypatch):
             assert response.status_code == 404
             assert response.headers["content-type"].startswith("application/json")
             assert response.json() == {"reason": "Not found"}
+
+
+def test_overlong_path_segments_do_not_500(tmp_path, monkeypatch):
+    sprites = tmp_path / "sprites"
+    sprites.mkdir()
+    dist = tmp_path / "dist"
+    dist.mkdir()
+    (dist / "index.html").write_text("<html>draft</html>")
+    monkeypatch.setattr(main, "SPRITES_DIR", sprites)
+    monkeypatch.setattr(main, "CLIENT_DIST", dist)
+    long_name = "a" * 5000
+
+    with TestClient(main.app, raise_server_exceptions=False) as client:
+        response = client.get(f"/sprites/{long_name}")
+        assert response.status_code == 404
+        assert response.json() == {"reason": "Not found"}
+
+        response = client.get(f"/{long_name}")
+        assert response.status_code == 200
+        assert response.text == "<html>draft</html>"
