@@ -38,11 +38,13 @@ export default function Draft() {
   const { code } = useParams();
   const navigate = useNavigate();
   const [selection, setSelection] = useState(null);
+  const [retry, setRetry] = useState(0);
   const room = selection?.code === code ? selection.room : null;
   const teamName = selection?.code === code ? selection.teamName : "";
 
   useEffect(() => {
     let active = true;
+    setSelection(null);
     getSession(code).then((session) => {
       if (!active) return;
       const stored = getTeam(code);
@@ -54,14 +56,25 @@ export default function Draft() {
         room: session,
         teamName: session.slots.some((slot) => slot.team_name === stored) ? stored : "",
       });
-    }).catch(() => {
-      if (active) setSelection({ code, room: "missing", teamName: "" });
+    }).catch((err) => {
+      if (active) setSelection({ code, room: err.status === 404 ? "missing" : "unreachable", teamName: "" });
     });
     return () => { active = false; };
-  }, [code]);
+  }, [code, retry]);
 
   if (room === "missing") {
     return <Centered><p className="text-muted">Room not found — ask the host for a new link</p></Centered>;
+  }
+
+  if (room === "unreachable") {
+    return (
+      <Centered>
+        <p className="text-muted">Can't reach the draft server — check your connection, or ask the host for a new link</p>
+        <button onClick={() => setRetry((count) => count + 1)} className="mt-3 rounded-md bg-accent px-4 py-2 font-semibold text-ground">
+          Retry
+        </button>
+      </Centered>
+    );
   }
 
   if (!room) {

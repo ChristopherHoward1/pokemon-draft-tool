@@ -49,3 +49,44 @@ def test_traversal_and_missing_build(tmp_path, monkeypatch):
         response = client.get("/lobby/ABCD")
         assert response.status_code == 404
         assert response.text != "private"
+
+
+def test_missing_sprites_return_json_404(tmp_path, monkeypatch):
+    monkeypatch.setattr(main, "SPRITES_DIR", tmp_path / "missing")
+
+    with TestClient(main.app, raise_server_exceptions=False) as client:
+        for path in ("/sprites/pikachu.png", "/sprites/", "/sprites/%00"):
+            response = client.get(path)
+            assert response.status_code == 404
+            assert response.headers["content-type"].startswith("application/json")
+            assert response.json() == {"reason": "Not found"}
+
+
+def test_sprite_file_and_traversal(tmp_path, monkeypatch):
+    sprites = tmp_path / "sprites"
+    sprites.mkdir()
+    (sprites / "a.png").write_bytes(b"image bytes")
+    (tmp_path / "secret").write_text("private")
+    monkeypatch.setattr(main, "SPRITES_DIR", sprites)
+
+    with TestClient(main.app) as client:
+        response = client.get("/sprites/a.png")
+        assert response.status_code == 200
+        assert response.content == b"image bytes"
+
+        response = client.get("/sprites/..%2Fsecret")
+        assert response.status_code == 404
+        assert response.headers["content-type"].startswith("application/json")
+        assert response.json() == {"reason": "Not found"}
+        assert response.text != "private"
+
+
+def test_nul_paths_return_json_404(tmp_path, monkeypatch):
+    monkeypatch.setattr(main, "CLIENT_DIST", tmp_path)
+
+    with TestClient(main.app, raise_server_exceptions=False) as client:
+        for path in ("/%00", "/lobby/%00"):
+            response = client.get(path)
+            assert response.status_code == 404
+            assert response.headers["content-type"].startswith("application/json")
+            assert response.json() == {"reason": "Not found"}

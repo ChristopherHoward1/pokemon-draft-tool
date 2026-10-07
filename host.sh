@@ -16,6 +16,13 @@ case "$TUNNEL" in
   *) echo "TUNNEL must be cloudflared or none" >&2; exit 1 ;;
 esac
 
+rc=0
+curl -fsS --connect-timeout 1 --max-time 2 "http://127.0.0.1:$PORT/" >/dev/null 2>&1 || rc=$?
+if (( rc != 7 )); then
+  echo "Port $PORT is in use — stop the other server or run PORT=<n> ./host.sh" >&2
+  exit 1
+fi
+
 cleaned=0
 tunnel_log=""
 server_pid=""
@@ -26,6 +33,24 @@ stop_process_tree() {
     stop_process_tree "$child"
   done < <(pgrep -P "$pid" 2>/dev/null || true)
   kill "$pid" 2>/dev/null || true
+}
+start_tunnel() {
+  if [[ -n "$tunnel_log" ]]; then rm -f "$tunnel_log"; fi
+  tunnel_pid=""
+  tunnel_log=$(mktemp) || return 1
+  share_link=""
+  cloudflared tunnel --url "http://127.0.0.1:$PORT" >"$tunnel_log" 2>&1 &
+  tunnel_pid=$!
+  for ((i = 0; i < 30; i++)); do
+    share_link=$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' "$tunnel_log" | grep -v '^https://api\.trycloudflare\.com$' | head -n 1 || true)
+    if [[ -n "$share_link" ]]; then return 0; fi
+    if ! kill -0 "$tunnel_pid" 2>/dev/null; then break; fi
+    sleep 1
+  done
+  if kill -0 "$tunnel_pid" 2>/dev/null; then stop_process_tree "$tunnel_pid"; fi
+  wait "$tunnel_pid" 2>/dev/null || true
+  tunnel_pid=""
+  return 1
 }
 cleanup() {
   if (( cleaned )); then return; fi
@@ -76,17 +101,7 @@ fi
 
 share_link="http://localhost:$PORT"
 if [[ "$TUNNEL" == cloudflared ]]; then
-  tunnel_log=$(mktemp)
-  cloudflared tunnel --url "http://127.0.0.1:$PORT" >"$tunnel_log" 2>&1 &
-  tunnel_pid=$!
-  share_link=""
-  for ((i = 0; i < 30; i++)); do
-    share_link=$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' "$tunnel_log" | grep -v '^https://api\.trycloudflare\.com$' | head -n 1 || true)
-    if [[ -n "$share_link" ]]; then break; fi
-    if ! kill -0 "$tunnel_pid" 2>/dev/null; then break; fi
-    sleep 1
-  done
-  if [[ -z "$share_link" ]]; then
+  if ! start_tunnel; then
     echo "cloudflared did not provide a share link:" >&2
     tail -n 20 "$tunnel_log" >&2
     exit 1
@@ -96,4 +111,22 @@ fi
 echo "Share link: $share_link"
 echo "Local link: http://localhost:$PORT"
 echo "join first — slot 1 is the host (Start / Undo)"
+last_tunnel_attempt=$((SECONDS - 30))
+while kill -0 "$server_pid" 2>/dev/null; do
+  if [[ "$TUNNEL" == cloudflared ]] && ! kill -0 "$tunnel_pid" 2>/dev/null; then
+    if (( SECONDS - last_tunnel_attempt >= 30 )); then
+      echo ""
+      echo "TUNNEL DOWN — players are disconnected" >&2
+      echo "The local draft is still running. Attempting a new share link…" >&2
+      last_tunnel_attempt=$SECONDS
+      if start_tunnel; then
+        echo "New share link: $share_link"
+        echo "Repost the new share link in Discord so players can rejoin."
+      else
+        echo "Tunnel restart failed; the draft remains available locally. Retrying soon." >&2
+      fi
+    fi
+  fi
+  sleep 2
+done
 wait "$server_pid"
