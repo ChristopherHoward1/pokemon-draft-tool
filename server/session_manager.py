@@ -208,6 +208,10 @@ class SessionManager:
                                              suffix=".tmp", delete=False) as temp:
                 temp_path = Path(temp.name)
                 json.dump(snapshot, temp)
+                # Flush to disk so a power loss can't leave a truncated file
+                # behind the atomic rename.
+                temp.flush()
+                os.fsync(temp.fileno())
             os.replace(temp_path, self.store_dir / f"{session.id}.json")
         except OSError as exc:
             _LOG.warning("Could not save draft room %s: %s", session.id, exc)
