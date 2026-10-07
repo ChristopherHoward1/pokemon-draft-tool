@@ -5,6 +5,15 @@ cd "$(dirname "$0")"
 PORT="${PORT:-8000}"
 TUNNEL="${TUNNEL:-cloudflared}"
 
+if ! command -v curl >/dev/null; then
+  echo "curl is required" >&2
+  exit 1
+fi
+if [[ ! "$PORT" =~ ^[1-9][0-9]*$ ]] || (( ${#PORT} > 5 )) || (( 10#$PORT > 65535 )); then
+  echo "PORT must be a number from 1 to 65535" >&2
+  exit 1
+fi
+
 case "$TUNNEL" in
   cloudflared)
     if ! command -v cloudflared >/dev/null; then
@@ -16,12 +25,15 @@ case "$TUNNEL" in
   *) echo "TUNNEL must be cloudflared or none" >&2; exit 1 ;;
 esac
 
-rc=0
-curl -fsS --connect-timeout 1 --max-time 2 "http://127.0.0.1:$PORT/" >/dev/null 2>&1 || rc=$?
-if (( rc != 7 )); then
-  echo "Port $PORT is in use — stop the other server or run PORT=<n> ./host.sh" >&2
-  exit 1
-fi
+check_port_free() {
+  local rc=0
+  curl -fsS --connect-timeout 1 --max-time 2 "http://127.0.0.1:$PORT/" >/dev/null 2>&1 || rc=$?
+  if (( rc != 7 )); then
+    echo "Port $PORT is in use — stop the other server or run PORT=<n> ./host.sh" >&2
+    exit 1
+  fi
+}
+check_port_free
 
 cleaned=0
 tunnel_log=""
@@ -44,6 +56,7 @@ start_tunnel() {
   for ((i = 0; i < 30; i++)); do
     share_link=$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' "$tunnel_log" | grep -v '^https://api\.trycloudflare\.com$' | head -n 1 || true)
     if [[ -n "$share_link" ]]; then return 0; fi
+    if ! kill -0 "$server_pid" 2>/dev/null; then break; fi
     if ! kill -0 "$tunnel_pid" 2>/dev/null; then break; fi
     sleep 1
   done
@@ -56,11 +69,20 @@ cleanup() {
   if (( cleaned )); then return; fi
   cleaned=1
   trap - EXIT INT TERM
-  if [[ -n "$tunnel_pid" ]]; then stop_process_tree "$tunnel_pid"; fi
-  if [[ -n "$server_pid" ]]; then stop_process_tree "$server_pid"; fi
-  if [[ -n "$tunnel_pid" ]]; then wait "$tunnel_pid" 2>/dev/null || true; fi
-  if [[ -n "$server_pid" ]]; then wait "$server_pid" 2>/dev/null || true; fi
-  if [[ -n "$tunnel_log" ]]; then rm -f "$tunnel_log"; fi
+  {
+    if [[ -n "$tunnel_pid" ]]; then stop_process_tree "$tunnel_pid"; fi
+    if [[ -n "$server_pid" ]]; then stop_process_tree "$server_pid"; fi
+    local kids child
+    kids=$(pgrep -P $$) || true
+    if [[ -n "$kids" ]]; then
+      while IFS= read -r child; do
+        stop_process_tree "$child"
+      done <<< "$kids"
+    fi
+    if [[ -n "$tunnel_pid" ]]; then wait "$tunnel_pid" 2>/dev/null || true; fi
+    if [[ -n "$server_pid" ]]; then wait "$server_pid" 2>/dev/null || true; fi
+    if [[ -n "$tunnel_log" ]]; then rm -f "$tunnel_log"; fi
+  } 2>/dev/null
 }
 trap cleanup EXIT
 trap 'cleanup; exit 130' INT
@@ -78,6 +100,7 @@ if [[ ! -d sprites ]] || [[ -z "$(ls -A sprites)" ]]; then
   echo "Warning: sprites missing. Run python3 scripts/fetch_sprites.py to add them." >&2
 fi
 
+check_port_free
 if command -v caffeinate >/dev/null; then
   caffeinate -i uvicorn server.main:app --host 127.0.0.1 --port "$PORT" &
 else
@@ -102,6 +125,10 @@ fi
 share_link="http://localhost:$PORT"
 if [[ "$TUNNEL" == cloudflared ]]; then
   if ! start_tunnel; then
+    if ! kill -0 "$server_pid" 2>/dev/null; then
+      echo "Server stopped before the tunnel was ready" >&2
+      exit 1
+    fi
     echo "cloudflared did not provide a share link:" >&2
     tail -n 20 "$tunnel_log" >&2
     exit 1

@@ -113,7 +113,7 @@ Then open `http://localhost:5173`.
 
 ### Host it from your machine (`./host.sh`)
 
-Install Python dependencies and Node.js as for local development, and install
+Install Python dependencies and Node.js as for local development, plus `curl` and
 `cloudflared` (`brew install cloudflared`) for a public link. From the repo root:
 
 ```
@@ -124,7 +124,8 @@ The script builds the client, starts one server, and prints an HTTPS share link.
 Paste that link in Discord. Join first: slot 1 is the host and can Start and Undo.
 If the tunnel drops, `host.sh` restarts it automatically; repost the new link in Discord, and players re-pick their team from **Rejoin as…**.
 Set `PORT=8001` to use another port, or `TUNNEL=none` to host only on your machine
-at the printed local link. A player who closes their tab can reopen the draft
+at the printed local link. `host.sh` refuses an invalid or busy `PORT`, and Ctrl-C stops the server and tunnel it started.
+A player who closes their tab can reopen the draft
 link to return to their team; if the browser has lost its saved team name, they
 can choose their slot from the **Rejoin as…** list. Rooms are lost when the server
 stops, so a new draft needs a new room and link.

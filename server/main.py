@@ -253,7 +253,7 @@ async def _handle_draft_message(
         )
 
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 async def health() -> dict:
     return {"status": "ok"}
 
@@ -275,7 +275,7 @@ def _is_file(path: Path | None) -> bool:
         return False
 
 
-@app.get("/sprites/{name:path}")
+@app.api_route("/sprites/{name:path}", methods=["GET", "HEAD"])
 async def sprite_file(name: str):
     requested = _resolve_inside(SPRITES_DIR, name)
     if _is_file(requested):
@@ -283,7 +283,7 @@ async def sprite_file(name: str):
     return JSONResponse(status_code=404, content={"reason": "Not found"})
 
 
-@app.get("/{full_path:path}")
+@app.api_route("/{full_path:path}", methods=["GET", "HEAD"])
 async def client_file(full_path: str):
     if full_path.split("/", 1)[0] in {"session", "sprites", "health"}:
         return JSONResponse(status_code=404, content={"reason": "Not found"})
