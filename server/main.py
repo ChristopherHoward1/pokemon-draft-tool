@@ -12,7 +12,6 @@ from pathlib import Path
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
 
 from server.models import (
     CreateSessionRequest,
@@ -24,6 +23,7 @@ from server.session_manager import SessionError, SessionManager
 
 _REPO_ROOT = Path(__file__).parent.parent
 CLIENT_DIST = _REPO_ROOT / "client" / "dist"
+SPRITES_DIR = _REPO_ROOT / "sprites"
 
 app = FastAPI(title="Pokémon Draft — Multiplayer")
 
@@ -38,13 +38,6 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
-
-# sprites/ is generated (scripts/fetch_sprites.py) and gitignored; serve 404s until it exists.
-app.mount(
-    "/sprites",
-    StaticFiles(directory=str(_REPO_ROOT / "sprites"), check_dir=False),
-    name="sprites",
 )
 
 manager = SessionManager()
@@ -265,20 +258,36 @@ async def health() -> dict:
     return {"status": "ok"}
 
 
+def _resolve_inside(root: Path, rel: str) -> Path | None:
+    try:
+        resolved_root = root.resolve()
+        requested = (resolved_root / rel).resolve()
+    except (ValueError, OSError):
+        return None
+    return requested if requested.is_relative_to(resolved_root) else None
+
+
+@app.get("/sprites/{name:path}")
+async def sprite_file(name: str):
+    requested = _resolve_inside(SPRITES_DIR, name)
+    if requested and requested.is_file():
+        return FileResponse(requested)
+    return JSONResponse(status_code=404, content={"reason": "Not found"})
+
+
 @app.get("/{full_path:path}")
 async def client_file(full_path: str):
     if full_path.split("/", 1)[0] in {"session", "sprites", "health"}:
         return JSONResponse(status_code=404, content={"reason": "Not found"})
 
-    root = CLIENT_DIST.resolve()
-    requested = (root / full_path).resolve()
-    if not requested.is_relative_to(root):
+    requested = _resolve_inside(CLIENT_DIST, full_path)
+    if requested is None:
         return JSONResponse(status_code=404, content={"reason": "Not found"})
     if requested.is_file():
         return FileResponse(requested)
 
-    index = (root / "index.html").resolve()
-    if index.is_relative_to(root) and index.is_file():
+    index = _resolve_inside(CLIENT_DIST, "index.html")
+    if index and index.is_file():
         return FileResponse(index)
     return JSONResponse(
         status_code=404,

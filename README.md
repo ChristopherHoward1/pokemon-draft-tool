@@ -122,6 +122,7 @@ Install Python dependencies and Node.js as for local development, and install
 
 The script builds the client, starts one server, and prints an HTTPS share link.
 Paste that link in Discord. Join first: slot 1 is the host and can Start and Undo.
+If the tunnel drops, `host.sh` restarts it automatically; repost the new link in Discord, and players re-pick their team from **Rejoin as…**.
 Set `PORT=8001` to use another port, or `TUNNEL=none` to host only on your machine
 at the printed local link. A player who closes their tab can reopen the draft
 link to return to their team; if the browser has lost its saved team name, they

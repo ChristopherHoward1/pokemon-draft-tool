@@ -25,7 +25,9 @@ async function request(path, options = {}) {
     } catch {
       /* non-JSON error body */
     }
-    throw new Error(reason);
+    const err = new Error(reason);
+    err.status = resp.status;
+    throw err;
   }
   return resp.json();
 }
