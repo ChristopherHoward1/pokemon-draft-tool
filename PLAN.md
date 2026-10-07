@@ -13,6 +13,7 @@ Run live Pokémon draft leagues (AAA + Pokébilities) for a Discord league: a mu
 
 ## Decisions
 
+- 2026-10-06 — The Orchestrator runs live-server / `host.sh` scenarios outside the implementer sandbox before review (Codex cannot bind ports). See [the retro](work/local-host-live-draft/retro.md).
 - 2026-10-05 — Host live drafts locally via `host.sh`; keep Render as the fallback. See [the work plan](work/local-host-live-draft/plan.md).
 - 2026-10-05 — Adopted the agentic-coding harness; gate extended via `scripts/gate.d/` rather than editing `gate.sh`, so harness updates copy over cleanly.
 
