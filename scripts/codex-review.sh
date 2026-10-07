@@ -32,7 +32,16 @@ fi
 git rev-parse --verify --quiet "$branch" >/dev/null \
   || die2 "missing branch: $branch"
 
-config_ref=${REVIEW_BASE:-main}  # never the branch under review
+git fetch origin --quiet 2>/dev/null || true
+if [[ -n "${REVIEW_BASE:-}" ]]; then
+  base=$REVIEW_BASE  # stacked branches: diff against the parent branch, not main
+elif git show-ref --verify --quiet refs/remotes/origin/main; then
+  base=origin/main
+else
+  base=main
+fi
+
+config_ref=$base  # never the branch under review
 config=$(git show "$config_ref:config.yaml") \
   || die2 "cannot read config.yaml from $config_ref"
 
@@ -96,15 +105,6 @@ else
   printf '(none recorded)\n' >>"$prompt"
 fi
 
-git fetch origin --quiet 2>/dev/null || true
-if [[ -n "${REVIEW_BASE:-}" ]]; then
-  base=$REVIEW_BASE  # stacked branches: diff against the parent branch, not main
-elif git show-ref --verify --quiet refs/remotes/origin/main; then
-  base=origin/main
-else
-  base=main
-fi
-
 printf '\n%s\n' "--- DIFF ($base...$branch excluding work/$slug) ---" >>"$prompt"
 git diff "$base...$branch" -- ':/' ":(exclude,top)work/$slug" >>"$prompt" \
   || die2 "cannot diff $base...$branch"
@@ -113,10 +113,10 @@ git diff "$base...$branch" -- ':/' ":(exclude,top)work/$slug" >>"$prompt" \
   printf '\n'
   printf '## Severity\n\n'
   printf 'Every finding gets exactly one severity:\n'
-  printf '- CRITICAL: data loss, security hole, or silent wrong result. Blocks in any round.\n'
-  printf '- HIGH: incorrect behavior under a realistic scenario. Blocks in any round.\n'
-  printf '- MEDIUM: robustness gap, missing validation, or incomplete contract. Never sets the verdict; report it for the orchestrator to route.\n'
-  printf '- LOW: style, naming, log hygiene, non-blocking edge cases. Never blocks.\n\n'
+  printf -- '- CRITICAL: data loss, security hole, or silent wrong result. Blocks in any round.\n'
+  printf -- '- HIGH: incorrect behavior under a realistic scenario. Blocks in any round.\n'
+  printf -- '- MEDIUM: robustness gap, missing validation, or incomplete contract. Never sets the verdict; report it for the orchestrator to route.\n'
+  printf -- '- LOW: style, naming, log hygiene, non-blocking edge cases. Never blocks.\n\n'
   printf 'A finding without a concrete failure scenario is LOW by definition.\n\n'
   printf '## Calibration\n\n'
   printf 'Focus on what breaks the acceptance criteria, not on what you would write differently.\n'
