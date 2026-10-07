@@ -12,3 +12,11 @@ Self-check results:
 - **`TUNNEL=none`:** the scratch check confirmed the banner and SIGTERM cleanup.
 
 The live `/health` check, `pgrep` check, and `dev.sh` browser check remain unverified because the sandbox blocks local binds and process listing. No code outside the plan footprint was changed.
+
+## Orchestrator verification (2026-10-06, outside the implementer sandbox)
+
+- Gate: `scripts/gate.sh` PASS (249 passed, 4 skipped).
+- Busy port (`http.server` on 8765, `PORT=8765 TUNNEL=none ./host.sh`): rc=1 in <1 s, before the build, "Port 8765 is in use" message; no leftover processes.
+- Stub tunnel restart (PORT=8766): Share link test-1 → TUNNEL DOWN → New share link test-2 + repost line; `/health` ok; SIGTERM → rc 143, `pgrep` clean. Cosmetic: bash job-control prints "Terminated: 15 cloudflared …" on shutdown.
+- Stub failed restart (PORT=8767, 100 s): 3× TUNNEL DOWN + "Tunnel restart failed…", ~30 s apart; max 1 stub process concurrently; `/health` ok; SIGTERM → `pgrep` clean.
+- Not run: the manual dev.sh browser Retry check.
