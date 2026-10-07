@@ -9,7 +9,8 @@ Run live Pokémon draft leagues (AAA + Pokébilities) for a Discord league: a mu
 ## Now
 
 - Harness adopted (2026-10-05): gate wired (ruff, shellcheck, client build, whole-repo pytest), repo brought to ruff-clean.
-- [local-host-live-draft](work/local-host-live-draft/plan.md) — reviewed 2026-10-05: `./host.sh` + cloudflared link for live Discord drafts; rejoin picker. Unit 2 picks up `deferrals.md`.
+- [local-host-live-draft](work/local-host-live-draft/plan.md) — released v2026.10.1 (2026-10-06): `./host.sh` + cloudflared link for live Discord drafts; rejoin picker.
+- [host-hardening](work/host-hardening/plan.md) — reviewed 2026-10-06: sprites/NUL 404s, host.sh port check + tunnel restart, "can't reach" vs "room not found". Closes `local-host-live-draft/deferrals.md`.
 
 ## Decisions
 
