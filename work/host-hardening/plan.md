@@ -1,6 +1,6 @@
 # Harden draft-night hosting
 
-**Slug:** host-hardening · **Date:** 2026-10-06 · **Status:** approved
+**Slug:** host-hardening · **Date:** 2026-10-06 · **Status:** implemented
 
 ## Goal
 
@@ -92,3 +92,7 @@ Round 1 (fresh plan reviewer, 2026-10-06): REVISE, 6 findings. All were applied:
 
 No disagreements.
 Plan verdict: REVISE (round 1); all findings applied, no second review round run
+
+Code review: round 1 Codex REQUEST CHANGES (PLAN.md bookkeeping commit; reverted, orchestrator-side); round 2 both APPROVE. One MEDIUM deferred: [deferrals.md](deferrals.md).
+Code-review verdict: APPROVE
+Codex-review verdict: APPROVE
