@@ -1,6 +1,6 @@
 # Survive a server restart mid-draft
 
-**Slug:** draft-persistence · **Date:** 2026-10-07 · **Status:** approved
+**Slug:** draft-persistence · **Date:** 2026-10-07 · **Status:** implemented
 
 ## Goal
 
@@ -173,3 +173,7 @@ Round 1 (fresh plan reviewer, 2026-10-07): REVISE, 9 findings. The `plan-reviewe
 
 No disagreements.
 Plan verdict: REVISE (round 1); all findings applied. Owner approved 2026-10-07, including started-rooms-only scope.
+
+Code review: round 1, both APPROVE. The Claude reviewer raised one MEDIUM (no `fsync` before the rename), which the Orchestrator fixed in 58d78aa, plus one LOW (no action). Round 2, both APPROVE with two LOWs (no action). See [review-r1.md](review-r1.md) and [review-r2.md](review-r2.md).
+Code-review verdict: APPROVE
+Codex-review verdict: APPROVE
