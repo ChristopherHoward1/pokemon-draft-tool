@@ -267,10 +267,18 @@ def _resolve_inside(root: Path, rel: str) -> Path | None:
     return requested if requested.is_relative_to(resolved_root) else None
 
 
+def _is_file(path: Path | None) -> bool:
+    # stat can raise OSError (e.g. ENAMETOOLONG) for paths resolve() accepted.
+    try:
+        return path is not None and path.is_file()
+    except OSError:
+        return False
+
+
 @app.get("/sprites/{name:path}")
 async def sprite_file(name: str):
     requested = _resolve_inside(SPRITES_DIR, name)
-    if requested and requested.is_file():
+    if _is_file(requested):
         return FileResponse(requested)
     return JSONResponse(status_code=404, content={"reason": "Not found"})
 
@@ -283,11 +291,11 @@ async def client_file(full_path: str):
     requested = _resolve_inside(CLIENT_DIST, full_path)
     if requested is None:
         return JSONResponse(status_code=404, content={"reason": "Not found"})
-    if requested.is_file():
+    if _is_file(requested):
         return FileResponse(requested)
 
     index = _resolve_inside(CLIENT_DIST, "index.html")
-    if index and index.is_file():
+    if _is_file(index):
         return FileResponse(index)
     return JSONResponse(
         status_code=404,
