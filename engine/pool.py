@@ -107,6 +107,15 @@ class DraftPool:
     # Live-pool mutation (picks / undo)
     # ------------------------------------------------------------------
 
+    def load_pool(self, names: list[str]) -> None:
+        for name in names:
+            if name not in self._all:
+                raise ValueError(f"Unknown pool slug {name!r}")
+        if len(set(names)) != len(names):
+            raise ValueError("Duplicate pool slug")
+        self._pool = {name: self._all[name] for name in names}
+        self._available = dict(self._pool)
+
     def available(self, sort_by: str | None = None) -> list[dict]:
         entries = list(self._available.values())
         if sort_by == "tier":

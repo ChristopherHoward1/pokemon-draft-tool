@@ -4,6 +4,7 @@ cd "$(dirname "$0")"
 
 PORT="${PORT:-8000}"
 TUNNEL="${TUNNEL:-cloudflared}"
+sessions_dir="${DRAFT_SESSIONS_DIR:-sessions}"
 
 if ! command -v curl >/dev/null; then
   echo "curl is required" >&2
@@ -102,9 +103,9 @@ fi
 
 check_port_free
 if command -v caffeinate >/dev/null; then
-  caffeinate -i uvicorn server.main:app --host 127.0.0.1 --port "$PORT" &
+  DRAFT_SESSIONS_DIR="$sessions_dir" caffeinate -i uvicorn server.main:app --host 127.0.0.1 --port "$PORT" &
 else
-  uvicorn server.main:app --host 127.0.0.1 --port "$PORT" &
+  DRAFT_SESSIONS_DIR="$sessions_dir" uvicorn server.main:app --host 127.0.0.1 --port "$PORT" &
 fi
 server_pid=$!
 
@@ -138,6 +139,7 @@ fi
 echo "Share link: $share_link"
 echo "Local link: http://localhost:$PORT"
 echo "join first — slot 1 is the host (Start / Undo)"
+echo "Started drafts are saved in $sessions_dir/; re-running ./host.sh restores them"
 last_tunnel_attempt=$((SECONDS - 30))
 while kill -0 "$server_pid" 2>/dev/null; do
   if [[ "$TUNNEL" == cloudflared ]] && ! kill -0 "$tunnel_pid" 2>/dev/null; then
@@ -150,7 +152,9 @@ while kill -0 "$server_pid" 2>/dev/null; do
         echo "New share link: $share_link"
         echo "Repost the new share link in Discord so players can rejoin."
       else
-        echo "Tunnel restart failed; the draft remains available locally. Retrying soon." >&2
+        if kill -0 "$server_pid" 2>/dev/null; then
+          echo "Tunnel restart failed; the draft remains available locally. Retrying soon." >&2
+        fi
       fi
     fi
   fi

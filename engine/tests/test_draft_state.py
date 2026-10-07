@@ -419,3 +419,37 @@ class TestExport:
         assert roster[0]["name"] == name
         assert "vr_tier" in roster[0]
         assert "types" in roster[0]
+
+
+@pytest.mark.parametrize("order", ["snake", "linear"])
+@pytest.mark.parametrize("count", [0, 1, 2, 3, 4, 5, 6])
+@pytest.mark.parametrize("undone", [False, True])
+def test_restore_round_trip(order, count, undone):
+    original = DraftState(make_pool(), ["A", "B", "C"], draft_order=order)
+    names = [entry["name"] for entry in original._pool.available()]
+    for name in names[:count]:
+        assert original.pick(name).valid
+    if undone and count:
+        original.undo()
+    rosters = {
+        team: [entry["name"] for entry in data["roster"]]
+        for team, data in original.export()["teams"].items()
+    }
+    restored = DraftState(make_pool(), ["A", "B", "C"], draft_order=order)
+    restored.restore(rosters, original.can_undo())
+    assert restored.export() == original.export()
+    assert restored.can_undo() == original.can_undo()
+    if not original.can_undo():
+        with pytest.raises(RuntimeError, match="No pick to undo"):
+            restored.undo()
+
+
+@pytest.mark.parametrize("rosters", [
+    {"A": ["missing-slug"], "B": [], "C": []},
+    {"A": ["magikarp"], "B": ["magikarp"], "C": []},
+    {"A": [], "B": ["magikarp"], "C": []},
+])
+def test_restore_rejects_invalid_rosters(rosters):
+    state = DraftState(make_pool(), ["A", "B", "C"])
+    with pytest.raises(ValueError):
+        state.restore(rosters, True)

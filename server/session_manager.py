@@ -1,15 +1,21 @@
-"""In-memory draft session store.
+"""In-memory draft session store; started rooms can be snapshotted to store_dir.
 
-Sessions are ephemeral: a server restart clears them, which is acceptable for
-friend-group use. This module owns session state and engine orchestration only;
-WebSocket connection tracking and broadcasting live in ``main.py``.
+This module owns session state and engine orchestration only; WebSocket
+connection tracking and broadcasting live in ``main.py``.
 """
 
 from __future__ import annotations
 
 import asyncio
+import json
+import logging
+import os
 import secrets
+import tempfile
 from dataclasses import dataclass, field
+from pathlib import Path
+
+from pydantic import ValidationError
 
 from engine.draft_state import DraftState
 from engine.pool import DraftPool
@@ -18,6 +24,7 @@ from server.models import CreateSessionRequest
 # Room codes: 6 chars from an unambiguous alphabet (no 0/O/1/I).
 _CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 _CODE_LEN = 6
+_LOG = logging.getLogger("uvicorn.error")
 
 
 class SessionError(Exception):
@@ -125,8 +132,11 @@ class Session:
 
 
 class SessionManager:
-    def __init__(self) -> None:
+    def __init__(self, store_dir: Path | None = None) -> None:
         self._sessions: dict[str, Session] = {}
+        self.store_dir = store_dir
+        if store_dir is not None:
+            self._load_all()
 
     # -- lifecycle -------------------------------------------------------
 
@@ -166,17 +176,97 @@ class SessionManager:
             )
 
         pool = self._build_pool(session.config)
-        # Per-session overrides without touching the engine or the YAML file:
-        # DraftState reads these keys from pool._config at construction time.
-        pool._config = dict(pool._config)
-        pool._config["budget"] = session.config.budget
-        pool._config["roster_size"] = session.config.roster_size
+        self._apply_overrides(pool, session.config)
 
         state = DraftState(pool, session.slots, draft_order=session.config.draft_order)
         session.pool = pool
         session.state = state
         session.started = True
+        self.save(session)
         return session
+
+    def save(self, session: Session) -> None:
+        if self.store_dir is None or not session.started:
+            return
+        assert session.pool is not None and session.state is not None
+        snapshot = {
+            "version": 1,
+            "id": session.id,
+            "config": session.config.model_dump(),
+            "slots": session.slots,
+            "pool": list(session.pool._pool),
+            "rosters": {
+                name: [entry["name"] for entry in team["roster"]]
+                for name, team in session.state.export()["teams"].items()
+            },
+            "can_undo": session.state.can_undo(),
+        }
+        temp_path: Path | None = None
+        try:
+            self.store_dir.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=self.store_dir,
+                                             suffix=".tmp", delete=False) as temp:
+                temp_path = Path(temp.name)
+                json.dump(snapshot, temp)
+            os.replace(temp_path, self.store_dir / f"{session.id}.json")
+        except OSError as exc:
+            _LOG.warning("Could not save draft room %s: %s", session.id, exc)
+        finally:
+            if temp_path is not None:
+                try:
+                    temp_path.unlink(missing_ok=True)
+                except OSError as exc:
+                    _LOG.warning("Could not remove draft temp file %s: %s", temp_path, exc)
+
+    def _load_all(self) -> None:
+        assert self.store_dir is not None
+        try:
+            self.store_dir.mkdir(parents=True, exist_ok=True)
+            files = sorted(self.store_dir.glob("*.json"))
+        except OSError as exc:
+            _LOG.warning("Could not load draft rooms from %s: %s", self.store_dir, exc)
+            return
+        restored = []
+        for path in files:
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+                if data["version"] != 1:
+                    raise ValueError(f"Unknown version {data['version']!r}")
+                if data["id"] != path.stem or not isinstance(data["id"], str):
+                    raise ValueError("Room ID does not match filename")
+                config = CreateSessionRequest(**data["config"])
+                slots = data["slots"]
+                if (not isinstance(slots, list) or len(slots) != config.num_teams
+                        or any(not isinstance(name, str) or not name.strip() for name in slots)
+                        or len(set(slots)) != len(slots)):
+                    raise ValueError("Invalid slots")
+                names = data["pool"]
+                rosters = data["rosters"]
+                if (not isinstance(names, list) or not all(isinstance(n, str) for n in names)
+                        or not isinstance(rosters, dict)
+                        or any(not isinstance(v, list) or
+                               not all(isinstance(n, str) for n in v) for v in rosters.values())
+                        or not isinstance(data["can_undo"], bool)):
+                    raise ValueError("Invalid draft snapshot")
+                pool = DraftPool(config.format)
+                pool.load_pool(names)
+                self._apply_overrides(pool, config)
+                state = DraftState(pool, slots, draft_order=config.draft_order)
+                state.restore(rosters, data["can_undo"])
+                session = Session(id=data["id"], config=config, slots=slots,
+                                  started=True, pool=pool, state=state)
+                self._sessions[session.id] = session
+                restored.append(session.id)
+            except (OSError, ValueError, TypeError, KeyError, ValidationError) as exc:
+                _LOG.warning("Skipping draft room file %s: %s", path, exc)
+        if restored:
+            _LOG.info("Restored %d draft room(s): %s", len(restored), ", ".join(restored))
+
+    @staticmethod
+    def _apply_overrides(pool: DraftPool, config: CreateSessionRequest) -> None:
+        pool._config = dict(pool._config)
+        pool._config["budget"] = config.budget
+        pool._config["roster_size"] = config.roster_size
 
     # -- helpers ---------------------------------------------------------
 
