@@ -73,7 +73,7 @@ Files NOT to touch:
 
 ## Release
 
-Release note: Draft night is sturdier — missing sprites and odd URLs return 404 instead of crashing, `host.sh` refuses a busy port and restarts a dropped tunnel with a fresh link, and players see "can't reach server" with Retry instead of a false "room not found".
+Release note: Draft night is sturdier — missing sprites and `%00` URLs return 404 instead of crashing, `host.sh` refuses a busy port and restarts a dropped tunnel with a fresh link, and players see "can't reach server" with Retry instead of a false "room not found".
 
 ## Verification
 
