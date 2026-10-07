@@ -110,3 +110,31 @@ def test_overlong_path_segments_do_not_500(tmp_path, monkeypatch):
         response = client.get(f"/{long_name}")
         assert response.status_code == 200
         assert response.text == "<html>draft</html>"
+
+
+def test_head_sprite_matches_get_length(tmp_path, monkeypatch):
+    (tmp_path / "a.png").write_bytes(b"image bytes")
+    monkeypatch.setattr(main, "SPRITES_DIR", tmp_path)
+
+    with TestClient(main.app) as client:
+        get_response = client.get("/sprites/a.png")
+        head_response = client.head("/sprites/a.png")
+        assert head_response.status_code == 200
+        assert head_response.content == b""
+        assert head_response.headers["content-length"] == get_response.headers["content-length"]
+        assert client.head("/sprites/missing.png").status_code == 404
+
+
+def test_head_client_and_health(tmp_path, monkeypatch):
+    (tmp_path / "assets").mkdir()
+    (tmp_path / "index.html").write_text("<html>draft</html>")
+    (tmp_path / "assets" / "app.js").write_text("console.log('draft')")
+    monkeypatch.setattr(main, "CLIENT_DIST", tmp_path)
+
+    with TestClient(main.app) as client:
+        for path in ("/", "/assets/app.js"):
+            response = client.head(path)
+            assert response.status_code == 200
+            assert response.content == b""
+        assert client.head("/health").status_code == 200
+        assert client.head("/session/X").status_code == 404
