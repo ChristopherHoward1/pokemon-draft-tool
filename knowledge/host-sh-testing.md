@@ -57,4 +57,8 @@ For the "fails on main" check, run the scenario in a checkout of `origin/main` i
 - Serve run 1 at `http://localhost:$PORT` and run 2 at `http://127.0.0.1:$PORT`. They're different origins, so run 2 starts with empty `localStorage`, like a new cloudflared link, and Draft shows "Rejoin as…".
 - Use two `browser.newContext()` contexts over CDP (headless Chrome with `--remote-debugging-port`), one per player. Two pages in one context share `localStorage`.
 - Load playwright-core from outside `client/` with `createRequire("<checkout>/client/package.json")`. Node comes from nvm (`. "$HOME/.nvm/nvm.sh"`).
+- Full draft through the UI: an enabled, affordable card has `title="Draft <display_name>"`, so pick with `button[title^="Draft "]` on the current team's page (from `/state`). Before picking again on the same page, wait for the last picked card's title to detach.
+- Clipboard: `ctx.grantPermissions(['clipboard-read','clipboard-write'], { origin })`, click, then `page.evaluate(() => navigator.clipboard.readText())`. That's deterministic in headless Chrome over CDP; a keyboard paste isn't.
+- Downloads: don't drive the download. Read the link's `href` and `curl -sD-` it to check `Content-Disposition` and the body.
+- Build the client with `VITE_API_URL=` for a same-origin stack; `client/.env.production` points at the Render placeholder.
 - Driver gotcha: after a pick, poll `/state` until the pick count goes up, and wait for that page's grid to show it (taken cards are `button[disabled]`). Only then pick the first enabled card. Otherwise, when the same team picks twice in a row (snake turn), the driver grabs the card that was just taken, before React repaints.
