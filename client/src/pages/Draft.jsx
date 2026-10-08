@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getSession } from "../api";
+import { getResultsText, getSession, resultsCsvUrl } from "../api";
 import { clearTeam, getTeam, setTeam } from "../identity";
 import { useDraftSocket } from "../hooks/useDraftSocket";
 import { useCopy } from "../hooks/useCopy";
@@ -128,6 +128,26 @@ function DraftBoard({ code, teamName }) {
   const [typeFilter, setTypeFilter] = useState([]);
   const [tierFilter, setTierFilter] = useState([]);
   const { copied, copy } = useCopy();
+  const { copied: resultsCopied, copy: copyResults } = useCopy();
+  const [resultsText, setResultsText] = useState("");
+  const [resultsError, setResultsError] = useState("");
+
+  useEffect(() => {
+    let active = true;
+    if (state?.complete) {
+      setResultsText("");
+      setResultsError("");
+      getResultsText(code).then((text) => {
+        if (active) setResultsText(text);
+      }).catch((err) => {
+        if (active) setResultsError(err.message);
+      });
+    } else {
+      setResultsText("");
+      setResultsError("");
+    }
+    return () => { active = false; };
+  }, [code, state?.complete]);
 
   const allTypes = useMemo(() => {
     if (!state) return [];
@@ -229,6 +249,32 @@ function DraftBoard({ code, teamName }) {
         {error && (
           <div className="rounded-md border border-warn/40 bg-warn/10 px-3 py-2 text-xs text-warn">
             {error}
+          </div>
+        )}
+
+        {state.complete && (
+          <div className="flex flex-col gap-2">
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">Results</div>
+            <button
+              type="button"
+              onClick={() => copyResults(resultsText)}
+              disabled={!resultsText}
+              className="rounded-md border border-border bg-ground px-3 py-2 text-sm font-semibold text-ink transition hover:border-accent disabled:opacity-40"
+            >
+              {resultsCopied ? "Results copied!" : "Copy results for Discord"}
+            </button>
+            <a
+              href={resultsCsvUrl(code)}
+              download
+              className="rounded-md border border-border bg-ground px-3 py-2 text-center text-sm font-semibold text-ink transition hover:border-accent"
+            >
+              Download CSV
+            </a>
+            {resultsError && (
+              <div className="rounded-md border border-warn/40 bg-warn/10 px-3 py-2 text-xs text-warn">
+                {resultsError}
+              </div>
+            )}
           </div>
         )}
 

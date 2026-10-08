@@ -187,6 +187,27 @@ class TestLinearOrder:
             DraftState(pool, ["A", "B"], draft_order="zigzag")
 
 
+@pytest.mark.parametrize("draft_order, teams", [
+    ("snake", ["A", "B", "C", "C", "B", "A"]),
+    ("linear", ["A", "B", "C", "A", "B", "C"]),
+])
+def test_pick_log_tracks_overall_order_and_cost(draft_order, teams):
+    pool = make_pool()
+    state = DraftState(pool, ["A", "B", "C"], draft_order=draft_order)
+    entries = pool.available()
+    assert state.pick_log() == []
+    for entry in entries:
+        assert state.pick(entry["name"]).valid
+    log = state.pick_log()
+    assert [pick["pick"] for pick in log] == list(range(1, 7))
+    assert [pick["round"] for pick in log] == [1, 1, 1, 2, 2, 2]
+    assert [pick["team"] for pick in log] == teams
+    assert [pick["entry"] for pick in log] == entries
+    assert [pick["cost"] for pick in log] == [pool.tier_cost(e["vr_tier"]) for e in entries]
+    state.undo()
+    assert state.pick_log() == log[:-1]
+
+
 # ---------------------------------------------------------------------------
 # pick()
 # ---------------------------------------------------------------------------
