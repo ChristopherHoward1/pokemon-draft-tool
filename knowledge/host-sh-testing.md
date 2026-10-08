@@ -40,3 +40,21 @@ while :; do sleep 1; done
 | Orphaned tunnel | `STUB_MODE=up` on a scratch copy whose cleanup clears `tunnel_pid` right after `trap - EXIT INT TERM`; SIGTERM once the share link prints | nothing left (on v2026.10.2 the stub survives) |
 
 Don't simulate the orphan race by emptying `tunnel_pid` at launch. `start_tunnel` then fails before any link appears, and the race is never exercised.
+
+## Restart and rejoin (draft-persistence, v2026.10.4)
+
+Started rooms survive a `host.sh` re-run when `DRAFT_SESSIONS_DIR` is set. Use the same absolute scratch dir for both runs, never the repo's `sessions/`.
+
+**Restart scenario (API only):**
+1. Run 1. Create the room with `POST /session`, join two teams with `POST /session/<CODE>/join`, then `POST /session/<CODE>/start`.
+2. Pick with a short Python `websockets` client on `ws://127.0.0.1:$PORT/session/<CODE>/draft?team_name=<team>`. Use the first `pool[]` entry where `taken` is false in `GET /session/<CODE>/state`.
+3. SIGINT; expect rc 130.
+4. Run 2. Expect `INFO:     Restored 1 draft room(s): <CODE>` in its output, and the same `current_team` and rosters from `/state`.
+
+For the "fails on main" check, run the scenario in a checkout of `origin/main` itself. A scratch copy of `host.sh` isn't enough there, because the persistence lives in `server/`.
+
+**Rejoin in a browser without a public tunnel:**
+- Serve run 1 at `http://localhost:$PORT` and run 2 at `http://127.0.0.1:$PORT`. They're different origins, so run 2 starts with empty `localStorage`, like a new cloudflared link, and Draft shows "Rejoin as…".
+- Use two `browser.newContext()` contexts over CDP (headless Chrome with `--remote-debugging-port`), one per player. Two pages in one context share `localStorage`.
+- Load playwright-core from outside `client/` with `createRequire("<checkout>/client/package.json")`. Node comes from nvm (`. "$HOME/.nvm/nvm.sh"`).
+- Driver gotcha: after a pick, poll `/state` until the pick count goes up, and wait for that page's grid to show it (taken cards are `button[disabled]`). Only then pick the first enabled card. Otherwise, when the same team picks twice in a row (snake turn), the driver grabs the card that was just taken, before React repaints.
