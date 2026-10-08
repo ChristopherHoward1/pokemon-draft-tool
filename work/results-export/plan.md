@@ -1,6 +1,6 @@
 # Export results from a finished multiplayer draft
 
-**Slug:** results-export · **Date:** 2026-10-08 · **Status:** approved
+**Slug:** results-export · **Date:** 2026-10-08 · **Status:** implemented
 
 ## Goal
 
@@ -148,3 +148,7 @@ Round 2, a fresh agent set up the same way. Verdict: **APPROVE**. It confirmed e
 5. The "80 longest" set is pinned with a stable sort.
 
 Plan verdict: APPROVE
+
+Code review: round 1, both APPROVE. Claude raised 3 LOWs (no action). Codex raised one MEDIUM (a newline in a team name splits the Discord line), deferred to [deferrals.md](deferrals.md). See [review-r1.md](review-r1.md) and [codex-review.md](codex-review.md).
+Code-review verdict: APPROVE
+Codex-review verdict: APPROVE
