@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to this project are documented in this file.
+## [2026.10.4] - 2026-10-07
+
+- Started drafts hosted with `./host.sh` survive a restart. Re-running it restores each room's pool, picks and turn, and players rejoin with the "Rejoin as…" picker.
+- Confirm-delta: Owner approved release, push and PR in session (2026-10-07: "go ahead")
+
 ## [2026.10.3] - 2026-10-07
 
 - `host.sh` explains a bad `PORT` or missing curl instead of claiming the port is busy, re-checks the port after the build, never leaves a stray tunnel behind, notices a dead server during a tunnel restart, and shuts down quietly; sprites, client files and `/health` answer HEAD requests.
