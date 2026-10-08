@@ -12,7 +12,8 @@ Run live Pokémon draft leagues (AAA + Pokébilities) for a Discord league: a mu
 - [local-host-live-draft](work/local-host-live-draft/plan.md) — released v2026.10.1 (2026-10-06): `./host.sh` + cloudflared link for live Discord drafts; rejoin picker.
 - [host-hardening](work/host-hardening/plan.md) — released v2026.10.2 (2026-10-06): sprites/NUL 404s, host.sh port check + tunnel restart, "can't reach" vs "room not found". Closes `local-host-live-draft/deferrals.md`.
 - [host-polish](work/host-polish/plan.md) — released v2026.10.3 (2026-10-07): host.sh PORT/curl checks, child sweep, quiet shutdown, port re-check; HEAD on static routes + `/health`. PID-reuse deferral dropped as won't-fix.
-- [draft-persistence](work/draft-persistence/plan.md) — approved in review (2026-10-07): started drafts snapshot to `sessions/` and `./host.sh` restores them after a restart; players rejoin via "Rejoin as…". Lobby rooms aren't saved.
+- [draft-persistence](work/draft-persistence/plan.md) — released v2026.10.4 (2026-10-07): started drafts snapshot to `sessions/` and `./host.sh` restores them after a restart; players rejoin via "Rejoin as…". Lobby rooms aren't saved.
+- [results-export](work/results-export/plan.md) — approved in review (2026-10-08): once a draft is complete, every player can copy a Discord-ready summary or download a per-pick CSV (`/session/<CODE>/results.txt|.csv`). Newline-in-team-name fix deferred.
 
 ## Decisions
 
