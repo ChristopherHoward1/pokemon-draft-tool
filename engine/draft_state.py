@@ -121,6 +121,21 @@ class DraftState:
         roster_size = self._pool._config["roster_size"]
         return all(len(t.roster) == roster_size for t in self._teams)
 
+    def pick_log(self) -> list[dict]:
+        n = len(self._teams)
+        log = []
+        for turn in range(self._total_picks()):
+            team = self._team_at(turn)
+            entry = team.roster[turn // n]
+            log.append({
+                "pick": turn + 1,
+                "round": turn // n + 1,
+                "team": team.name,
+                "entry": entry,
+                "cost": self._pool.tier_cost(entry["vr_tier"]),
+            })
+        return log
+
     def export(self) -> dict:
         current = None
         if not self.is_complete():

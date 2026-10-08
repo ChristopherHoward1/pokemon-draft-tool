@@ -11,7 +11,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, Response
 
 from server.models import (
     CreateSessionRequest,
@@ -19,6 +19,7 @@ from server.models import (
     JoinRequest,
     JoinResponse,
 )
+from server.results import results_csv, results_text
 from server.session_manager import SessionError, SessionManager
 
 _REPO_ROOT = Path(__file__).parent.parent
@@ -132,6 +133,22 @@ async def start_session(session_id: str) -> dict:
 async def get_state(session_id: str) -> dict:
     session = manager.get(session_id)
     return session.state_payload()
+
+
+@app.get("/session/{session_id}/results.csv")
+async def get_results_csv(session_id: str) -> Response:
+    session = manager.get(session_id)
+    return Response(
+        results_csv(session),
+        media_type="text/csv; charset=utf-8",
+        headers={"Content-Disposition": f'attachment; filename="draft_{session.config.format}_{session.id}.csv"'},
+    )
+
+
+@app.get("/session/{session_id}/results.txt")
+async def get_results_text(session_id: str) -> Response:
+    session = manager.get(session_id)
+    return Response(results_text(session), media_type="text/plain; charset=utf-8")
 
 
 # ---------------------------------------------------------------------------

@@ -11,7 +11,7 @@ export const WS_URL = API_URL
 
 export const spriteUrl = (spritePath) => `${API_URL}/${spritePath}`;
 
-async function request(path, options = {}) {
+async function request(path, options = {}, parse = "json") {
   const resp = await fetch(`${API_URL}${path}`, {
     headers: { "Content-Type": "application/json" },
     ...options,
@@ -29,7 +29,7 @@ async function request(path, options = {}) {
     err.status = resp.status;
     throw err;
   }
-  return resp.json();
+  return parse === "text" ? resp.text() : resp.json();
 }
 
 export const createSession = (config) =>
@@ -47,3 +47,7 @@ export const startSession = (id) =>
   request(`/session/${id}/start`, { method: "POST" });
 
 export const getState = (id) => request(`/session/${id}/state`);
+
+export const resultsCsvUrl = (id) => `${API_URL}/session/${id}/results.csv`;
+
+export const getResultsText = (id) => request(`/session/${id}/results.txt`, {}, "text");
