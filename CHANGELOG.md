@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to this project are documented in this file.
+## [2026.10.5] - 2026-10-08
+
+- Finished multiplayer drafts can be exported: every player can copy a Discord-ready roster summary or download the picks as CSV.
+- Confirm-delta: Owner confirmed in session 2026-10-08: 'good to go' (merge retro PR, rebase, release, push, open release PR)
+
 ## [2026.10.4] - 2026-10-07
 
 - Started drafts hosted with `./host.sh` survive a restart. Re-running it restores each room's pool, picks and turn, and players rejoin with the "Rejoin as…" picker.
