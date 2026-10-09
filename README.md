@@ -12,7 +12,8 @@ It comes in **two flavors**, both built on the same draft engine:
 | Best for | In-person drafts, or one host driving on a stream | Remote drafts over Discord — each player picks from their own device |
 | How players pick | The host clicks for the current team | Each player clicks on their own turn; it's locked to whoever's turn it is |
 | Team names | Host types them up front | Each player names their own team when they join |
-| Setup | `streamlit run app/streamlit_app.py` | A backend + a frontend (see below) |
+| Setup | `streamlit run app/streamlit_app.py` | `./host.sh` — one command that prints a share link |
+| Results | **Export draft JSON** button | **Copy results for Discord** or **Download CSV** once the draft is done |
 
 New to the project? The single-screen mode is the quickest way to see a draft
 run. The multiplayer mode is the one you'd use for a real remote league night.
@@ -136,7 +137,7 @@ open the new share link, or reload the same local link, and rejoin their team.
 1. **Host** opens the app, configures the draft (format, number of teams, budget,
    draft order, pool), and clicks **Create draft room**. They get a **6-character
    room code** (e.g. `DRFT4X`).
-2. The host shares that code (e.g. in Discord). Everyone — including the host —
+2. The host shares the link (from `./host.sh`) and the code, e.g. in Discord. Everyone, including the host,
    opens the app, enters the code, and **types their own team name** to join.
    **The order players join is the draft order: the first to join picks first.**
 3. Once every slot is filled, the **host** (the first to join) clicks **Start
@@ -145,14 +146,26 @@ open the new share link, or reload the same local link, and rejoin their team.
    aren't clickable, and the active team is highlighted. Every pick updates all
    players' boards instantly. A big **"On the clock"** banner (with a pick-reveal
    flash) makes the current pick easy to follow on a stream.
+5. When the last pick lands, every player gets a **Results** panel in the sidebar:
+   - **Copy results for Discord** copies a ready-to-paste summary, one line per team with points left and picks in order:
+     ```
+     **AAA draft — DRFT4X**
+     **Ash** (3 left): Garchomp A, Rotom-Wash B+, Pikachu U, …
+     ```
+     A full 8 × 10 draft fits in one Discord message.
+   - **Download CSV** saves `draft_<format>_<CODE>.csv` with one row per pick: pick, round, team, Pokémon, slug, tier and cost.
 
-Only the host (slot 1) can use **Undo**, and — as above — it reverses just the
-most recent pick.
+Only the host (slot 1) can use **Undo**, and, as above, it reverses just the
+most recent pick. Undoing after the draft finishes hides **Results** until the
+last pick is made again.
 
 ### Notes
 
-- **Sessions are in-memory.** If the backend restarts, active rooms are cleared.
-  That's fine for a scheduled league night; just don't restart mid-draft.
+- **What survives a restart.** Started drafts are saved to `DRAFT_SESSIONS_DIR` after every pick and undo, and restored on startup.
+  - `./host.sh` sets it to `sessions/` (gitignored).
+  - Lobby rooms that haven't started are never saved.
+  - `./dev.sh`, bare `uvicorn` and Render don't set it, so rooms there are cleared on restart.
+  - Finished drafts stay in `sessions/` (and stay exportable) until you delete the files.
 - **Reconnecting.** If a player's connection drops, the client retries
   automatically and reloads the current board on reconnect.
 - **Config points at the backend.** In dev the client runs same-origin and the
@@ -160,9 +173,9 @@ most recent pick.
   frontend reads `VITE_API_URL` from `client/.env.production`. More detail in
   [`client/README.md`](client/README.md).
 
-### Deploying (Render)
+### Deploying (Render) — fallback
 
-`render.yaml` defines two services from this one repo — the FastAPI backend and
+`./host.sh` is the main way to host a draft. `render.yaml` defines two services from this one repo — the FastAPI backend and
 the static frontend build. After the first deploy, point the two at each other
 (`FRONTEND_URL` on the backend, `VITE_API_URL` on the frontend) and redeploy.
 The file's comments walk through it. On Render's free tier the backend sleeps
@@ -207,14 +220,15 @@ tier_costs:
 app/
   streamlit_app.py      # Mode A — single-screen UI (setup + draft board)
 server/                 # Mode B — multiplayer backend
-  main.py               # FastAPI: REST + lobby/draft WebSockets, sprite serving
-  session_manager.py    # in-memory rooms → engine orchestration
+  main.py               # FastAPI: REST + lobby/draft WebSockets, results routes, sprite + client serving
+  session_manager.py    # rooms → engine orchestration; snapshots started drafts to DRAFT_SESSIONS_DIR
+  results.py            # finished-draft exports: Discord text + CSV
   models.py             # request / message shapes
   tests/                # backend acceptance tests
 client/                 # Mode B — React/Vite frontend (see client/README.md)
 engine/                 # shared draft logic (used by both modes)
   pool.py               # DraftPool — pool generation, available-Pokémon tracking
-  draft_state.py        # DraftState — turn order (snake/linear), pick, undo, export
+  draft_state.py        # DraftState — turn order (snake/linear), pick, undo, export, pick_log, restore
   validator.py          # PickResult — budget and roster validation
   tests/                # engine tests
 config/
@@ -222,10 +236,18 @@ config/
 data/
   aaa_pokemon.json      # format rosters with VR tiers
   pokebilities_pokemon.json
-sprites/                # Pokémon sprites keyed by national dex ID
+sprites/                # Pokémon sprites keyed by dex ID (generated by fetch_sprites.py, gitignored)
 scripts/                # data pipeline (scrape → normalize → build pool → fetch sprites)
+                        # + harness scripts (gate.sh, release.sh, worktree.sh, …)
 exports/                # timestamped JSON exports written by Mode A
+sessions/               # saved multiplayer drafts written by ./host.sh (gitignored)
+host.sh                 # host a live draft: build, serve, cloudflared share link
+dev.sh                  # local multiplayer dev: backend + Vite
 ```
+
+Development runs through an agentic loop (plan → implement → review → release →
+retro): `CLAUDE.md` and `AGENTS.md` describe it, `PLAN.md` tracks the work, and each
+change's plan and reviews live in `work/<slug>/`.
 
 The engine is the single source of truth for draft rules; both modes wrap it and
 neither changes it.
@@ -235,17 +257,23 @@ neither changes it.
 ## Tests
 
 ```
-python -m pytest engine/tests server/tests   # 91 engine + 13 backend
+python3 -m pytest -q   # engine, server and pipeline tests
+scripts/gate.sh        # what every change must pass: ruff, shellcheck, client build, pytest
 ```
 
-(The frontend has no unit tests; it's exercised end-to-end by the
-`drive-multiplayer-draft` project skill, which drives a real browser through a
-full lobby → draft → pick flow.)
+Use `python3 -m pytest`, not bare `pytest`: the `-m` form puts the repo root on
+`sys.path`.
+
+The frontend has no unit tests. The `drive-multiplayer-draft` project skill drives a
+real browser through a lobby → draft → pick flow.
 
 ---
 
 ## Data pipeline
 
-The `data/` files and `sprites/` were produced by the scripts in `scripts/`
-(scrape Smogon → normalize names → build pool → fetch sprites) and are checked
-in — you don't need to re-run them unless you want to refresh VR tier data.
+The `data/` files were produced by the scripts in `scripts/` (scrape Smogon →
+normalize names → build pool) and are checked in. You don't need to re-run them
+unless you want to refresh VR tier data.
+
+`sprites/` is **not** checked in. Run `python scripts/fetch_sprites.py` once to
+download it. Without it, the cards show no images, but drafting still works.
