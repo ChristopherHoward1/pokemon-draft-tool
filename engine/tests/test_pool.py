@@ -228,10 +228,14 @@ class TestStratifiedMode:
         with pytest.raises(ValueError, match="Unknown tier group"):
             pool.generate_pool(mode="stratified", tier_counts={"Z": 1}, seed=0)
 
-    def test_too_many_from_group_raises(self):
+    def test_too_many_from_group_clamps_to_group_size(self):
         pool = make_pool()
-        with pytest.raises(ValueError, match="tier group 'S'"):
-            pool.generate_pool(mode="stratified", tier_counts={"S": 99}, seed=0)
+        # fixture has 1 S and 2 in group A
+        pool.generate_pool(mode="stratified", tier_counts={"S": 99, "A": 3}, seed=0)
+        tiers = [e["vr_tier"] for e in pool.available()]
+        assert tiers.count("S") == 1
+        assert sum(t in {"A+", "A", "A-"} for t in tiers) == 2
+        assert len(tiers) == 3
 
 
 # ---------------------------------------------------------------------------

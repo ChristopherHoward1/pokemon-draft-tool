@@ -89,11 +89,8 @@ class DraftPool:
             for group, count in tier_counts.items():
                 tiers = set(TIER_GROUPS[group])
                 members = [e for e in self._all.values() if e["vr_tier"] in tiers]
-                if count > len(members):
-                    raise ValueError(
-                        f"Requested {count} from tier group {group!r} but only {len(members)} available"
-                    )
-                chosen.extend(rng.sample(members, count))
+                # Over-requests take the whole group rather than failing.
+                chosen.extend(rng.sample(members, min(count, len(members))))
 
         else:
             raise ValueError(
