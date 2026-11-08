@@ -1,6 +1,6 @@
 # Testing host.sh without a real tunnel
 
-`host.sh` runs under macOS `/usr/bin/env bash`, which is **bash 3.2**: no `wait -n`, no associative arrays, no `${var,,}`. shellcheck (in the gate) doesn't catch these, so check by hand.
+`host.sh` runs under macOS `/usr/bin/env bash`, which is **bash 3.2**: no `wait -n`, no associative arrays, no `${var,,}`. macOS `mktemp` also only replaces *trailing* X's, so `name-XXXXXX.log` is created literally. shellcheck (in the gate) doesn't catch these, so check by hand.
 
 The gate never runs `host.sh`. Live scenarios need port binds and `pgrep`, and the Codex implementer sandbox has neither. The Orchestrator runs these before review ([PLAN.md decision, 2026-10-06](../PLAN.md)). Put stubs in a scratch dir, never in the repo, and give every run its own port.
 
@@ -41,6 +41,15 @@ while :; do sleep 1; done
 
 Don't simulate the orphan race by emptying `tunnel_pid` at launch. `start_tunnel` then fails before any link appears, and the race is never exercised.
 
+## Load through a real quick tunnel (sprite-delivery, v2026.11.0)
+
+For "it failed on draft night" reports, measure before planning. It takes about a second and needs the Owner's OK, since it opens a public link.
+
+- Run uvicorn with a scratch `DRAFT_SESSIONS_DIR`, then `cloudflared tunnel --url`, and wait for `<link>/health` to answer 200.
+- Burst: `curl --http2 --parallel --parallel-max 300 -s --config urls.cfg -w '%{http_code} %{time_total}\n'`, with each sprite listed twice.
+- Baseline on v2026.10.5 full-size art, 732 requests: 200 × 200, 429 × 330, 502 × 202. On v2026.11.0 thumbnails: 200 × 634, 429 × 98, 502 × 0.
+- 429s come from Cloudflare's edge and aren't in cloudflared's log. 502s are logged by cloudflared as `connection reset by peer` from uvicorn; `kern.ipc.somaxconn` is 128 here, a likely but unconfirmed cause.
+
 ## Restart and rejoin (draft-persistence, v2026.10.4)
 
 Started rooms survive a `host.sh` re-run when `DRAFT_SESSIONS_DIR` is set. Use the same absolute scratch dir for both runs, never the repo's `sessions/`.
@@ -61,4 +70,5 @@ For the "fails on main" check, run the scenario in a checkout of `origin/main` i
 - Clipboard: `ctx.grantPermissions(['clipboard-read','clipboard-write'], { origin })`, click, then `page.evaluate(() => navigator.clipboard.readText())`. That's deterministic in headless Chrome over CDP; a keyboard paste isn't.
 - Downloads: don't drive the download. Read the link's `href` and `curl -sD-` it to check `Content-Disposition` and the body.
 - Build the client with `VITE_API_URL=` for a same-origin stack; `client/.env.production` points at the Render placeholder.
+- Sizing `.animate-pickflash` contents: `getBoundingClientRect` reads low during the opening `scale(0.98)`. Use `offsetWidth`, or sample until it settles.
 - Driver gotcha: after a pick, poll `/state` until the pick count goes up, and wait for that page's grid to show it (taken cards are `button[disabled]`). Only then pick the first enabled card. Otherwise, when the same team picks twice in a row (snake turn), the driver grabs the card that was just taken, before React repaints.
