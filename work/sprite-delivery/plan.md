@@ -1,6 +1,6 @@
 # Make sprites load reliably over the tunnel
 
-**Slug:** sprite-delivery · **Date:** 2026-11-08 · **Status:** approved
+**Slug:** sprite-delivery · **Date:** 2026-11-08 · **Status:** implemented
 
 ## Goal
 
@@ -168,3 +168,7 @@ Amendment (2026-11-08, Owner-approved): added `## Demonstration` after `harness 
 
 Owner approval (2026-11-08): approved the plan as revised over the round 1 REVISE, with all 10 findings applied and no second review round; also approved the burst test through a real quick tunnel.
 Plan verdict: APPROVE
+
+Code review: round 1, both APPROVE. Claude raised one MEDIUM (same-second tunnel log copies collide on macOS), deferred to [deferrals.md](deferrals.md), and 3 LOWs (no action). Codex had no findings. See [review-r1.md](review-r1.md).
+Code-review verdict: APPROVE
+Codex-review verdict: APPROVE
