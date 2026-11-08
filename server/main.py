@@ -296,9 +296,10 @@ def _is_file(path: Path | None) -> bool:
 
 @app.api_route("/sprites/{name:path}", methods=["GET", "HEAD"])
 async def sprite_file(name: str):
-    requested = _resolve_inside(SPRITES_DIR, name)
-    if _is_file(requested):
-        return FileResponse(requested)
+    for root in (SPRITES_DIR / "thumbs", SPRITES_DIR):
+        requested = _resolve_inside(root, name)
+        if _is_file(requested):
+            return FileResponse(requested, headers={"Cache-Control": "public, max-age=86400"})
     return JSONResponse(status_code=404, content={"reason": "Not found"})
 
 

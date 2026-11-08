@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { spriteUrl } from "../api";
+import Sprite from "./Sprite";
 import TypeBadge from "./TypeBadge";
 import TierBadge from "./TierBadge";
 
@@ -8,7 +7,6 @@ import TierBadge from "./TierBadge";
  * Missing sprite → grey placeholder, never a broken image.
  */
 export default function PokeCard({ entry, draftable, affordable, onDraft }) {
-  const [imgError, setImgError] = useState(false);
   const taken = entry.taken;
 
   const clickable = draftable && !taken;
@@ -43,19 +41,15 @@ export default function PokeCard({ entry, draftable, affordable, onDraft }) {
       )}
 
       <div className="flex h-16 w-16 items-center justify-center">
-        {imgError ? (
-          <div className="h-14 w-14 rounded bg-border" aria-hidden />
-        ) : (
-          <img
-            src={spriteUrl(entry.sprite_path)}
-            alt={entry.display_name}
-            width={64}
-            height={64}
-            loading="lazy"
-            onError={() => setImgError(true)}
-            className="h-16 w-16 object-contain [image-rendering:pixelated]"
-          />
-        )}
+        <Sprite
+          path={entry.sprite_path}
+          alt={entry.display_name}
+          width={64}
+          height={64}
+          loading="lazy"
+          className="h-16 w-16 object-contain [image-rendering:pixelated]"
+          fallback={<div className="h-14 w-14 rounded bg-border" aria-hidden />}
+        />
       </div>
 
       <div className="mt-1 line-clamp-1 w-full text-[13px] font-semibold text-ink">

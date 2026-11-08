@@ -1,19 +1,17 @@
-import { spriteUrl } from "../api";
+import Sprite from "./Sprite";
 import TierBadge from "./TierBadge";
 import PointsBadge from "./PointsBadge";
 
 function RosterSprite({ entry }) {
   return (
-    <img
-      src={spriteUrl(entry.sprite_path)}
+    <Sprite
+      path={entry.sprite_path}
       alt={entry.display_name}
       width={40}
       height={40}
       loading="lazy"
-      onError={(e) => {
-        e.currentTarget.style.visibility = "hidden";
-      }}
       className="h-10 w-10 shrink-0 object-contain [image-rendering:pixelated]"
+      fallback={<div className="h-10 w-10 shrink-0" aria-hidden />}
     />
   );
 }

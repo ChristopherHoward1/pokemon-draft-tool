@@ -1,4 +1,4 @@
-import { spriteUrl } from "../api";
+import Sprite from "./Sprite";
 import PointsBadge from "./PointsBadge";
 import TierBadge from "./TierBadge";
 
@@ -55,12 +55,11 @@ export default function OnTheClock({ state, lastPick }) {
           key={lastPick.at}
           className="animate-pickflash pointer-events-none absolute inset-0 flex items-center justify-center gap-3 bg-ground/85 backdrop-blur-sm"
         >
-          <img
-            src={spriteUrl(lastPick.entry.sprite_path)}
+          <Sprite
+            path={lastPick.entry.sprite_path}
             alt=""
             width={48}
             height={48}
-            onError={(e) => (e.currentTarget.style.display = "none")}
             className="h-12 w-12 object-contain [image-rendering:pixelated]"
           />
           <div className="text-left">
