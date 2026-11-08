@@ -47,8 +47,16 @@ stop_process_tree() {
   done < <(pgrep -P "$pid" 2>/dev/null || true)
   kill "$pid" 2>/dev/null || true
 }
+preserve_tunnel_log() {
+  local saved
+  if [[ -f "$tunnel_log" ]] && mkdir -p "$sessions_dir" 2>/dev/null &&
+    saved=$(mktemp "$sessions_dir/tunnel-$(date +%Y%m%d-%H%M%S)-XXXXXX.log" 2>/dev/null); then
+    cp "$tunnel_log" "$saved" 2>/dev/null || rm -f "$saved" 2>/dev/null || true
+  fi
+  return 0
+}
 start_tunnel() {
-  if [[ -n "$tunnel_log" ]]; then rm -f "$tunnel_log"; fi
+  if [[ -n "$tunnel_log" ]]; then preserve_tunnel_log; rm -f "$tunnel_log"; fi
   tunnel_pid=""
   tunnel_log=$(mktemp) || return 1
   share_link=""
@@ -82,7 +90,7 @@ cleanup() {
     fi
     if [[ -n "$tunnel_pid" ]]; then wait "$tunnel_pid" 2>/dev/null || true; fi
     if [[ -n "$server_pid" ]]; then wait "$server_pid" 2>/dev/null || true; fi
-    if [[ -n "$tunnel_log" ]]; then rm -f "$tunnel_log"; fi
+    if [[ -n "$tunnel_log" ]]; then preserve_tunnel_log; rm -f "$tunnel_log"; fi
   } 2>/dev/null
 }
 trap cleanup EXIT
@@ -99,6 +107,9 @@ fi
 
 if [[ ! -d sprites ]] || [[ -z "$(ls -A sprites)" ]]; then
   echo "Warning: sprites missing. Run python3 scripts/fetch_sprites.py to add them." >&2
+fi
+if ! python3 scripts/make_thumbnails.py; then
+  echo "Warning: thumbnails failed; sprites will be served full-size." >&2
 fi
 
 check_port_free

@@ -138,3 +138,34 @@ def test_head_client_and_health(tmp_path, monkeypatch):
             assert response.content == b""
         assert client.head("/health").status_code == 200
         assert client.head("/session/X").status_code == 404
+
+
+def test_sprite_thumbnail_fallback_cache_and_retry(tmp_path, monkeypatch):
+    sprites = tmp_path / "sprites"
+    thumbs = sprites / "thumbs"
+    thumbs.mkdir(parents=True)
+    (sprites / "a.png").write_bytes(b"original")
+    (thumbs / "a.png").write_bytes(b"thumbnail")
+    (tmp_path / "secret").write_bytes(b"secret")
+    monkeypatch.setattr(main, "SPRITES_DIR", sprites)
+
+    with TestClient(main.app) as client:
+        for path in ("/sprites/a.png", "/sprites/a.png?retry=2"):
+            response = client.get(path)
+            assert response.content == b"thumbnail"
+            assert response.headers["cache-control"] == "public, max-age=86400"
+        head = client.head("/sprites/a.png")
+        assert head.status_code == 200
+        assert head.headers["cache-control"] == "public, max-age=86400"
+        assert head.content == b""
+
+        for path in ("/sprites/missing.png", "/sprites/..%2Fsecret"):
+            response = client.get(path)
+            assert response.status_code == 404
+            assert response.json() == {"reason": "Not found"}
+            assert "cache-control" not in response.headers
+
+        (thumbs / "a.png").unlink()
+        response = client.get("/sprites/a.png")
+        assert response.content == b"original"
+        assert response.headers["cache-control"] == "public, max-age=86400"
