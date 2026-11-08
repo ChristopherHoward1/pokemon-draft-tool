@@ -14,6 +14,7 @@ Run live Pokémon draft leagues (AAA + Pokébilities) for a Discord league: a mu
 - [host-polish](work/host-polish/plan.md) — released v2026.10.3 (2026-10-07): host.sh PORT/curl checks, child sweep, quiet shutdown, port re-check; HEAD on static routes + `/health`. PID-reuse deferral dropped as won't-fix.
 - [draft-persistence](work/draft-persistence/plan.md) — released v2026.10.4 (2026-10-07): started drafts snapshot to `sessions/` and `./host.sh` restores them after a restart; players rejoin via "Rejoin as…". Lobby rooms aren't saved.
 - [results-export](work/results-export/plan.md) — released v2026.10.5 (2026-10-08): once a draft is complete, every player can copy a Discord-ready summary or download a per-pick CSV (`/session/<CODE>/results.txt|.csv`). Newline-in-team-name fix deferred.
+- [sprite-delivery](work/sprite-delivery/plan.md) — approved in review (2026-11-08): 128px thumbnails, one-day sprite cache headers, image retry with backoff, and retained tunnel logs, fixing grey boxes over the quick tunnel.
 
 ## Decisions
 
