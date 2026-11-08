@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to this project are documented in this file.
+## [2026.11.0] - 2026-11-08
+
+- Sprites stop turning into permanent grey boxes on draft night — images are about 85% smaller, cached by the browser, and failed loads retry on their own.
+- Confirm-delta: Owner confirmed release, push and PR in session (2026-11-08)
+
 ## [2026.10.5] - 2026-10-08
 
 - Finished multiplayer drafts can be exported: every player can copy a Discord-ready roster summary or download the picks as CSV.
