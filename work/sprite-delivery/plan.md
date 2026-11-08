@@ -102,6 +102,51 @@ Release note: Sprites stop turning into permanent grey boxes on draft night — 
 - Browser criteria run from a scratch Playwright script over CDP against the worktree's production build served by uvicorn. Don't use `drive-multiplayer-draft` for these: it hardcodes the primary checkout, runs Vite dev and has no `page.route`. Scratch files stay out of the repo.
 - Burst test, only with the Owner's go-ahead since it opens a public link: fire parallel sprite requests through a real quick tunnel before and after, and count non-200s. It tests the unconfirmed hypothesis and isn't a release criterion. Owner decision: approved (2026-11-08).
 
+## Demonstration
+
+Runs the real thumbnail code on real sprites and the real app on the result, writing only under `mktemp -d`. Needs `sprites/` copied into the worktree (see Verification).
+
+```sh
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+mkdir "$tmp/sprites"
+ls sprites/*.png | head -n 20 | while read -r f; do cp "$f" "$tmp/sprites/"; done
+test "$(ls "$tmp/sprites" | wc -l)" -eq 20
+PYTHONDONTWRITEBYTECODE=1 DEMO_SPRITES="$tmp/sprites" python3 - <<'PY'
+import os
+import sys
+from pathlib import Path
+
+from fastapi.testclient import TestClient
+from PIL import Image
+
+sys.path.insert(0, "scripts")
+import make_thumbnails as m
+from server import main
+
+sprites = Path(os.environ["DEMO_SPRITES"])
+assert m.make_thumbnails(sprites) == 0
+originals = sorted(sprites.glob("*.png"))
+thumbs = sorted((sprites / "thumbs").glob("*.png"))
+assert [p.name for p in thumbs] == [p.name for p in originals]
+for thumb in thumbs:
+    with Image.open(thumb) as image:
+        assert max(image.size) <= 128 and image.mode == "RGBA", thumb
+ratio = sum(p.stat().st_size for p in thumbs) / sum(p.stat().st_size for p in originals)
+assert ratio < 0.20, ratio
+
+main.SPRITES_DIR = sprites
+with TestClient(main.app) as client:
+    name = originals[0].name
+    response = client.get(f"/sprites/{name}")
+    assert response.status_code == 200
+    assert response.content == (sprites / "thumbs" / name).read_bytes()
+    assert response.headers["cache-control"] == "public, max-age=86400"
+print(f"thumbnails: {len(thumbs)}, size ratio: {ratio:.3f}, served thumbnail with cache header")
+PY
+```
+Expected: one line reporting 20 thumbnails, a size ratio below 0.20, and the thumbnail served with the cache header.
+
 ## Review
 
 Round 1 (`plan-reviewer`, fresh thread, against `origin/main` at caeb67b): **REVISE**, 10 findings. Its factual checks of the line numbers, data coverage, sizes and `FileResponse` behaviour all passed. All 10 applied, no disagreements:
@@ -118,6 +163,8 @@ Round 1 (`plan-reviewer`, fresh thread, against `origin/main` at caeb67b): **REV
 10. `TeamRoster` spacer could be squeezed → `shrink-0`.
 
 The revised plan has not had a second review round.
+
+Amendment (2026-11-08, Owner-approved): added `## Demonstration` after `harness demo` exited 2. The plan had been drafted from the repo's stale `plan.tpl`, which lacks that section. Acceptance criteria and footprint are unchanged.
 
 Owner approval (2026-11-08): approved the plan as revised over the round 1 REVISE, with all 10 findings applied and no second review round; also approved the burst test through a real quick tunnel.
 Plan verdict: APPROVE
